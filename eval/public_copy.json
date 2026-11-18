@@ -1,0 +1,14 @@
+{
+ "changed": {
+  "data/items/review.jsonl": {
+   "from": "f64cbb2f83b7",
+   "to": "7a871610463a",
+   "why": "TikTok policy quotes replaced by the clause id and link"
+  },
+  "data/generated/review_flips.jsonl": {
+   "from": "2111b5691b14",
+   "to": "11e5a34190d3",
+   "why": "TikTok policy quotes replaced by the clause id and link"
+  }
+ }
+}

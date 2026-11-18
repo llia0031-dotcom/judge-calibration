@@ -1,0 +1,38 @@
+{
+ "absent_words": [
+  {
+   "item": "sug-v1-P11-c3-good",
+   "fact": "the suggestion names a pH of 5.5; the word is in the candidate and in neither the listing nor the evidence",
+   "holds": true
+  },
+  {
+   "item": "sug-zh-Z07-c2-good",
+   "fact": "the rewrite says the food is made to order (现做); the word is in the candidate and in neither the listing nor the evidence",
+   "holds": true
+  },
+  {
+   "item": "sug-mixed2-N08-c2-good",
+   "fact": "the rewrite calls the serum lightweight; the word is in the candidate and in neither the listing nor the evidence",
+   "holds": true
+  }
+ ],
+ "extra_violation": [
+  {
+   "item": "rev-en-t08-ok1",
+   "fact": "the review lists 3 violations, 1 of them about something the ad leaves out; the answer key lists 1, 0 of that kind",
+   "holds": true
+  },
+  {
+   "item": "rev-en-t48-ok1",
+   "fact": "the review lists 2 violations, 1 of them about something the ad leaves out; the answer key lists 1, 0 of that kind",
+   "holds": true
+  }
+ ],
+ "missing_statement": [
+  {
+   "item": "qc-zh-t08-key",
+   "fact": "CN-AL-18 requires the statement 「本品不能代替药物」 and the ad does not carry it",
+   "holds": true
+  }
+ ]
+}

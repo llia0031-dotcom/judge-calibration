@@ -1,0 +1,140 @@
+{
+ "jurisdiction": "TikTok",
+ "categories": {
+  "ABSOLUTE": {
+   "zh": "绝对化用语（最、第一、顶级等）",
+   "en": "Absolute or superlative claims about the product (best, No. 1, strongest)"
+  },
+  "MEDICAL": {
+   "zh": "非医疗商品宣称预防、治疗疾病，或保健食品的功效、疾病宣称",
+   "en": "Claims that a product prevents, treats or cures a disease"
+  },
+  "GUARANTEE": {
+   "zh": "对考试、收益、效果作保证性承诺",
+   "en": "Promised or guaranteed outcomes: exam results, investment returns, income, product effects"
+  },
+  "DISPARAGE": {
+   "zh": "贬低其他经营者的商品或服务",
+   "en": "Running down other businesses' products or services"
+  },
+  "DATA": {
+   "zh": "数据、统计、调查结果、引用语未表明出处",
+   "en": "Data, statistics, survey results or quotations without a stated source"
+  },
+  "ALCOHOL": {
+   "zh": "酒类广告的禁止内容",
+   "en": "Alcohol ads: encouraging drinking, drinking shown, claimed benefits, alcohol as a prize, missing required statements"
+  },
+  "WEIGHT": {
+   "zh": "减重、体型相关的宣称",
+   "en": "Weight-loss, muscle-gain and body-image claims"
+  },
+  "BEFORE_AFTER": {
+   "zh": "使用前后效果对比",
+   "en": "Before-and-after comparisons of product results"
+  },
+  "FLAG": {
+   "zh": "国旗、国歌、国徽、军旗等",
+   "en": "National flag, anthem or emblem, military flag"
+  }
+ },
+ "note": "Clause ids, titles and links only. The policy text is not redistributed; read it at the links.",
+ "clauses": [
+  {
+   "id": "TT-MIS-CLAIMS",
+   "title": "TikTok Misleading and false content: Misleading claims",
+   "category": "ABSOLUTE",
+   "kind": "rule",
+   "source": "tiktok-misleading-and-false-content.md",
+   "url": "https://ads.tiktok.com/help/article/tiktok-ads-policy-misleading-and-false-content?lang=en#Misleading-claims"
+  },
+  {
+   "id": "TT-MIS-INCONSISTENT",
+   "title": "TikTok Misleading and false content: Inconsistent information",
+   "category": "other",
+   "kind": "rule",
+   "source": "tiktok-misleading-and-false-content.md",
+   "url": "https://ads.tiktok.com/help/article/tiktok-ads-policy-misleading-and-false-content?lang=en#Inconsistent-information"
+  },
+  {
+   "id": "TT-MIS-CLICKBAIT",
+   "title": "TikTok Misleading and false content: Clickbait",
+   "category": "other",
+   "kind": "rule",
+   "source": "tiktok-misleading-and-false-content.md",
+   "url": "https://ads.tiktok.com/help/article/tiktok-ads-policy-misleading-and-false-content?lang=en#Clickbait"
+  },
+  {
+   "id": "TT-MIS-COMPARE",
+   "title": "TikTok Misleading and false content: Malicious, Subjective and Before-and-after Comparisons",
+   "category": "DISPARAGE",
+   "kind": "rule",
+   "source": "tiktok-misleading-and-false-content.md",
+   "url": "https://ads.tiktok.com/help/article/tiktok-ads-policy-misleading-and-false-content?lang=en#Malicious,-Subjective-and-Before-and-after-Comparisons"
+  },
+  {
+   "id": "TT-MIS-AIGC",
+   "title": "TikTok Misleading and false content: Edited media and AIGC",
+   "category": "other",
+   "kind": "rule",
+   "source": "tiktok-misleading-and-false-content.md",
+   "url": "https://ads.tiktok.com/help/article/tiktok-ads-policy-misleading-and-false-content?lang=en#Edited-media-and-AI-generated-content-AIGC"
+  },
+  {
+   "id": "TT-MIS-IDENTITY",
+   "title": "TikTok Misleading and false content: Identity misuse",
+   "category": "other",
+   "kind": "rule",
+   "source": "tiktok-misleading-and-false-content.md",
+   "url": "https://ads.tiktok.com/help/article/tiktok-ads-policy-misleading-and-false-content?lang=en#Identity-misuse"
+  },
+  {
+   "id": "TT-WM-WEIGHT",
+   "title": "TikTok Weight Management: Weight Management",
+   "category": "WEIGHT",
+   "kind": "rule",
+   "source": "tiktok-weight-management.md",
+   "url": "https://ads.tiktok.com/help/article/tiktok-ads-policy-weight-management?lang=en#Weight-Management"
+  },
+  {
+   "id": "TT-WM-BODY",
+   "title": "TikTok Weight Management: Body image",
+   "category": "WEIGHT",
+   "kind": "rule",
+   "source": "tiktok-weight-management.md",
+   "url": "https://ads.tiktok.com/help/article/tiktok-ads-policy-weight-management?lang=en#Body-image"
+  },
+  {
+   "id": "TT-ALC",
+   "title": "TikTok Alcohol: Policy",
+   "category": "ALCOHOL",
+   "kind": "rule",
+   "source": "tiktok-alcohol.md",
+   "url": "https://ads.tiktok.com/help/article/tiktok-ads-policy-alcohol?lang=en#Policy"
+  },
+  {
+   "id": "TT-DEC-DISHONEST",
+   "title": "TikTok Deceptive Practices: Dishonest behavior",
+   "category": "other",
+   "kind": "rule",
+   "source": "tiktok-deceptive-practices.md",
+   "url": "https://ads.tiktok.com/help/article/tiktok-ads-policy-deceptive-practices?lang=en#Dishonest-behavior"
+  },
+  {
+   "id": "TT-DEC-FINREP",
+   "title": "TikTok Deceptive Practices: Financial misrepresentation",
+   "category": "GUARANTEE",
+   "kind": "rule",
+   "source": "tiktok-deceptive-practices.md",
+   "url": "https://ads.tiktok.com/help/article/tiktok-ads-policy-deceptive-practices?lang=en#Financial-misrepresentation"
+  },
+  {
+   "id": "TT-FIN",
+   "title": "TikTok Financial Services: Policy",
+   "category": "GUARANTEE",
+   "kind": "rule",
+   "source": "tiktok-financial-services.md",
+   "url": "https://ads.tiktok.com/help/article/tiktok-ads-policy-financial-services?lang=en#Principle"
+  }
+ ]
+}

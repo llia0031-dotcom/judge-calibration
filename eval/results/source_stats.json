@@ -1,0 +1,16 @@
+{
+ "review": {
+  "stored_right_reviews": 376,
+  "flagged_by_rules": 1,
+  "reasons": {
+   "policy_quote_not_found": 1
+  }
+ },
+ "claim": {
+  "right_verdicts": 103,
+  "flagged_by_rules": 3,
+  "reasons": {
+   "numbers_not_in_quote": 3
+  }
+ }
+}

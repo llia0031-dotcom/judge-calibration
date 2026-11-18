@@ -1,0 +1,276 @@
+{
+ "version": "v2",
+ "steps": [
+  {
+   "candidate": "v2",
+   "against": "v1",
+   "checks": {
+    "score_up_0.02": true,
+    "no_fail_recall_drop_0.05": true,
+    "no_pass_recall_drop_0.05": true,
+    "cost_at_most_1.5x": true
+   },
+   "adopted": true
+  },
+  {
+   "candidate": "v3",
+   "against": "v2",
+   "checks": {
+    "score_up_0.02": false,
+    "no_fail_recall_drop_0.05": true,
+    "no_pass_recall_drop_0.05": true,
+    "cost_at_most_1.5x": true
+   },
+   "adopted": false
+  },
+  {
+   "candidate": "v4",
+   "against": "v2",
+   "checks": {
+    "score_up_0.02": false,
+    "no_fail_recall_drop_0.05": true,
+    "no_pass_recall_drop_0.05": false,
+    "cost_at_most_1.5x": true
+   },
+   "adopted": false
+  }
+ ],
+ "table": {
+  "v1": {
+   "families": {
+    "claim": {
+     "pass_recall": {
+      "k": 28,
+      "n": 28,
+      "rate": 1.0,
+      "lo": 0.879357,
+      "hi": 1.0
+     },
+     "fail_recall": {
+      "k": 25,
+      "n": 30,
+      "rate": 0.833333,
+      "lo": 0.664356,
+      "hi": 0.926635
+     },
+     "ba": 0.916667
+    },
+    "review": {
+     "pass_recall": {
+      "k": 42,
+      "n": 42,
+      "rate": 1.0,
+      "lo": 0.916201,
+      "hi": 1.0
+     },
+     "fail_recall": {
+      "k": 39,
+      "n": 59,
+      "rate": 0.661017,
+      "lo": 0.533725,
+      "hi": 0.768623
+     },
+     "ba": 0.830508
+    },
+    "suggest": {
+     "pass_recall": {
+      "k": 13,
+      "n": 18,
+      "rate": 0.722222,
+      "lo": 0.491273,
+      "hi": 0.875002
+     },
+     "fail_recall": {
+      "k": 17,
+      "n": 18,
+      "rate": 0.944444,
+      "lo": 0.742427,
+      "hi": 0.990125
+     },
+     "ba": 0.833333
+    }
+   },
+   "score": 0.860169,
+   "cost_per_call": 0.000219,
+   "answered": 195,
+   "expected": 195
+  },
+  "v2": {
+   "families": {
+    "claim": {
+     "pass_recall": {
+      "k": 28,
+      "n": 28,
+      "rate": 1.0,
+      "lo": 0.879357,
+      "hi": 1.0
+     },
+     "fail_recall": {
+      "k": 30,
+      "n": 30,
+      "rate": 1.0,
+      "lo": 0.886487,
+      "hi": 1.0
+     },
+     "ba": 1.0
+    },
+    "review": {
+     "pass_recall": {
+      "k": 42,
+      "n": 42,
+      "rate": 1.0,
+      "lo": 0.916201,
+      "hi": 1.0
+     },
+     "fail_recall": {
+      "k": 57,
+      "n": 59,
+      "rate": 0.966102,
+      "lo": 0.884564,
+      "hi": 0.990654
+     },
+     "ba": 0.983051
+    },
+    "suggest": {
+     "pass_recall": {
+      "k": 16,
+      "n": 18,
+      "rate": 0.888889,
+      "lo": 0.672002,
+      "hi": 0.96898
+     },
+     "fail_recall": {
+      "k": 18,
+      "n": 18,
+      "rate": 1.0,
+      "lo": 0.824121,
+      "hi": 1.0
+     },
+     "ba": 0.944444
+    }
+   },
+   "score": 0.975832,
+   "cost_per_call": 0.000263,
+   "answered": 195,
+   "expected": 195
+  },
+  "v3": {
+   "families": {
+    "claim": {
+     "pass_recall": {
+      "k": 28,
+      "n": 28,
+      "rate": 1.0,
+      "lo": 0.879357,
+      "hi": 1.0
+     },
+     "fail_recall": {
+      "k": 30,
+      "n": 30,
+      "rate": 1.0,
+      "lo": 0.886487,
+      "hi": 1.0
+     },
+     "ba": 1.0
+    },
+    "review": {
+     "pass_recall": {
+      "k": 42,
+      "n": 42,
+      "rate": 1.0,
+      "lo": 0.916201,
+      "hi": 1.0
+     },
+     "fail_recall": {
+      "k": 57,
+      "n": 59,
+      "rate": 0.966102,
+      "lo": 0.884564,
+      "hi": 0.990654
+     },
+     "ba": 0.983051
+    },
+    "suggest": {
+     "pass_recall": {
+      "k": 16,
+      "n": 18,
+      "rate": 0.888889,
+      "lo": 0.672002,
+      "hi": 0.96898
+     },
+     "fail_recall": {
+      "k": 18,
+      "n": 18,
+      "rate": 1.0,
+      "lo": 0.824121,
+      "hi": 1.0
+     },
+     "ba": 0.944444
+    }
+   },
+   "score": 0.975832,
+   "cost_per_call": 0.000299,
+   "answered": 195,
+   "expected": 195
+  },
+  "v4": {
+   "families": {
+    "claim": {
+     "pass_recall": {
+      "k": 28,
+      "n": 28,
+      "rate": 1.0,
+      "lo": 0.879357,
+      "hi": 1.0
+     },
+     "fail_recall": {
+      "k": 30,
+      "n": 30,
+      "rate": 1.0,
+      "lo": 0.886487,
+      "hi": 1.0
+     },
+     "ba": 1.0
+    },
+    "review": {
+     "pass_recall": {
+      "k": 39,
+      "n": 42,
+      "rate": 0.928571,
+      "lo": 0.809906,
+      "hi": 0.97541
+     },
+     "fail_recall": {
+      "k": 57,
+      "n": 59,
+      "rate": 0.966102,
+      "lo": 0.884564,
+      "hi": 0.990654
+     },
+     "ba": 0.947337
+    },
+    "suggest": {
+     "pass_recall": {
+      "k": 15,
+      "n": 18,
+      "rate": 0.833333,
+      "lo": 0.60778,
+      "hi": 0.941634
+     },
+     "fail_recall": {
+      "k": 18,
+      "n": 18,
+      "rate": 1.0,
+      "lo": 0.824121,
+      "hi": 1.0
+     },
+     "ba": 0.916667
+    }
+   },
+   "score": 0.954668,
+   "cost_per_call": 0.000316,
+   "answered": 195,
+   "expected": 195
+  }
+ }
+}
