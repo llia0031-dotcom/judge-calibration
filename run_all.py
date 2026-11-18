@@ -42,6 +42,7 @@ def main() -> int:
         for s in ("main", "perturb", "pair", "list"):
             step("eval/run.py", s)
         step("eval/qc.py", "run")
+        step("eval/qc_c2.py")   # correction 2 (change log): the rebuilt quality-check records
         # correction 1 (change log): the suggest family again with the listing in the material
         for s in ("dev", "main", "perturb", "pair"):
             step("eval/run.py", s, "--families", "suggest", "--suffix", "c1")

@@ -43,21 +43,25 @@ def main() -> int:
         cand = json.dumps(it["candidate"], ensure_ascii=False).lower()
         holds = all(w.lower() in cand and w.lower() in listing and w.lower() not in given for w in words)
         out["material_gap"].append({"item": iid, "fact": f"{what}; the word is in the product listing but was not in the material the registered item gave the judge", "holds": holds})
+    qc_reg = {json.loads(l)["id"]: json.loads(l) for l in (ROOT / "data" / "items" / "archive" / "qc.registered.jsonl").read_text(encoding="utf-8").splitlines() if l.strip()}
     for iid in EXTRA_VIOLATION:
         it = items[iid]
-        key = qc[f"qc-{it['cluster']}-key"]["candidate"]["labels"]
+        key = qc_reg[f"qc-{it['cluster']}-key"]["candidate"]["labels"]          # the key as registered
+        fixed = qc[f"qc-{it['cluster']}-key"]["candidate"]["labels"]            # after correction 2
         listed = it["candidate"]["violations"]
         no_quote = [v for v in listed if not v["ad_quote"].strip()]
         key_no_span = [l for l in key if not l.get("span")]
         holds = len(no_quote) > len(key_no_span)
-        out["extra_violation"].append({"item": iid, "fact": f"the review lists {len(listed)} violations, {len(no_quote)} of them about something the ad leaves out; the answer key lists {len(key)}, {len(key_no_span)} of that kind", "holds": holds})
+        in_fixed = any(not l.get("span") and l["clause_id"] == v["clause_id"] for v in no_quote for l in fixed)
+        out["extra_violation"].append({"item": iid, "fact": f"the review lists {len(listed)} violations, {len(no_quote)} of them about something the ad leaves out; the registered answer key lists {len(key)}, {len(key_no_span)} of that kind; the corrected key (correction 2) lists {len(fixed)}", "holds": holds, "in_corrected_key": in_fixed})
     from judgecal import rules
 
     for rid, clause, words in MISSING_STATEMENT:
         r = qc[rid]
         text = {c["id"]: c for c in rules.policy(r["material"]["jurisdiction"])["clauses"]}[clause].get("text", "")
         holds = words in text and words not in r["material"]["ad_text"]
-        out["missing_statement"].append({"item": rid, "fact": f"{clause} requires the statement 「{words}」 and the ad does not carry it", "holds": holds})
+        added = any(l["clause_id"] == clause and not l.get("span") for l in r["candidate"]["labels"])
+        out["missing_statement"].append({"item": rid, "fact": f"{clause} requires the statement 「{words}」 and the ad does not carry it; the corrected key (correction 2) adds it", "holds": holds, "in_corrected_key": added})
     path = ROOT / "eval" / "results" / "key_issues.json"
     path.write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8", newline="\n")
     print(json.dumps(out, ensure_ascii=False, indent=1))

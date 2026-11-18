@@ -1,6 +1,6 @@
 # Evaluation report: how far can a model judge be trusted?
 
-Plan: [`PREREGISTRATION.md`](PREREGISTRATION.md) (frozen before the first judging request; its change log lists every later change). Every number below is in [`results/summary.json`](results/summary.json) and every table in [`results/RESULTS.md`](results/RESULTS.md); both are rebuilt from the stored answers by `python run_all.py --offline`. One correction was made after all stages had run: the listing-suggestion items had left out the product listing, so that family was judged again with it (section 3.5); the numbers below include the corrected run, and the numbers as registered are in [`results/summary.registered.json`](results/summary.registered.json) and in the correction table of `RESULTS.md`. Intervals are 95%: Wilson for proportions, a bootstrap over clusters (all items about the same ad, resume, selling point or article together) for kappas and correlations.
+Plan: [`PREREGISTRATION.md`](PREREGISTRATION.md) (frozen before the first judging request; its change log lists every later change). Every number below is in [`results/summary.json`](results/summary.json) and every table in [`results/RESULTS.md`](results/RESULTS.md); both are rebuilt from the stored answers by `python run_all.py --offline`. Two corrections were made after all stages had run: the listing-suggestion items had left out the product listing, so that family was judged again with it (section 3.5); and six of the source's answer keys had left out a statement the policy requires, so the quality-check records of those ads were rebuilt and checked again (section 3.6). The numbers below include both corrections; the numbers as registered are in [`results/summary.registered.json`](results/summary.registered.json) and in the correction table of `RESULTS.md`. Intervals are 95%: Wilson for proportions, a bootstrap over clusters (all items about the same ad, resume, selling point or article together) for kappas and correlations.
 
 ## Summary
 
@@ -20,8 +20,8 @@ What follows from it:
 - **Rules, then one judgment, then a queue for what the judge marks unsure** missed 2 of 390 errors with 6.9% of items queued, against 7 of 390 for the judge alone, and cost less (0.244 against 0.304 USD per 1,000 items) because the script settles some items without a call.
 - **The judge's "unsure" is informative**: its first judgments marked sure were wrong 0.5% of the time, those marked unsure 20.4%.
 - **It was hard to push off course**: padding a candidate with a long content-free passage changed no verdict out of 368, and neither padding nor a sentence of assurance made a wrong candidate pass; swapping the answer options changed 2 verdicts, as many as repeating the same prompt; rewording the rubric changed 5 and a terse rubric 4, all on good listing suggestions near the line.
-- **A quality-check agent with two tools** (is this span in the ad? what does this clause say?) caught all 119 planted errors in 239 annotation records and flagged 6 of the 120 correct ones, for 0.52 USD per 1,000 records. The acceptance standard built on it accepted 13.6% of batches with a 10% error rate, short of the target of at most 10%.
-- 2 of the 9 constructed-answer disagreements trace to the answer key, not the judge (section 3.4). As registered there were 12: three more came from listing-suggestion items that did not give the judge the product listing, an error in this study's items, corrected and rerun (section 3.5).
+- **A quality-check agent with two tools** (is this span in the ad? what does this clause say?) caught all 119 planted errors in 239 annotation records and flagged 7 of the 120 correct ones, for 0.52 USD per 1,000 records at batch price. The acceptance standard built on it met only one of its two targets: as registered it accepted 91.5% of batches with 2% errors but also 13.6% with 10%; after correction 2, 86.6% and 9.4%.
+- All 9 constructed-answer disagreements left after the corrections are the judge's (section 3.4). As registered there were 12: three came from listing-suggestion items that did not give the judge the product listing, an error in this study's items, corrected and rerun (section 3.5); two were put down to the answer key, but the source has since found that its key left out the statement those reviews listed, so they were right and the judge's fails are its own (section 3.6).
 
 ## 1. What was measured
 
@@ -93,13 +93,13 @@ The hardest wrong candidates were reviews that argued, carefully and with verbat
 
 Review items: English 217 of 224 right (96.9%), Chinese 243 of 245 (99.2%); image ads 263 of 266 (98.9%), text ads 197 of 203 (97.0%). The image items carry the picture and the words in it; the judge did not do worse with images.
 
-### 3.4 Disagreements that trace to the answer key
+### 3.4 What the 9 disagreements are
 
-All 9 disagreements were read; the two below were tested with a string check ([`key_issues.py`](key_issues.py), [`results/key_issues.json`](results/key_issues.json)). No score was changed.
+All 9 were read; the facts the classification rests on are tested with string checks ([`key_issues.py`](key_issues.py), [`results/key_issues.json`](results/key_issues.json)). All 9 are the judge's:
 
-- Two stored reviews of alcohol ads match the answer key's category and clause but add a violation about something the ad leaves out (no alcohol strength statement), which the key does not list. The judge failed them for that extra violation.
-
-The other seven are the judge's: four argued wrong-decision reviews passed, one swapped clause passed, and two right reviews of trap ads failed (in one the judge read triangle icons in the image as fake play buttons).
+- four argued wrong-decision reviews passed and one swapped clause passed;
+- two right reviews of trap ads failed (in one the judge read triangle icons in the image as fake play buttons);
+- two right reviews of alcohol ads failed. Besides the violation in the key, they list that the ad states neither the alcohol strength nor a responsible-drinking line, which clause TT-ALC requires; the judge called that violation not established. As registered these two were put down to the answer key, which did not list it; the source project has since added it to the key (section 3.6).
 
 ### 3.5 Correction 1: the listing-suggestion items left out the listing
 
@@ -113,12 +113,22 @@ The correction was written into the plan's change log before any correction requ
 | good suggestions passed | 47/50 (94.0%) | 50/50 (100.0%) |
 | all constructed items: agreement | 699/711 (98.3%; 97.1%–99.0%) | 702/711 (98.7%; 97.6%–99.3%) |
 | all constructed items: Cohen's kappa | 0.966 (0.945–0.983) | 0.974 (0.957–0.989) |
-| disagreements: from the items / the answer key / the judge | 12: 3 / 2 / 7 | 9: 0 / 2 / 7 |
+| constructed-answer disagreements | 12 | 9 |
 | development score of v1 / v2 / v3 / v4 | 0.860 / 0.976 / 0.976 / 0.955 | 0.888 / 0.994 / 0.985 / 0.973 |
 | version the adoption rule picks | v2 | v2 |
 | prediction 8 (rewording changes more verdicts than repeating) | not held | held |
 
 The two good suggestions the judge failed on the development split as registered were the same case (ten brightness levels; 质地清爽, a light texture): both are in their listings. One of the three, the set-menu rewrite, is arguable: it applies "made to order", said of the coffee, to the whole menu; with the listing the judge passed it in all three judgments, but it is one of the borderline items that changed under the perturbations (section 8). Everything else in this report that includes the suggestion family is from the corrected run.
+
+### 3.6 Correction 2: six answer keys left out a required statement
+
+Clause TT-ALC requires alcohol ads to state the alcohol strength and carry a responsible-drinking line, and clause CN-AL-18 requires health-food ads to carry 「本品不能代替药物」. The source's answer keys listed the missing statement only where it was an ad's sole problem. When the two alcohol reviews of section 3.4 and a flagged quality-check record pointed at it, the source project checked all its keys and found the statement missing from six test ads that already had another violation (zh-t08, zh-t24, en-t08, en-t09, en-t35, en-t48); it published the six added labels. They were checked here against the clause texts and the ad texts: the clauses require the statements, and none of the six ads carries them (en-t35 states the strength but has no responsible-drinking line). Every added label has a category the ad's key already had.
+
+The correction was written into the plan's change log before any request went out. What it changes:
+
+- **The judge's items do not change.** Right reviews are chosen by the set of violation categories, which is the same; the rebuilt item file is identical. The two alcohol reviews the judge failed were right as registered too; the correction only shows that the violation the judge rejected is real. They move from "the answer key" to "the judge" (section 3.4).
+- **Ten quality-check records change**: the six key records now carry the added label, and so do four of their planted-error copies (the other two are the approve/reject swap, which has no labels). The agent checked these ten again (23 requests, 0.0128 USD). After the correction it flags 7 of the 120 correct records instead of 6, and the acceptance standard meets its second target instead of its first (section 10).
+- As registered, six of the "correct" records were in fact missing the statement. The agent flagged one of them (`qc-zh-t08-key`), which the registered scoring counted as a false flag. Its instructions do not ask whether a record is complete, and on missing labels it was weak: one of six.
 
 ## 4. Agreement with regulators and courts
 
@@ -230,18 +240,19 @@ Each test ad gave two annotation records: its answer key, and a copy with one pl
 | Check | Wrong records caught | Correct records flagged | decision | category | span, wrong words | span, not verbatim | unknown clause |
 |---|---|---|---|---|---|---|---|
 | script only | 18/119 (15.1%) | 0/120 (0.0%) | 0/65 | 0/22 | 0/14 | 10/10 | 8/8 |
-| agent only | 119/119 (100.0%; 96.9%–100.0%) | 6/120 (5.0%; 2.3%–10.5%) | 65/65 | 22/22 | 14/14 | 10/10 | 8/8 |
-| script, then agent | 119/119 (100.0%) | 6/120 (5.0%) | 65/65 | 22/22 | 14/14 | 10/10 | 8/8 |
+| agent only | 119/119 (100.0%; 96.9%–100.0%) | 7/120 (5.8%; 2.9%–11.6%) | 65/65 | 22/22 | 14/14 | 10/10 | 8/8 |
+| script, then agent | 119/119 (100.0%) | 7/120 (5.8%) | 65/65 | 22/22 | 14/14 | 10/10 | 8/8 |
 
-The agent made 2.88 tool calls per record (every record had at least one) and named the right problem for 114 of the 119 errors it caught. It cost 0.52 USD per 1,000 records alone and 0.48 after the script, which settles the records it can. Of the six correct records it flagged, three were for describing a picture-only violation instead of quoting words, which the record format allows, and three for a violation the record does not list. One of those (`qc-zh-t08-key`) is a health-food ad without the statement 「本品不能代替药物」 that clause CN-AL-18 requires, which the answer key does not list ([`results/key_issues.json`](results/key_issues.json)).
+The table is after correction 2 (section 3.6). The agent made 2.89 tool calls per record (every record had at least one) and named the right problem for 113 of the 119 errors it caught. At batch price it cost 0.52 USD per 1,000 records alone and 0.48 after the script, which settles the records it can (the ten records of correction 2 went out as ordinary calls, which raises the average to 0.55 and 0.51). Of the seven correct records it flagged, three were for describing a picture-only violation instead of quoting words, which the record format allows, and four for a violation the record does not list. Two of the four are health-food ads whose corrected keys the agent still finds incomplete: it names 「每天必备」 under item (三) of CN-AL-18 (claiming the product is needed for health) and 「增强免疫力」 under item (一) (an assertion of effect). These were not checked here; they are passed to the source project.
 
 **Acceptance standard** for a delivered batch of 100 records, fixed in advance: S1 at most 2% fail the script checks; S2 at most 10% of the rest are flagged by the agent; S3 of 20 unflagged records drawn at random, at most one is wrong on review. Simulated with 2,000 batches per error rate from the agent's stored verdicts (in S3 the answer key stands in for the reviewer):
 
 | True error rate | 0% | 1% | 2% | 5% | 10% | 20% |
 |---|---|---|---|---|---|---|
-| Batches accepted | 99.1% | 96.2% | 91.5% | 62.0% | 13.6% | 0.1% |
+| Batches accepted (after correction 2) | 96.7% | 92.0% | 86.6% | 52.2% | 9.4% | 0.1% |
+| Batches accepted (as registered) | 99.1% | 96.2% | 91.5% | 62.0% | 13.6% | 0.1% |
 
-The first target (accept at least 90% of batches at 2% errors or fewer) was met; the second (accept at most 10% at 10% errors or more) was not: 13.6% of batches with 10% errors passed. S3 never decided anything, because the agent left no wrong record unflagged; every rejection came from S1 or S2. Post hoc, and not a result: on these records no single flag-rate threshold between 6% and 10% meets both targets, because the agent's false flags (5% of correct records) blur the flag rate. A version of S2 that counts only flags confirmed on review would separate the two cases; it was not tested.
+Either way the standard meets only one of its two targets (accept at least 90% of batches at 2% errors or fewer; accept at most 10% at 10% errors or more). After correction 2 the first is missed (86.6% accepted at 2%) and the second met (9.4% at 10%); as registered it was the other way round (91.5% and 13.6%). One more flagged correct record is enough to move the line, which shows how close the standard sits to both targets. S3 never decided anything, because the agent left no wrong record unflagged; every rejection came from S1 or S2. Post hoc, and not a result: on the corrected records no single flag-rate threshold between 6% and 12% meets both targets, because the agent's false flags (5.8% of correct records) blur the flag rate. A version of S2 that counts only flags confirmed on review would separate the two cases; it was not tested.
 
 ## 11. A second judge
 
@@ -269,12 +280,12 @@ On the same items claude-sonnet-5-5 cost 1.516 USD per 1,000 calls against 0.116
 | 8 | Rewording the rubric changes more verdicts than repeating it | held: 1.4% and 1.1% against 0.5% (as registered: not held, 0.5% and 1.9% against 0.8%) |
 | 9 | Same pick in both orders in at least 90% of pairs | held: 98.1% |
 | 10 | Rules, judge and queue miss fewer errors than the judge alone, with a queue of at most 20% | held: 2 against 7, queue 6.9% |
-| 11 | Script then agent catches at least 90% of wrong records and flags at most 10% of correct ones | held: 100.0% and 5.0% |
-| 12 | The acceptance standard meets both targets | not held: 13.6% accepted at 10% errors |
+| 11 | Script then agent catches at least 90% of wrong records and flags at most 10% of correct ones | held: 100.0% and 5.8% (as registered 5.0%) |
+| 12 | The acceptance standard meets both targets | not held: 86.6% accepted at 2% errors (as registered: 13.6% accepted at 10% errors) |
 
 ## 13. Cost
 
-All calls at batch price, except the 40 pilot calls, the 13 mechanics-check calls, the 5 cost-estimate calls and the last 13 agent turns, which went out as ordinary calls.
+All calls at batch price, except the 40 pilot calls, the 13 mechanics-check calls, the 5 cost-estimate calls, the last 13 agent turns and the 23 agent turns of correction 2, which went out as ordinary calls.
 
 | Stage | Calls | USD |
 |---|---|---|
@@ -289,14 +300,15 @@ All calls at batch price, except the 40 pilot calls, the 13 mechanics-check call
 | quality-check agent (239 records, 491 turns) | 491 | 0.1242 |
 | second judge: estimate and run | 125 | 0.1931 |
 | correction 1: the suggestion family again in every stage | 1,284 | 0.2106 |
-| total | 11,317 | 2.6132 |
+| correction 2: the quality-check agent on ten rebuilt records | 23 | 0.0128 |
+| total | 11,340 | 2.6260 |
 
 The judge's own price, per 1,000 judgments at batch price: 0.400 USD for an ad review (the clause library is in every request), 0.121 for a resume verdict, 0.116 for a listing suggestion (with the listing).
 
 ## 14. Limits
 
 - **One judge model, one sitting.** Other models, other days and other effort levels may differ; section 11 compares one more model on 120 items.
-- **The constructed items are as good as the rules and the material that made them.** Section 3.4 shows two places where the answer key is the weaker side, and section 3.5 a family whose items gave the judge less material than the source's grader had, found after the run and corrected. The planted errors are of a few kinds; real reviews go wrong in more ways.
+- **The constructed items are as good as the rules and the material that made them.** Two problems were found after the run and corrected, with the registered numbers kept: the suggestion items gave the judge less material than the source's grader had (section 3.5), and six of the source's answer keys left out a statement the policy requires (section 3.6). The quality-check agent points at two more possible omissions that were not checked here. The planted errors are of a few kinds; real reviews go wrong in more ways.
 - **The argued wrong-decision reviews were written by the same model as the judge.** A judge may find its own model's arguments easier or harder to see through than other writers'.
 - **Small groups.** 46 regulator ads, 11 of them evidence-dependent; 4 to 22 items in some error types. The intervals show it.
 - **At the ceiling on two families.** The judge got every resume verdict and, after correction 1, every listing suggestion right; those items can no longer separate prompts or models.

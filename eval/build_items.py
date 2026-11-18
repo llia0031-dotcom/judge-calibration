@@ -75,6 +75,11 @@ def _review_sources():
         for it in yaml.safe_load((src / "testset" / f"{name}.yaml").read_text(encoding="utf-8")):
             it["lang"] = "zh" if it["id"].startswith("zh") else "en"
             items[it["id"]] = it
+    # correction 2 (see the change log): labels the source added to six answer keys after its runs
+    corr = src / "testset" / "key_corrections_2026-11-18.yaml"
+    if corr.exists() and not os.environ.get("JC_REGISTERED_KEYS"):
+        for c in yaml.safe_load(corr.read_text(encoding="utf-8")):
+            items[c["id"]]["labels"] = list(items[c["id"]]["labels"]) + [dict(c["add"])]
     ocr = json.loads((src / "testset" / "ocr.json").read_text(encoding="utf-8"))
     rows = []
     for name in ("test-2026-11-13", "hard-2026-11-14", "dev-1", "dev-2"):

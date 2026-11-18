@@ -171,7 +171,15 @@ def main() -> int:
             pair_row("all constructed: errors caught", lambda X: rate(X["binary"]["pooled"]["fail_recall"])),
             pair_row("all constructed: right ones passed", lambda X: rate(X["binary"]["pooled"]["pass_recall"])),
             pair_row("all constructed: three judgments identical", lambda X: rate(X["binary"]["stability_all_three_same"])),
-            pair_row("disagreements (material gap / answer key / judge)", lambda X: f"{X['details']['constructed_disagreements']} ({X['details']['disagreements_material_gap']} / {X['details']['disagreements_answer_key']} / {X['details']['disagreements_left_to_judge']})"),
+            pair_row("disagreements (from the items / the answer key / the judge)", lambda X: f"{X['details']['constructed_disagreements']} ({X['details']['disagreements_material_gap']} / {X['details']['disagreements_answer_key']} / {X['details']['disagreements_left_to_judge']})"),
+            pair_row("of the judge's: right reviews listing a violation the registered key had left out", lambda X: str(X["details"].get("disagreements_review_right_key_had_gap", 0))),
+            pair_row("QC agent: wrong records caught", lambda X: rate(X["qc"]["agent"]["caught"])),
+            pair_row("QC agent: correct records flagged", lambda X: rate(X["qc"]["agent"]["false_flags"])),
+            pair_row("QC agent: problem named right", lambda X: rate(X["qc"]["problem_named_right"])),
+            pair_row("QC agent: USD per 1,000 records (alone / after the script)", lambda X: f"{X['qc']['agent_cost_per_record'] * 1000:.3f} / {X['qc']['pipeline_cost_per_record'] * 1000:.3f}"),
+            pair_row("acceptance: batches accepted at 2% / 10% errors", lambda X: f"{pct(X['qc']['acceptance']['0.02']['accepted'])} / {pct(X['qc']['acceptance']['0.10']['accepted'])}"),
+            pair_row("acceptance: batches accepted at 0% / 1% / 2% / 5% / 10% / 20% errors", lambda X: " / ".join(pct(v["accepted"]) for v in X["qc"]["acceptance"].values())),
+            pair_row("acceptance: targets met (accept at <=2% / reject at >=10%)", lambda X: f"{'met' if X['qc']['targets_met']['accept_at_<=2%'] else 'not met'} / {'met' if X['qc']['targets_met']['reject_at_>=10%'] else 'not met'}"),
             pair_row("A judge only: errors missed / false alarms", lambda X: f"{rate(X['combination']['A']['missed'])} / {rate(X['combination']['A']['false_alarms'])}"),
             pair_row("B rules, judge, queue: missed / false alarms / queue", lambda X: f"{rate(X['combination']['B']['missed'])} / {rate(X['combination']['B']['false_alarms'])} / {rate(X['combination']['B']['queue'])}"),
             pair_row("first judgments marked sure: wrong", lambda X: rate(X["combination"]["error_rate_sure"])),
@@ -200,9 +208,10 @@ def main() -> int:
             fl = D1["suggest_perturb_flips_by_item"]
             rows.append(["suggest items whose verdict changed under any change (item: changes)", "", "; ".join(f"{i}: {', '.join(sorted(c))}" for i, c in sorted(fl.items()))])
         rows.append(["correction 1 runs: calls, USD", "", f"{D1.get('correction_c1_calls', 0)}, {D1.get('correction_c1_usd', 0):.4f}"])
-        L += ["## Correction 1: the suggest items with the listing\n",
-              "The registered suggest items lacked the listing's own sentence for each selling point and the rest of the listing (change log, correction 1). The suggest family was judged again in every stage with them added; registered answers are kept. Numbers as registered and after the correction:\n",
-              table(["Measure", "As registered", "After correction 1"], rows), ""]
+        rows.append(["correction 2 runs: calls, USD", "", f"{D1.get('correction_c2_calls', 0)}, {D1.get('correction_c2_usd', 0):.4f}"])
+        L += ["## Corrections after the run\n",
+              "Correction 1: the registered suggest items lacked the listing's own sentence for each selling point and the rest of the listing; the suggest family was judged again in every stage with them added. Correction 2: six answer keys lacked a statement the policy requires (added by the source project); the quality-check records of those ads were rebuilt and judged again. Registered answers are kept (change log of the plan). Numbers as registered and after both corrections:\n",
+              table(["Measure", "As registered", "After the corrections"], rows), ""]
     rows = [[k, v["prediction"], "held" if v["held"] else "not held"] for k, v in S["predictions"].items()]
     L += ["## Predictions\n", table(["#", "Prediction", "Result"], rows), ""]
     rows = [[k, v["calls"], v["input_tokens"], v["output_tokens"], f"{v['cost_usd']:.4f}"] for k, v in S["cost"].items() if isinstance(v, dict)]
@@ -212,7 +221,7 @@ def main() -> int:
         ss = D.get("source_stats", {})
         u = D["judge_usd_per_1000"]
         lines = [
-            f"- Constructed-answer disagreements: {D['constructed_disagreements']}; tracing to missing item material: {D['disagreements_material_gap']}; tracing to the answer key: {D['disagreements_answer_key']}; left to the judge: {D['disagreements_left_to_judge']}.",
+            f"- Constructed-answer disagreements: {D['constructed_disagreements']}; tracing to missing item material: {D['disagreements_material_gap']}; tracing to the answer key: {D['disagreements_answer_key']}; left to the judge: {D['disagreements_left_to_judge']}, of them right reviews listing a violation the registered key had left out: {D.get('disagreements_review_right_key_had_gap', 0)}.",
             f"- Argued wrong-decision reviews passed: {D['argued_wrong_decision_passed']}, of them first judgment unsure: {D['argued_wrong_decision_passed_first_unsure']}; swapped clauses passed: {D['swapped_clause_passed']}; right reviews of trap ads failed: {D['right_review_of_trap_ad_failed']}.",
             f"- Regulator misses: {D['regulator_misses']}, of them evidence-dependent: {D['regulator_misses_evidence_dependent']}.",
             f"- Judge's Verdict items with median 0.5: {D['jv_median_half_items']}; judge gave 0.5 to: {D['jv_median_half_judge_half']}.",
@@ -224,7 +233,7 @@ def main() -> int:
         ]
         lines.append(f"- Total spent: {S['cost']['total_usd']:.2f} USD, the correction runs included.")
         if "qc_false_flags_by_problem" in D:
-            lines.append(f"- QC agent false flags by problem named: " + ", ".join(f"{k} {v}" for k, v in sorted(D["qc_false_flags_by_problem"].items())) + f"; records settled by the script: {D['qc_records_settled_by_script']}.")
+            lines.append(f"- QC agent false flags by problem named: " + ", ".join(f"{k} {v}" for k, v in sorted(D["qc_false_flags_by_problem"].items())) + f"; records settled by the script: {D['qc_records_settled_by_script']}; correct records flagged: " + ", ".join(D.get("qc_flagged_correct_records", [])) + ".")
         if "second_judge_usd_per_1000" in D:
             lines.append(f"- Second judge on its 120 items: {D['second_judge_usd_per_1000']:.3f} USD per 1,000 calls against {D['second_judge_items_haiku_usd_per_1000']:.3f} for claude-haiku-5-5 on the same items, {D['second_judge_price_ratio']:.0f} times as much; clean translations called flawed: {D['second_judge_mqm_clean_called_flawed']} of {D['second_judge_mqm_clean_items']}.")
         L += ["## Details used in the text\n", *lines, ""]

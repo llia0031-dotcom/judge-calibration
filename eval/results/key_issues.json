@@ -19,20 +19,23 @@
  "extra_violation": [
   {
    "item": "rev-en-t08-ok1",
-   "fact": "the review lists 3 violations, 1 of them about something the ad leaves out; the answer key lists 1, 0 of that kind",
-   "holds": true
+   "fact": "the review lists 3 violations, 1 of them about something the ad leaves out; the registered answer key lists 1, 0 of that kind; the corrected key (correction 2) lists 2",
+   "holds": true,
+   "in_corrected_key": true
   },
   {
    "item": "rev-en-t48-ok1",
-   "fact": "the review lists 2 violations, 1 of them about something the ad leaves out; the answer key lists 1, 0 of that kind",
-   "holds": true
+   "fact": "the review lists 2 violations, 1 of them about something the ad leaves out; the registered answer key lists 1, 0 of that kind; the corrected key (correction 2) lists 2",
+   "holds": true,
+   "in_corrected_key": true
   }
  ],
  "missing_statement": [
   {
    "item": "qc-zh-t08-key",
-   "fact": "CN-AL-18 requires the statement 「本品不能代替药物」 and the ad does not carry it",
-   "holds": true
+   "fact": "CN-AL-18 requires the statement 「本品不能代替药物」 and the ad does not carry it; the corrected key (correction 2) adds it",
+   "holds": true,
+   "in_corrected_key": true
   }
  ]
 }

@@ -25,6 +25,24 @@
    "registered_copy": {
     "data/items/archive/suggest.registered.jsonl": "67d4087c77de"
    }
+  },
+  {
+   "id": "c2",
+   "date": "2026-11-18",
+   "why": "six answer keys given the required-statement label the source added (change log, correction 2)",
+   "files": {
+    "eval/build_items.py": {
+     "from": "5aae03599351",
+     "to": "0e9bfb29bd7d"
+    },
+    "data/items/qc.jsonl": {
+     "from": "d17fd40ad514",
+     "to": "9532a3f15e75"
+    }
+   },
+   "registered_copy": {
+    "data/items/archive/qc.registered.jsonl": "d17fd40ad514"
+   }
   }
  ]
 }

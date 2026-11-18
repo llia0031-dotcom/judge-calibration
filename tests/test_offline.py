@@ -183,3 +183,28 @@ class StoredResults(unittest.TestCase):
             ver = "v2" if i["family"] in prompts.BINARY else "fixed"
             for k in (1, 2, 3):
                 self.assertIn(f"main|{i['id']}|{ver}|r{k}", self.st, i["id"])
+
+
+class CorrectionTwo(unittest.TestCase):
+    """Correction 2: six answer keys got a required-statement label; the review items stay the same."""
+
+    def test_review_items_unchanged_and_qc_changes_only_six_ads(self):
+        reg = {json.loads(l)["id"]: json.loads(l) for l in (ROOT / "data" / "items" / "archive" / "qc.registered.jsonl").read_text(encoding="utf-8").splitlines() if l.strip()}
+        new = {r["id"]: r for r in qc_records()}
+        self.assertEqual(reg.keys(), new.keys())
+        changed = {i for i in new if new[i] != reg[i]}
+        ads = {i.split("-", 1)[1].rsplit("-", 1)[0] for i in changed}
+        self.assertEqual(ads, {"zh-t08", "zh-t24", "en-t08", "en-t09", "en-t35", "en-t48"})
+        self.assertEqual(len(changed), 10)
+
+    def test_qc_numbers_registered_and_corrected(self):
+        import score as S
+
+        S.REGISTERED = True
+        try:
+            q = S.qc_section(load_all())
+            self.assertEqual((q["agent"]["caught"]["k"], q["agent"]["false_flags"]["k"]), (119, 6))
+        finally:
+            S.REGISTERED = False
+        q = S.qc_section(load_all())
+        self.assertEqual((q["agent"]["caught"]["k"], q["agent"]["false_flags"]["k"]), (119, 7))

@@ -3095,6 +3095,12 @@
    "output_tokens": 12374,
    "cost_usd": 0.0153
   },
+  "qc-c2": {
+   "calls": 23,
+   "input_tokens": 70168,
+   "output_tokens": 11629,
+   "cost_usd": 0.0128
+  },
   "qc-pilot": {
    "calls": 13,
    "input_tokens": 33052,
@@ -3125,7 +3131,7 @@
    "output_tokens": 13041,
    "cost_usd": 0.178
   },
-  "total_usd": 2.6132
+  "total_usd": 2.626
  },
  "predictions": {
   "1": {
@@ -3185,6 +3191,7 @@
   "right_review_of_trap_ad_failed": 2,
   "disagreements_material_gap": 3,
   "disagreements_answer_key": 2,
+  "disagreements_review_right_key_had_gap": 0,
   "disagreements_left_to_judge": 7,
   "regulator_misses": 7,
   "regulator_misses_evidence_dependent": 5,
@@ -3193,6 +3200,14 @@
   "terse_rubric_good_suggestions_failed": 6,
   "terse_rubric_good_failed_empty_rewrite": 6,
   "terse_rubric_bad_suggestions_passed": 1,
+  "qc_flagged_correct_records": [
+   "qc-en-h07-key",
+   "qc-en-h11-key",
+   "qc-en-t30-key",
+   "qc-en-t31-key",
+   "qc-zh-t08-key",
+   "qc-zh-t48-key"
+  ],
   "qc_false_flags_by_problem": {
    "format": 3,
    "category_or_clause": 3
@@ -3206,6 +3221,8 @@
   "spend_before_second_judge_usd": 2.2095,
   "correction_c1_calls": 1284,
   "correction_c1_usd": 0.2106,
+  "correction_c2_calls": 23,
+  "correction_c2_usd": 0.0128,
   "suggest_perturb_flips_by_item": {
    "sug-v1-P02-c1-good": [
     "r2"
@@ -3235,7 +3252,7 @@
     "r2"
    ]
   },
-  "total_calls": 11317,
+  "total_calls": 11340,
   "second_judge_calls_with_estimate": 125,
   "second_judge_usd_with_estimate": 0.1931,
   "judge_usd_per_1000": {

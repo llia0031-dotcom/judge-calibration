@@ -486,7 +486,11 @@ def qc_section(items):
     if not path.exists():
         return None
     res = {json.loads(l)["id"]: json.loads(l) for l in path.read_text(encoding="utf-8").splitlines() if l.strip()}
-    recs = [json.loads(l) for l in (ROOT / "data" / "items" / "qc.jsonl").read_text(encoding="utf-8").splitlines() if l.strip()]
+    # correction 2: the records of six ads were rebuilt and judged again; as registered, the old records and answers
+    rec_file = ROOT / "data" / "items" / ("archive/qc.registered.jsonl" if REGISTERED else "qc.jsonl")
+    if not REGISTERED and (OUT / "qc-agent-c2.jsonl").exists():
+        res.update({json.loads(l)["id"]: json.loads(l) for l in (OUT / "qc-agent-c2.jsonl").read_text(encoding="utf-8").splitlines() if l.strip()})
+    recs = [json.loads(l) for l in rec_file.read_text(encoding="utf-8").splitlines() if l.strip()]
     recs = [r for r in recs if r["split"] == "test"]
     import qc as Q
 
@@ -610,7 +614,11 @@ def details(items, st, a, J, JR, s):
     ki = json.loads((OUT / "key_issues.json").read_text(encoding="utf-8")) if (OUT / "key_issues.json").exists() else {}
     miss_ids = {i["id"] for i in miss}
     d["disagreements_material_gap"] = sum(1 for x in ki.get("material_gap", []) if x["holds"] and x["item"] in miss_ids)
-    d["disagreements_answer_key"] = sum(1 for x in ki.get("extra_violation", []) if x["holds"] and x["item"] in miss_ids)
+    # a review that listed a violation the registered key had left out: as registered this was put down to the key;
+    # after correction 2 the violation is in the key, the review was right and the judge's fail is the judge's error
+    gap = [x for x in ki.get("extra_violation", []) if x["holds"] and x["item"] in miss_ids]
+    d["disagreements_answer_key"] = len(gap) if REGISTERED else 0
+    d["disagreements_review_right_key_had_gap"] = 0 if REGISTERED else sum(1 for x in gap if x.get("in_corrected_key"))
     d["disagreements_left_to_judge"] = d["constructed_disagreements"] - d["disagreements_material_gap"] - d["disagreements_answer_key"]
     reg = [i for i in items if i["family"] == "regulator" and i["id"] in JR]
     rmiss = [i for i in reg if majority(JR[i["id"]]) != i["truth"]]
@@ -633,7 +641,11 @@ def details(items, st, a, J, JR, s):
     d["terse_rubric_bad_suggestions_passed"] = sum(1 for i in r2 if i["truth"] == "fail")
     if s.get("qc"):
         res = {json.loads(l)["id"]: json.loads(l) for l in (OUT / "qc-agent.jsonl").read_text(encoding="utf-8").splitlines() if l.strip()}
-        recs = [json.loads(l) for l in (ROOT / "data" / "items" / "qc.jsonl").read_text(encoding="utf-8").splitlines() if l.strip()]
+        if not REGISTERED and (OUT / "qc-agent-c2.jsonl").exists():
+            res.update({json.loads(l)["id"]: json.loads(l) for l in (OUT / "qc-agent-c2.jsonl").read_text(encoding="utf-8").splitlines() if l.strip()})
+        rec_file = ROOT / "data" / "items" / ("archive/qc.registered.jsonl" if REGISTERED else "qc.jsonl")
+        recs = [json.loads(l) for l in rec_file.read_text(encoding="utf-8").splitlines() if l.strip()]
+        d["qc_flagged_correct_records"] = sorted(r["id"] for r in recs if r["split"] == "test" and r["truth"] == "pass" and (res[r["id"]].get("output") or {}).get("verdict") == "wrong")
         ff = [res[r["id"]]["output"]["problem"] for r in recs if r["split"] == "test" and r["truth"] == "pass" and (res[r["id"]].get("output") or {}).get("verdict") == "wrong"]
         d["qc_false_flags_by_problem"] = dict(Counter(ff))
         d["qc_records_settled_by_script"] = sum(1 for r in recs if r["split"] == "test" and rules.review_problems(r["material"], __import__("qc").as_review(r["candidate"])))
@@ -649,9 +661,11 @@ def details(items, st, a, J, JR, s):
         d["second_judge_mqm_clean_items"] = len(none_items)
         d["second_judge_mqm_clean_called_flawed"] = sum(1 for k in none_items if sec[k]["output"]["verdict"] != "none")
     c = s["cost"]
-    d["spend_before_second_judge_usd"] = sum(v["cost_usd"] for k, v in c.items() if isinstance(v, dict) and not k.startswith("second") and not k.endswith("-c1"))
+    d["spend_before_second_judge_usd"] = sum(v["cost_usd"] for k, v in c.items() if isinstance(v, dict) and not k.startswith("second") and not k.endswith(("-c1", "-c2")))
     d["correction_c1_calls"] = sum(v["calls"] for k, v in c.items() if isinstance(v, dict) and k.endswith("-c1"))
     d["correction_c1_usd"] = sum(v["cost_usd"] for k, v in c.items() if isinstance(v, dict) and k.endswith("-c1"))
+    d["correction_c2_calls"] = sum(v["calls"] for k, v in c.items() if isinstance(v, dict) and k.endswith("-c2"))
+    d["correction_c2_usd"] = sum(v["cost_usd"] for k, v in c.items() if isinstance(v, dict) and k.endswith("-c2"))
     # the perturbation flips of the corrected suggest items, by item, to show which items flip under which change
     flips = {}
     for k, r in pert.items():

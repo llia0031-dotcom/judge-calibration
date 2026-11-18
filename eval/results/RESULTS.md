@@ -226,23 +226,23 @@ Lists (16 resumes, 142 verdicts): same verdict in both orders 139/142 (97.9%; 94
 | Check | Wrong records caught | Correct records flagged | decision | category | span_semantic | span_altered | unknown_clause |
 |---|---|---|---|---|---|---|---|
 | script | 18/119 (15.1%; 9.8%–22.6%) | 0/120 (0.0%; 0.0%–3.1%) | 0/65 (0.0%; 0.0%–5.6%) | 0/22 (0.0%; 0.0%–14.9%) | 0/14 (0.0%; 0.0%–21.5%) | 10/10 (100.0%; 72.2%–100.0%) | 8/8 (100.0%; 67.6%–100.0%) |
-| agent | 119/119 (100.0%; 96.9%–100.0%) | 6/120 (5.0%; 2.3%–10.5%) | 65/65 (100.0%; 94.4%–100.0%) | 22/22 (100.0%; 85.1%–100.0%) | 14/14 (100.0%; 78.5%–100.0%) | 10/10 (100.0%; 72.2%–100.0%) | 8/8 (100.0%; 67.6%–100.0%) |
-| pipeline | 119/119 (100.0%; 96.9%–100.0%) | 6/120 (5.0%; 2.3%–10.5%) | 65/65 (100.0%; 94.4%–100.0%) | 22/22 (100.0%; 85.1%–100.0%) | 14/14 (100.0%; 78.5%–100.0%) | 10/10 (100.0%; 72.2%–100.0%) | 8/8 (100.0%; 67.6%–100.0%) |
+| agent | 119/119 (100.0%; 96.9%–100.0%) | 7/120 (5.8%; 2.9%–11.6%) | 65/65 (100.0%; 94.4%–100.0%) | 22/22 (100.0%; 85.1%–100.0%) | 14/14 (100.0%; 78.5%–100.0%) | 10/10 (100.0%; 72.2%–100.0%) | 8/8 (100.0%; 67.6%–100.0%) |
+| pipeline | 119/119 (100.0%; 96.9%–100.0%) | 7/120 (5.8%; 2.9%–11.6%) | 65/65 (100.0%; 94.4%–100.0%) | 22/22 (100.0%; 85.1%–100.0%) | 14/14 (100.0%; 78.5%–100.0%) | 10/10 (100.0%; 72.2%–100.0%) | 8/8 (100.0%; 67.6%–100.0%) |
 
-Agent: 2.88 tool calls per record (0 records with none); problem named right on 114/119 (95.8%; 90.5%–98.2%) of the wrong records it caught; 0.520 USD per 1,000 records alone, 0.480 after the script.
+Agent: 2.89 tool calls per record (0 records with none); problem named right on 113/119 (95.0%; 89.4%–97.7%) of the wrong records it caught; 0.550 USD per 1,000 records alone, 0.510 after the script.
 
 ### Acceptance standard, simulated batches of 100 records
 
 | True error rate | Accepted | Failed S1 | Failed S2 | Failed S3 |
 |---|---|---|---|---|
-| 0% | 99.1% | 0.0% | 0.9% | 0.0% |
-| 1% | 96.2% | 0.1% | 3.6% | 0.0% |
-| 2% | 91.5% | 0.2% | 8.2% | 0.0% |
-| 5% | 62.0% | 4.1% | 35.8% | 0.0% |
-| 10% | 13.6% | 19.5% | 83.5% | 0.0% |
+| 0% | 96.7% | 0.0% | 3.4% | 0.0% |
+| 1% | 92.0% | 0.1% | 7.9% | 0.0% |
+| 2% | 86.6% | 0.2% | 13.2% | 0.0% |
+| 5% | 52.2% | 4.1% | 46.0% | 0.0% |
+| 10% | 9.4% | 19.5% | 88.2% | 0.0% |
 | 20% | 0.1% | 59.8% | 99.9% | 0.0% |
 
-Targets: accept_at_<=2%: met, reject_at_>=10%: not met
+Targets: accept_at_<=2%: not met, reject_at_>=10%: met
 
 ## 10. A second judge (claude-sonnet-5-5, one judgment)
 
@@ -254,11 +254,11 @@ Targets: accept_at_<=2%: met, reject_at_>=10%: not met
 
 claude-sonnet-5-5 cost 1.516 USD per 1,000 calls (batch price).
 
-## Correction 1: the suggest items with the listing
+## Corrections after the run
 
-The registered suggest items lacked the listing's own sentence for each selling point and the rest of the listing (change log, correction 1). The suggest family was judged again in every stage with them added; registered answers are kept. Numbers as registered and after the correction:
+Correction 1: the registered suggest items lacked the listing's own sentence for each selling point and the rest of the listing; the suggest family was judged again in every stage with them added. Correction 2: six answer keys lacked a statement the policy requires (added by the source project); the quality-check records of those ads were rebuilt and judged again. Registered answers are kept (change log of the plan). Numbers as registered and after both corrections:
 
-| Measure | As registered | After correction 1 |
+| Measure | As registered | After the corrections |
 |---|---|---|
 | suggest: agreement | 97/100 (97.0%; 91.5%–99.0%) | 100/100 (100.0%; 96.3%–100.0%) |
 | suggest: right ones passed | 47/50 (94.0%; 83.8%–97.9%) | 50/50 (100.0%; 92.9%–100.0%) |
@@ -271,7 +271,15 @@ The registered suggest items lacked the listing's own sentence for each selling 
 | all constructed: errors caught | 385/390 (98.7%; 97.0%–99.5%) | 385/390 (98.7%; 97.0%–99.5%) |
 | all constructed: right ones passed | 314/321 (97.8%; 95.6%–98.9%) | 317/321 (98.8%; 96.8%–99.5%) |
 | all constructed: three judgments identical | 696/711 (97.9%; 96.5%–98.7%) | 697/711 (98.0%; 96.7%–98.8%) |
-| disagreements (material gap / answer key / judge) | 12 (3 / 2 / 7) | 9 (0 / 2 / 7) |
+| disagreements (from the items / the answer key / the judge) | 12 (3 / 2 / 7) | 9 (0 / 0 / 9) |
+| of the judge's: right reviews listing a violation the registered key had left out | 0 | 2 |
+| QC agent: wrong records caught | 119/119 (100.0%; 96.9%–100.0%) | 119/119 (100.0%; 96.9%–100.0%) |
+| QC agent: correct records flagged | 6/120 (5.0%; 2.3%–10.5%) | 7/120 (5.8%; 2.9%–11.6%) |
+| QC agent: problem named right | 114/119 (95.8%; 90.5%–98.2%) | 113/119 (95.0%; 89.4%–97.7%) |
+| QC agent: USD per 1,000 records (alone / after the script) | 0.520 / 0.480 | 0.550 / 0.510 |
+| acceptance: batches accepted at 2% / 10% errors | 91.5% / 13.6% | 86.6% / 9.4% |
+| acceptance: batches accepted at 0% / 1% / 2% / 5% / 10% / 20% errors | 99.1% / 96.2% / 91.5% / 62.0% / 13.6% / 0.1% | 96.7% / 92.0% / 86.6% / 52.2% / 9.4% / 0.1% |
+| acceptance: targets met (accept at <=2% / reject at >=10%) | met / not met | not met / met |
 | A judge only: errors missed / false alarms | 7/390 (1.8%; 0.9%–3.7%) / 9/321 (2.8%; 1.5%–5.2%) | 7/390 (1.8%; 0.9%–3.7%) / 6/321 (1.9%; 0.9%–4.0%) |
 | B rules, judge, queue: missed / false alarms / queue | 2/390 (0.5%; 0.1%–1.9%) / 3/321 (0.9%; 0.3%–2.7%) / 49/711 (6.9%; 5.3%–9.0%) | 2/390 (0.5%; 0.1%–1.9%) / 1/321 (0.3%; 0.1%–1.7%) / 49/711 (6.9%; 5.3%–9.0%) |
 | first judgments marked sure: wrong | 5/662 (0.8%; 0.3%–1.8%) | 3/662 (0.5%; 0.2%–1.3%) |
@@ -291,6 +299,7 @@ The registered suggest items lacked the listing's own sentence for each selling 
 | prediction 8: rewording flips more verdicts than repeating | not held | held |
 | suggest items whose verdict changed under any change (item: changes) |  | sug-v1-P02-c1-good: r2; sug-v1-P05-c1-good: r2; sug-v1-P06-c3-good: assertive, r1; sug-v1-P12-c3-good: r1; sug-voice-V05-c1-good: r1; sug-zh-Z05-c1-good: r2; sug-zh-Z07-c2-good: assertive, low, r2 |
 | correction 1 runs: calls, USD |  | 1284, 0.2106 |
+| correction 2 runs: calls, USD |  | 23, 0.0128 |
 
 ## Predictions
 
@@ -324,17 +333,18 @@ The registered suggest items lacked the listing's own sentence for each selling 
 | perturb-c1 | 600 | 624602 | 165371 | 0.0726 |
 | perturb | 2208 | 5992988 | 646644 | 0.4613 |
 | pilot | 40 | 90795 | 12374 | 0.0153 |
+| qc-c2 | 23 | 70168 | 11629 | 0.0128 |
 | qc-pilot | 13 | 33052 | 3240 | 0.0049 |
 | qc | 491 | 1583644 | 165920 | 0.1242 |
 | second-c1 | 40 | 42364 | 3992 | 0.0623 |
 | second-estimate | 5 | 5261 | 456 | 0.0151 |
 | second | 120 | 112764 | 13041 | 0.1780 |
 
-Total: 2.6132 USD.
+Total: 2.6260 USD.
 
 ## Details used in the text
 
-- Constructed-answer disagreements: 9; tracing to missing item material: 0; tracing to the answer key: 2; left to the judge: 7.
+- Constructed-answer disagreements: 9; tracing to missing item material: 0; tracing to the answer key: 0; left to the judge: 9, of them right reviews listing a violation the registered key had left out: 2.
 - Argued wrong-decision reviews passed: 4, of them first judgment unsure: 3; swapped clauses passed: 1; right reviews of trap ads failed: 2.
 - Regulator misses: 7, of them evidence-dependent: 5.
 - Judge's Verdict items with median 0.5: 22; judge gave 0.5 to: 9.
@@ -342,7 +352,7 @@ Total: 2.6132 USD.
 - Queue: C queued 17 more items than B; review items in B's queue: 46.
 - Rule checks on the source projects' stored answers: 1 of 376 right reviews flagged; 3 of 103 right resume verdicts flagged.
 - Judge price per 1,000 judgments (batch): review 0.400 USD, claim 0.121 USD, suggest 0.116 USD.
-- Total calls: 11,317; spent before the second judge: 2.21 USD; second judge with its estimate: 125 calls, 0.1931 USD; correction 1 runs: 1284 calls, 0.2106 USD.
-- Total spent: 2.61 USD, the correction runs included.
-- QC agent false flags by problem named: category_or_clause 3, format 3; records settled by the script: 18.
+- Total calls: 11,340; spent before the second judge: 2.21 USD; second judge with its estimate: 125 calls, 0.1931 USD; correction 1 runs: 1284 calls, 0.2106 USD.
+- Total spent: 2.63 USD, the correction runs included.
+- QC agent false flags by problem named: category_or_clause 4, format 3; records settled by the script: 18; correct records flagged: qc-en-h07-key, qc-en-h11-key, qc-en-t30-key, qc-en-t31-key, qc-zh-t08-key, qc-zh-t24-key, qc-zh-t48-key.
 - Second judge on its 120 items: 1.516 USD per 1,000 calls against 0.116 for claude-haiku-5-5 on the same items, 13 times as much; clean translations called flawed: 8 of 9.

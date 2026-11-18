@@ -38,19 +38,19 @@ def main() -> int:
     if "--check" in sys.argv:
         # the public copy replaces the TikTok policy quotes in two files; tools/make_public.py records the
         # frozen hash each of them was made from and the hash of the copy
+        # accepted changes: the corrections written in the change log, in order (each with the frozen hash it
+        # starts from and the hash it ends at), then the changes the public copy makes to a file
         public = {}
-        pc = ROOT / "eval" / "public_copy.json"
-        if pc.exists():
-            public = json.loads(pc.read_text(encoding="utf-8"))["changed"]
-        # corrections written in the change log, each with the frozen hash it starts from and the hash it ends at
         cc = ROOT / "eval" / "corrections.json"
         if cc.exists():
             for c in json.loads(cc.read_text(encoding="utf-8"))["corrections"]:
                 for f, hh in c["files"].items():
-                    if f in public:   # a corrected file that the public copy changes again
-                        public[f] = {"from": hh["from"], "to": public[f]["to"]}
-                    else:
-                        public[f] = hh
+                    public[f] = {"from": public.get(f, hh)["from"], "to": hh["to"]}
+        pc = ROOT / "eval" / "public_copy.json"
+        if pc.exists():
+            for f, hh in json.loads(pc.read_text(encoding="utf-8"))["changed"].items():
+                start = public[f]["from"] if f in public and public[f]["to"] == hh["from"] else hh["from"]
+                public[f] = {"from": start, "to": hh["to"]}
         bad = []
         for f, h in re.findall(r"\| `([^`]+)` \| ([0-9a-f]{12}|not in this copy) \|", text):
             p = ROOT / f
