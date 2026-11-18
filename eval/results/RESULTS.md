@@ -19,8 +19,8 @@ Adoption steps: v2 vs v1: adopted; v3 vs v2: not adopted (score_up_0.02); v4 vs 
 |---|---|---|---|---|---|---|---|---|
 | review | 469 | 460/469 (98.1%; 96.4%–99.0%) | 0.961 (0.934–0.983) | 0.962 | 265/270 (98.1%; 95.7%–99.2%) | 195/199 (98.0%; 94.9%–99.2%) | 455/469 (97.0%; 95.1%–98.2%) | 0.959 |
 | claim | 142 | 142/142 (100.0%; 97.4%–100.0%) | 1.000 (1.000–1.000) | 1.000 | 70/70 (100.0%; 94.8%–100.0%) | 72/72 (100.0%; 94.9%–100.0%) | 142/142 (100.0%; 97.4%–100.0%) | 1.000 |
-| suggest | 100 | 97/100 (97.0%; 91.5%–99.0%) | 0.940 (0.870–1.000) | 0.940 | 50/50 (100.0%; 92.9%–100.0%) | 47/50 (94.0%; 83.8%–97.9%) | 99/100 (99.0%; 94.6%–99.8%) | 0.987 |
-| all | 711 | 699/711 (98.3%; 97.1%–99.0%) | 0.966 (0.945–0.983) | 0.967 | 385/390 (98.7%; 97.0%–99.5%) | 314/321 (97.8%; 95.6%–98.9%) | 696/711 (97.9%; 96.5%–98.7%) |  |
+| suggest | 100 | 100/100 (100.0%; 96.3%–100.0%) | 1.000 (1.000–1.000) | 1.000 | 50/50 (100.0%; 92.9%–100.0%) | 50/50 (100.0%; 92.9%–100.0%) | 100/100 (100.0%; 96.3%–100.0%) | 1.000 |
+| all | 711 | 702/711 (98.7%; 97.6%–99.3%) | 0.974 (0.957–0.989) | 0.975 | 385/390 (98.7%; 97.0%–99.5%) | 317/321 (98.8%; 96.8%–99.5%) | 697/711 (98.0%; 96.7%–98.8%) |  |
 
 ### By error type
 
@@ -40,7 +40,7 @@ Adoption steps: v2 vs v1: adopted; v3 vs v2: not adopted (score_up_0.02); v4 vs 
 | claim | quote | 18 | 18/18 (100.0%; 82.4%–100.0%) | 18/18 (100.0%; 82.4%–100.0%) |
 | suggest | absence_as_false | 6 | 6/6 (100.0%; 61.0%–100.0%) | 6/6 (100.0%; 61.0%–100.0%) |
 | suggest | contradicts | 20 | 20/20 (100.0%; 83.9%–100.0%) | 20/20 (100.0%; 83.9%–100.0%) |
-| suggest | correct | 50 | 47/50 (94.0%; 83.8%–97.9%) | 49/50 (98.0%; 89.5%–99.6%) |
+| suggest | correct | 50 | 50/50 (100.0%; 92.9%–100.0%) | 50/50 (100.0%; 92.9%–100.0%) |
 | suggest | drops_confirmed | 4 | 4/4 (100.0%; 51.0%–100.0%) | 4/4 (100.0%; 51.0%–100.0%) |
 | suggest | invents | 9 | 9/9 (100.0%; 70.1%–100.0%) | 9/9 (100.0%; 70.1%–100.0%) |
 | suggest | vague | 11 | 11/11 (100.0%; 74.1%–100.0%) | 11/11 (100.0%; 74.1%–100.0%) |
@@ -56,9 +56,9 @@ Adoption steps: v2 vs v1: adopted; v3 vs v2: not adopted (score_up_0.02); v4 vs 
 | claim | en | 61 | 61/61 (100.0%; 94.1%–100.0%) | 100.0% | 100.0% |
 | claim | zh | 81 | 81/81 (100.0%; 95.5%–100.0%) | 100.0% | 100.0% |
 | claim | text | 142 | 142/142 (100.0%; 97.4%–100.0%) | 100.0% | 100.0% |
-| suggest | en | 54 | 52/54 (96.3%; 87.5%–99.0%) | 92.6% | 100.0% |
-| suggest | zh | 46 | 45/46 (97.8%; 88.7%–99.6%) | 95.7% | 100.0% |
-| suggest | text | 100 | 97/100 (97.0%; 91.5%–99.0%) | 94.0% | 100.0% |
+| suggest | en | 54 | 54/54 (100.0%; 93.4%–100.0%) | 100.0% | 100.0% |
+| suggest | zh | 46 | 46/46 (100.0%; 92.3%–100.0%) | 100.0% | 100.0% |
+| suggest | text | 100 | 100/100 (100.0%; 96.3%–100.0%) | 100.0% | 100.0% |
 
 ### v1 against v2 on the test split (one judgment each)
 
@@ -66,7 +66,7 @@ Adoption steps: v2 vs v1: adopted; v3 vs v2: not adopted (score_up_0.02); v4 vs 
 |---|---|---|---|---|---|
 | review | 469 | 96.0% | 75.6% | 97.0% | 97.4% |
 | claim | 142 | 100.0% | 62.9% | 100.0% | 100.0% |
-| suggest | 100 | 86.0% | 96.0% | 94.0% | 100.0% |
+| suggest | 100 | 80.0% | 100.0% | 100.0% | 100.0% |
 
 Judge alone on rule-checkable errors: 145/145 (100.0%; 97.4%–100.0%) caught (review 97/97 (100.0%; 96.2%–100.0%), claim 48/48 (100.0%; 92.6%–100.0%)).
 
@@ -147,7 +147,7 @@ Confusion (truth, judge; 0 none, 1 minor, 2 major): truth 0 judge 0: 26, truth 0
 | claim | quote | errors caught | 1.000 | 100.0% | rule-checkable |
 | suggest | absence_as_false | errors caught | 1.000 | 100.0% | judge-reliable |
 | suggest | contradicts | errors caught | 1.000 | 100.0% | judge-reliable |
-| suggest | correct | pass recall | 0.940 | 98.0% | judge-reliable |
+| suggest | correct | pass recall | 1.000 | 100.0% | judge-reliable |
 | suggest | drops_confirmed | errors caught | 1.000 | 100.0% | judge-reliable |
 | suggest | invents | errors caught | 1.000 | 100.0% | judge-reliable |
 | suggest | vague | errors caught | 1.000 | 100.0% | judge-reliable |
@@ -170,9 +170,9 @@ A judge only; B rules then one judgment, unsure to the queue; C rules then two j
 
 | Arm | Decided automatically | Errors missed | False alarms | Queue | Judge calls | USD per 1,000 items |
 |---|---|---|---|---|---|---|
-| A | 711/711 (100.0%; 99.5%–100.0%) | 7/390 (1.8%; 0.9%–3.7%) | 9/321 (2.8%; 1.5%–5.2%) | 0/711 (0.0%; 0.0%–0.5%) | 711 | 0.303 |
-| B | 662/711 (93.1%; 91.0%–94.7%) | 2/390 (0.5%; 0.1%–1.9%) | 3/321 (0.9%; 0.3%–2.7%) | 49/711 (6.9%; 5.3%–9.0%) | 566 | 0.243 |
-| C | 644/711 (90.6%; 88.2%–92.5%) | 2/390 (0.5%; 0.1%–1.9%) | 2/321 (0.6%; 0.2%–2.2%) | 67/711 (9.4%; 7.5%–11.8%) | 1132 | 0.487 |
+| A | 711/711 (100.0%; 99.5%–100.0%) | 7/390 (1.8%; 0.9%–3.7%) | 6/321 (1.9%; 0.9%–4.0%) | 0/711 (0.0%; 0.0%–0.5%) | 711 | 0.304 |
+| B | 662/711 (93.1%; 91.0%–94.7%) | 2/390 (0.5%; 0.1%–1.9%) | 1/321 (0.3%; 0.1%–1.7%) | 49/711 (6.9%; 5.3%–9.0%) | 566 | 0.244 |
+| C | 645/711 (90.7%; 88.4%–92.6%) | 2/390 (0.5%; 0.1%–1.9%) | 1/321 (0.3%; 0.1%–1.7%) | 66/711 (9.3%; 7.4%–11.6%) | 1132 | 0.489 |
 
 | Family | Missed, A | Missed, B | Queue, B |
 |---|---|---|---|
@@ -180,7 +180,7 @@ A judge only; B rules then one judgment, unsure to the queue; C rules then two j
 | claim | 0/70 (0.0%; 0.0%–5.2%) | 0/70 (0.0%; 0.0%–5.2%) | 0/142 (0.0%; 0.0%–2.6%) |
 | suggest | 0/50 (0.0%; 0.0%–7.1%) | 0/50 (0.0%; 0.0%–7.1%) | 3/100 (3.0%; 1.0%–8.5%) |
 
-Error rate of first judgments marked sure: 5/662 (0.8%; 0.3%–1.8%); marked unsure: 11/49 (22.4%; 13.0%–35.9%).
+Error rate of first judgments marked sure: 3/662 (0.5%; 0.2%–1.3%); marked unsure: 10/49 (20.4%; 11.5%–33.6%).
 
 ## 7. Sensitivity
 
@@ -188,24 +188,24 @@ r1 reworded rubric in another order; r2 terse rubric; swap answer options in the
 
 | Change | Items | Verdicts changed | Accuracy before → after | McNemar p | Wrong ones passed before → after | USD per 1,000 calls |
 |---|---|---|---|---|---|---|
-| repeat (noise floor) | 368 | 3/368 (0.8%; 0.3%–2.4%) |  |  |  |  |
-| r1 | 368 | 2/368 (0.5%; 0.1%–2.0%) | 98.4% → 97.8% | 0.500 | 0.5% → 1.0% | 0.220 |
-| r2 | 368 | 7/368 (1.9%; 0.9%–3.9%) | 98.4% → 96.5% | 0.016 | 0.5% → 1.0% | 0.201 |
-| swap | 368 | 2/368 (0.5%; 0.1%–2.0%) | 98.4% → 98.4% | 1.000 | 0.5% → 0.0% | 0.219 |
-| verbose | 368 | 0/368 (0.0%; 0.0%–1.0%) | 98.4% → 98.4% | 1.000 | 0.5% → 0.5% | 0.216 |
-| assertive | 368 | 0/368 (0.0%; 0.0%–1.0%) | 98.4% → 98.4% | 1.000 | 0.5% → 0.5% | 0.215 |
-| low | 368 | 5/368 (1.4%; 0.6%–3.1%) | 98.4% → 98.6% | 1.000 | 0.5% → 0.0% | 0.182 |
+| repeat (noise floor) | 368 | 2/368 (0.5%; 0.1%–2.0%) |  |  |  |  |
+| r1 | 368 | 5/368 (1.4%; 0.6%–3.1%) | 99.2% → 97.8% | 0.062 | 0.5% → 1.0% | 0.223 |
+| r2 | 368 | 4/368 (1.1%; 0.4%–2.8%) | 99.2% → 98.1% | 0.125 | 0.5% → 0.5% | 0.205 |
+| swap | 368 | 2/368 (0.5%; 0.1%–2.0%) | 99.2% → 99.2% | 1.000 | 0.5% → 0.0% | 0.220 |
+| verbose | 368 | 0/368 (0.0%; 0.0%–1.0%) | 99.2% → 99.2% | 1.000 | 0.5% → 0.5% | 0.219 |
+| assertive | 368 | 2/368 (0.5%; 0.1%–2.0%) | 99.2% → 98.6% | 0.500 | 0.5% → 0.5% | 0.219 |
+| low | 368 | 4/368 (1.1%; 0.4%–2.8%) | 99.2% → 99.2% | 1.000 | 0.5% → 0.0% | 0.185 |
 
-Base cost per call on this subsample: 0.212 USD per 1,000 calls.
+Base cost per call on this subsample: 0.215 USD per 1,000 calls.
 
 | Change | review | claim | suggest |
 |---|---|---|---|
-| r1 | 2/126 (1.6%; 0.4%–5.6%) | 0/142 (0.0%; 0.0%–2.6%) | 0/100 (0.0%; 0.0%–3.7%) |
-| r2 | 0/126 (0.0%; 0.0%–3.0%) | 0/142 (0.0%; 0.0%–2.6%) | 7/100 (7.0%; 3.4%–13.7%) |
+| r1 | 2/126 (1.6%; 0.4%–5.6%) | 0/142 (0.0%; 0.0%–2.6%) | 3/100 (3.0%; 1.0%–8.5%) |
+| r2 | 0/126 (0.0%; 0.0%–3.0%) | 0/142 (0.0%; 0.0%–2.6%) | 4/100 (4.0%; 1.6%–9.8%) |
 | swap | 2/126 (1.6%; 0.4%–5.6%) | 0/142 (0.0%; 0.0%–2.6%) | 0/100 (0.0%; 0.0%–3.7%) |
 | verbose | 0/126 (0.0%; 0.0%–3.0%) | 0/142 (0.0%; 0.0%–2.6%) | 0/100 (0.0%; 0.0%–3.7%) |
-| assertive | 0/126 (0.0%; 0.0%–3.0%) | 0/142 (0.0%; 0.0%–2.6%) | 0/100 (0.0%; 0.0%–3.7%) |
-| low | 3/126 (2.4%; 0.8%–6.8%) | 0/142 (0.0%; 0.0%–2.6%) | 2/100 (2.0%; 0.6%–7.0%) |
+| assertive | 0/126 (0.0%; 0.0%–3.0%) | 0/142 (0.0%; 0.0%–2.6%) | 2/100 (2.0%; 0.6%–7.0%) |
+| low | 3/126 (2.4%; 0.8%–6.8%) | 0/142 (0.0%; 0.0%–2.6%) | 1/100 (1.0%; 0.2%–5.4%) |
 
 ## 8. Position and order
 
@@ -215,7 +215,7 @@ Base cost per call on this subsample: 0.212 USD per 1,000 calls.
 | review | 107 | 102/107 (95.3%; 89.5%–98.0%) | 103/107 (96.3%; 90.8%–98.5%) | 104/107 (97.2%; 92.1%–99.0%) |
 | suggest | 50 | 50/50 (100.0%; 92.9%–100.0%) | 50/50 (100.0%; 92.9%–100.0%) | 50/50 (100.0%; 92.9%–100.0%) |
 
-Inconsistent pairs: picked A both times 1, picked B both times 2. McNemar (first vs second) p = 1.000. Both items judged right one at a time: 144/157 (91.7%; 86.3%–95.1%).
+Inconsistent pairs: picked A both times 1, picked B both times 2. McNemar (first vs second) p = 1.000. Both items judged right one at a time: 147/157 (93.6%; 88.7%–96.5%).
 
 Lists (16 resumes, 142 verdicts): same verdict in both orders 139/142 (97.9%; 94.0%–99.3%); accuracy in lists 140/142 (98.6%; 95.0%–99.6%) against one at a time 142/142 (100.0%; 97.4%–100.0%).
 
@@ -250,9 +250,47 @@ Targets: accept_at_<=2%: met, reject_at_>=10%: not met
 |---|---|---|---|---|---|
 | claim | 40 | 40/40 (100.0%; 91.2%–100.0%) | 40/40 (100.0%; 91.2%–100.0%) | 40/40 (100.0%; 91.2%–100.0%) | 1.000 |
 | mqm | 40 | 18/40 (45.0%; 30.7%–60.2%) | 21/40 (52.5%; 37.5%–67.1%) | 29/40 (72.5%; 57.2%–83.9%) | 0.508 |
-| suggest | 40 | 40/40 (100.0%; 91.2%–100.0%) | 39/40 (97.5%; 87.1%–99.6%) | 39/40 (97.5%; 87.1%–99.6%) | 1.000 |
+| suggest | 40 | 40/40 (100.0%; 91.2%–100.0%) | 40/40 (100.0%; 91.2%–100.0%) | 40/40 (100.0%; 91.2%–100.0%) | 1.000 |
 
-claude-sonnet-5-5 cost 1.483 USD per 1,000 calls (batch price).
+claude-sonnet-5-5 cost 1.516 USD per 1,000 calls (batch price).
+
+## Correction 1: the suggest items with the listing
+
+The registered suggest items lacked the listing's own sentence for each selling point and the rest of the listing (change log, correction 1). The suggest family was judged again in every stage with them added; registered answers are kept. Numbers as registered and after the correction:
+
+| Measure | As registered | After correction 1 |
+|---|---|---|
+| suggest: agreement | 97/100 (97.0%; 91.5%–99.0%) | 100/100 (100.0%; 96.3%–100.0%) |
+| suggest: right ones passed | 47/50 (94.0%; 83.8%–97.9%) | 50/50 (100.0%; 92.9%–100.0%) |
+| suggest: errors caught | 50/50 (100.0%; 92.9%–100.0%) | 50/50 (100.0%; 92.9%–100.0%) |
+| suggest: Cohen's kappa | 0.940 (0.870–1.000) | 1.000 (1.000–1.000) |
+| suggest: three judgments identical | 99/100 (99.0%; 94.6%–99.8%) | 100/100 (100.0%; 96.3%–100.0%) |
+| suggest: v1 pass / fail recall (one judgment) | 86.0% / 96.0% | 80.0% / 100.0% |
+| all constructed: agreement | 699/711 (98.3%; 97.1%–99.0%) | 702/711 (98.7%; 97.6%–99.3%) |
+| all constructed: Cohen's kappa | 0.966 (0.945–0.983) | 0.974 (0.957–0.989) |
+| all constructed: errors caught | 385/390 (98.7%; 97.0%–99.5%) | 385/390 (98.7%; 97.0%–99.5%) |
+| all constructed: right ones passed | 314/321 (97.8%; 95.6%–98.9%) | 317/321 (98.8%; 96.8%–99.5%) |
+| all constructed: three judgments identical | 696/711 (97.9%; 96.5%–98.7%) | 697/711 (98.0%; 96.7%–98.8%) |
+| disagreements (material gap / answer key / judge) | 12 (3 / 2 / 7) | 9 (0 / 2 / 7) |
+| A judge only: errors missed / false alarms | 7/390 (1.8%; 0.9%–3.7%) / 9/321 (2.8%; 1.5%–5.2%) | 7/390 (1.8%; 0.9%–3.7%) / 6/321 (1.9%; 0.9%–4.0%) |
+| B rules, judge, queue: missed / false alarms / queue | 2/390 (0.5%; 0.1%–1.9%) / 3/321 (0.9%; 0.3%–2.7%) / 49/711 (6.9%; 5.3%–9.0%) | 2/390 (0.5%; 0.1%–1.9%) / 1/321 (0.3%; 0.1%–1.7%) / 49/711 (6.9%; 5.3%–9.0%) |
+| first judgments marked sure: wrong | 5/662 (0.8%; 0.3%–1.8%) | 3/662 (0.5%; 0.2%–1.3%) |
+| first judgments marked unsure: wrong | 11/49 (22.4%; 13.0%–35.9%) | 10/49 (20.4%; 11.5%–33.6%) |
+| repeat (noise floor): verdicts changed (all) | 3/368 (0.8%; 0.3%–2.4%) | 2/368 (0.5%; 0.1%–2.0%) |
+| reworded rubric: verdicts changed (all) | 2/368 (0.5%; 0.1%–2.0%) | 5/368 (1.4%; 0.6%–3.1%) |
+| assurance sentence: verdicts changed (all) | 0/368 (0.0%; 0.0%–1.0%) | 2/368 (0.5%; 0.1%–2.0%) |
+| terse rubric: verdicts changed (suggest) | 7/100 (7.0%; 3.4%–13.7%) | 4/100 (4.0%; 1.6%–9.8%) |
+| terse rubric: verdicts changed (all) | 7/368 (1.9%; 0.9%–3.9%) | 4/368 (1.1%; 0.4%–2.8%) |
+| pairs: same pick both orders (suggest) | 50/50 (100.0%; 92.9%–100.0%) | 50/50 (100.0%; 92.9%–100.0%) |
+| second judge, suggest: claude-haiku-5-5 / claude-sonnet-5-5 right | 40/40 (100.0%; 91.2%–100.0%) / 39/40 (97.5%; 87.1%–99.6%) | 40/40 (100.0%; 91.2%–100.0%) / 40/40 (100.0%; 91.2%–100.0%) |
+| dev v1: suggest pass / fail recall; score | 72.2% / 94.4%; 0.860 | 83.3% / 100.0%; 0.888 |
+| dev v2: suggest pass / fail recall; score | 88.9% / 100.0%; 0.976 | 100.0% / 100.0%; 0.994 |
+| dev v3: suggest pass / fail recall; score | 88.9% / 100.0%; 0.976 | 94.4% / 100.0%; 0.985 |
+| dev v4: suggest pass / fail recall; score | 83.3% / 100.0%; 0.955 | 94.4% / 100.0%; 0.973 |
+| adoption rule picks | v2 | v2 |
+| prediction 8: rewording flips more verdicts than repeating | not held | held |
+| suggest items whose verdict changed under any change (item: changes) |  | sug-v1-P02-c1-good: r2; sug-v1-P05-c1-good: r2; sug-v1-P06-c3-good: assertive, r1; sug-v1-P12-c3-good: r1; sug-voice-V05-c1-good: r1; sug-zh-Z05-c1-good: r2; sug-zh-Z07-c2-good: assertive, low, r2 |
+| correction 1 runs: calls, USD |  | 1284, 0.2106 |
 
 ## Predictions
 
@@ -265,7 +303,7 @@ claude-sonnet-5-5 cost 1.483 USD per 1,000 calls (batch price).
 | 5 | summeval: judge below the expert ceiling on all four dimensions | not held |
 | 6 | three judgments identical less often on human-rated families | held |
 | 7 | assurance raises the pass rate of wrong candidates by >= 2 points | not held |
-| 8 | rewording flips more verdicts than repeating | not held |
+| 8 | rewording flips more verdicts than repeating | held |
 | 9 | pairs: same pick in both orders >= 90% | held |
 | 10 | B misses fewer errors than A with a queue <= 20% | held |
 | 11 | script then agent catches >= 90% and flags <= 10% of correct records | held |
@@ -275,30 +313,36 @@ claude-sonnet-5-5 cost 1.483 USD per 1,000 calls (batch price).
 
 | Stage | Calls | Input tokens | Output tokens | USD |
 |---|---|---|---|---|
+| dev-c1 | 144 | 169372 | 46685 | 0.0201 |
 | dev | 780 | 2798390 | 296463 | 0.2140 |
 | flips | 288 | 1630012 | 292580 | 0.1546 |
 | list | 32 | 87062 | 45004 | 0.0156 |
+| main-c1 | 400 | 385384 | 107707 | 0.0462 |
 | main | 5742 | 14810153 | 1540722 | 1.1257 |
+| pair-c1 | 100 | 107622 | 15993 | 0.0094 |
 | pair | 314 | 1387678 | 97905 | 0.0939 |
+| perturb-c1 | 600 | 624602 | 165371 | 0.0726 |
 | perturb | 2208 | 5992988 | 646644 | 0.4613 |
 | pilot | 40 | 90795 | 12374 | 0.0153 |
 | qc-pilot | 13 | 33052 | 3240 | 0.0049 |
 | qc | 491 | 1583644 | 165920 | 0.1242 |
+| second-c1 | 40 | 42364 | 3992 | 0.0623 |
 | second-estimate | 5 | 5261 | 456 | 0.0151 |
 | second | 120 | 112764 | 13041 | 0.1780 |
 
-Total: 2.4026 USD.
+Total: 2.6132 USD.
 
 ## Details used in the text
 
-- Constructed-answer disagreements: 12; tracing to the answer key: 5; left to the judge: 7.
+- Constructed-answer disagreements: 9; tracing to missing item material: 0; tracing to the answer key: 2; left to the judge: 7.
 - Argued wrong-decision reviews passed: 4, of them first judgment unsure: 3; swapped clauses passed: 1; right reviews of trap ads failed: 2.
 - Regulator misses: 7, of them evidence-dependent: 5.
 - Judge's Verdict items with median 0.5: 22; judge gave 0.5 to: 9.
-- Terse rubric: good suggestions failed 6, of them with an empty rewrite field 6; bad suggestions passed 1.
-- Queue: C queued 18 more items than B; review items in B's queue: 46.
+- Terse rubric: good suggestions failed 4, of them with an empty rewrite field 3; bad suggestions passed 0.
+- Queue: C queued 17 more items than B; review items in B's queue: 46.
 - Rule checks on the source projects' stored answers: 1 of 376 right reviews flagged; 3 of 103 right resume verdicts flagged.
-- Judge price per 1,000 judgments (batch): review 0.400 USD, claim 0.121 USD, suggest 0.109 USD.
-- Total calls: 10,033; spent before the second judge: 2.21 USD; second judge with its estimate: 125 calls, 0.1931 USD.
+- Judge price per 1,000 judgments (batch): review 0.400 USD, claim 0.121 USD, suggest 0.116 USD.
+- Total calls: 11,317; spent before the second judge: 2.21 USD; second judge with its estimate: 125 calls, 0.1931 USD; correction 1 runs: 1284 calls, 0.2106 USD.
+- Total spent: 2.61 USD, the correction runs included.
 - QC agent false flags by problem named: category_or_clause 3, format 3; records settled by the script: 18.
-- Second judge on its 120 items: 1.483 USD per 1,000 calls against 0.114 for claude-haiku-5-5 on the same items, 13 times as much; clean translations called flawed: 8 of 9.
+- Second judge on its 120 items: 1.516 USD per 1,000 calls against 0.116 for claude-haiku-5-5 on the same items, 13 times as much; clean translations called flawed: 8 of 9.

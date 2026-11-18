@@ -1,18 +1,18 @@
 {
- "absent_words": [
+ "material_gap": [
   {
    "item": "sug-v1-P11-c3-good",
-   "fact": "the suggestion names a pH of 5.5; the word is in the candidate and in neither the listing nor the evidence",
+   "fact": "the suggestion names a pH of 5.5; the word is in the product listing but was not in the material the registered item gave the judge",
    "holds": true
   },
   {
    "item": "sug-zh-Z07-c2-good",
-   "fact": "the rewrite says the food is made to order (现做); the word is in the candidate and in neither the listing nor the evidence",
+   "fact": "the rewrite says the food is made to order (现做); the word is in the product listing but was not in the material the registered item gave the judge",
    "holds": true
   },
   {
    "item": "sug-mixed2-N08-c2-good",
-   "fact": "the rewrite calls the serum lightweight; the word is in the candidate and in neither the listing nor the evidence",
+   "fact": "the rewrite calls the serum lightweight; the word is in the product listing but was not in the material the registered item gave the judge",
    "holds": true
   }
  ],

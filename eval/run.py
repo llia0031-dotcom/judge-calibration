@@ -189,13 +189,17 @@ def main() -> int:
     ap.add_argument("stage", choices=list(STAGES))
     ap.add_argument("--versions", default=",".join(prompts.VERSIONS))
     ap.add_argument("--dry", action="store_true", help="count the requests, send nothing")
+    ap.add_argument("--families", default="", help="only these families, comma-separated (a correction run)")
+    ap.add_argument("--suffix", default="", help="store suffix of a correction run, e.g. c1: answers go to <stage>-c1.jsonl")
     a = ap.parse_args()
     items = load_all()
+    if a.families:
+        items = [i for i in items if i["family"] in a.families.split(",")]
     reqs = STAGES[a.stage](items, a.versions.split(","))
     print(f"{a.stage}: {len(reqs)} requests", dict(Counter(k.split("|")[-1] if a.stage != "main" else k.split("|")[2] for k in reqs)))
     if a.dry:
         return 0
-    store = RAW / f"{a.stage}.jsonl"
+    store = RAW / (f"{a.stage}-{a.suffix}.jsonl" if a.suffix else f"{a.stage}.jsonl")
     llm.run(reqs, store)
     print(llm.total_cost(store))
     return 0

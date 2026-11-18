@@ -29,8 +29,18 @@ RULE_DIMS = {"review": {"quote", "format"}, "claim": {"figure", "quote", "foreig
 MQM_ORDER = {"none": 0, "minor": 1, "major": 2}
 
 
+REGISTERED = "--as-registered" in sys.argv   # score the answers as registered, without the correction runs
+CORRECTIONS = ("c1",)
+
+
 def store(name: str) -> dict[str, dict]:
-    return llm.load_store(RAW / f"{name}.jsonl")
+    """The stored answers of a stage. Unless REGISTERED, answers of a correction run (<stage>-c1.jsonl) replace
+    the registered answers with the same key (see the change log of PREREGISTRATION.md)."""
+    out = llm.load_store(RAW / f"{name}.jsonl")
+    if not REGISTERED:
+        for c in CORRECTIONS:
+            out.update(llm.load_store(RAW / f"{name}-{c}.jsonl"))
+    return out
 
 
 def r4(x):
@@ -547,6 +557,8 @@ def main() -> int:
     items = load_all()
     if len(sys.argv) > 1 and sys.argv[1] == "adopt":
         res = adopt(items)
+        if not REGISTERED:   # the adopted version is the registered one (v2); the corrected dev run is reported, not used
+            raise SystemExit("adopt reads the registered dev answers only: run with --as-registered")
         ADOPTED.write_text(json.dumps(clean(res), ensure_ascii=False, indent=1), encoding="utf-8", newline="\n")
         for v, t in res["table"].items():
             print(v, "score", round(t["score"], 4), "cost/call", round(t["cost_per_call"], 6), "answered", t["answered"], "/", t["expected"],
@@ -557,7 +569,9 @@ def main() -> int:
         return 0
     a = json.loads(ADOPTED.read_text(encoding="utf-8"))["version"]
     st = store("main")
-    summary = {"adopted": a, "dev": json.loads(ADOPTED.read_text(encoding="utf-8"))}
+    summary = {"adopted": a, "dev": json.loads(ADOPTED.read_text(encoding="utf-8")), "registered": REGISTERED}
+    if not REGISTERED:
+        summary["dev_c1"] = clean(adopt(items))   # the adoption rule on the corrected dev answers (reported only)
     binr, J = binary_section(items, st, a)
     reg, JR = regulator_section(items, st)
     jv, _ = jv_section(items, st)
@@ -576,8 +590,8 @@ def main() -> int:
     summary["predictions"] = predictions(summary)
     summary["details"] = details(items, st, a, J, JR, summary)
     OUT.mkdir(parents=True, exist_ok=True)
-    (OUT / "summary.json").write_text(json.dumps(clean(summary), ensure_ascii=False, indent=1), encoding="utf-8", newline="\n")
-    print("wrote", OUT / "summary.json", "| total cost", summary["cost"]["total_usd"])
+    (OUT / ("summary.registered.json" if REGISTERED else "summary.json")).write_text(json.dumps(clean(summary), ensure_ascii=False, indent=1), encoding="utf-8", newline="\n")
+    print("wrote", OUT / ("summary.registered.json" if REGISTERED else "summary.json"), "| total cost", summary["cost"]["total_usd"])
     return 0
 
 
@@ -594,8 +608,10 @@ def details(items, st, a, J, JR, s):
     d["swapped_clause_passed"] = sum(1 for i in miss if i["dimension"] == "clause")
     d["right_review_of_trap_ad_failed"] = sum(1 for i in miss if i["family"] == "review" and i["truth"] == "pass" and i["meta"].get("trap"))
     ki = json.loads((OUT / "key_issues.json").read_text(encoding="utf-8")) if (OUT / "key_issues.json").exists() else {}
-    d["disagreements_tracing_to_key"] = sum(1 for x in ki.get("absent_words", []) + ki.get("extra_violation", []) if x["holds"])
-    d["disagreements_left_to_judge"] = d["constructed_disagreements"] - d["disagreements_tracing_to_key"]
+    miss_ids = {i["id"] for i in miss}
+    d["disagreements_material_gap"] = sum(1 for x in ki.get("material_gap", []) if x["holds"] and x["item"] in miss_ids)
+    d["disagreements_answer_key"] = sum(1 for x in ki.get("extra_violation", []) if x["holds"] and x["item"] in miss_ids)
+    d["disagreements_left_to_judge"] = d["constructed_disagreements"] - d["disagreements_material_gap"] - d["disagreements_answer_key"]
     reg = [i for i in items if i["family"] == "regulator" and i["id"] in JR]
     rmiss = [i for i in reg if majority(JR[i["id"]]) != i["truth"]]
     d["regulator_misses"] = len(rmiss)
@@ -633,10 +649,20 @@ def details(items, st, a, J, JR, s):
         d["second_judge_mqm_clean_items"] = len(none_items)
         d["second_judge_mqm_clean_called_flawed"] = sum(1 for k in none_items if sec[k]["output"]["verdict"] != "none")
     c = s["cost"]
-    d["spend_before_second_judge_usd"] = sum(v["cost_usd"] for k, v in c.items() if isinstance(v, dict) and not k.startswith("second"))
+    d["spend_before_second_judge_usd"] = sum(v["cost_usd"] for k, v in c.items() if isinstance(v, dict) and not k.startswith("second") and not k.endswith("-c1"))
+    d["correction_c1_calls"] = sum(v["calls"] for k, v in c.items() if isinstance(v, dict) and k.endswith("-c1"))
+    d["correction_c1_usd"] = sum(v["cost_usd"] for k, v in c.items() if isinstance(v, dict) and k.endswith("-c1"))
+    # the perturbation flips of the corrected suggest items, by item, to show which items flip under which change
+    flips = {}
+    for k, r in pert.items():
+        _, iid, cond = k.split("|")
+        if iid in J and r.get("output") and by_id[iid]["family"] == "suggest":
+            if prompts.verdict_of(by_id[iid], a, r["output"]) != J[iid][0]:
+                flips.setdefault(iid, []).append(cond)
+    d["suggest_perturb_flips_by_item"] = flips
     d["total_calls"] = sum(v["calls"] for v in c.values() if isinstance(v, dict))
-    d["second_judge_calls_with_estimate"] = sum(v["calls"] for k, v in c.items() if isinstance(v, dict) and k.startswith("second"))
-    d["second_judge_usd_with_estimate"] = sum(v["cost_usd"] for k, v in c.items() if isinstance(v, dict) and k.startswith("second"))
+    d["second_judge_calls_with_estimate"] = sum(v["calls"] for k, v in c.items() if isinstance(v, dict) and k in ("second", "second-estimate"))
+    d["second_judge_usd_with_estimate"] = sum(v["cost_usd"] for k, v in c.items() if isinstance(v, dict) and k in ("second", "second-estimate"))
     d["judge_usd_per_1000"] = {f: v * 1000 for f, v in s["binary"]["cost_per_call"].items()}
     d["combination_extra_queue_C_over_B"] = s["combination"]["C"]["queue"]["k"] - s["combination"]["B"]["queue"]["k"]
     d["combination_queue_B_review"] = s["combination"]["B_by_family"]["review"]["queue_B"]["k"]

@@ -1,8 +1,12 @@
-"""Disagreements that trace to the answer key (post hoc, after scoring; changes no score).
+"""Disagreements that trace to the items rather than the judge (post hoc, after scoring; changes no score).
 
-For every right candidate the judge failed (majority of three), and every correct record the QC agent flagged,
-this script tests one stated fact with a string check, so that the report can say which disagreements point at
-the answer key rather than at the judge. It adjudicates nothing else. Writes eval/results/key_issues.json.
+For right candidates the judge failed (majority of three) and correct records the QC agent flagged, this script
+tests one stated fact with a string check, so that the report can say which disagreements point at the item
+material or the answer key rather than at the judge. It adjudicates nothing else. Writes eval/results/key_issues.json.
+
+material_gap: the word the judge called invented is in the product listing (the listing wording of the selling
+point or the rest of the listing) but was not in the material the registered items gave the judge. The registered
+items are data/items/archive/suggest.registered.jsonl; correction 1 added the listing (see the change log).
 """
 from __future__ import annotations
 
@@ -14,8 +18,8 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from judgecal.items import load_all  # noqa: E402
 
-# (item, what is tested, words that must be absent from the material for the fact to hold)
-ABSENT_WORDS = [
+# (item, what is tested, words: in the candidate and in the listing, absent from the registered material)
+MATERIAL_GAP = [
     ("sug-v1-P11-c3-good", "the suggestion names a pH of 5.5", ["5.5"]),
     ("sug-zh-Z07-c2-good", "the rewrite says the food is made to order (现做)", ["现做"]),
     ("sug-mixed2-N08-c2-good", "the rewrite calls the serum lightweight", ["light"]),
@@ -30,13 +34,15 @@ MISSING_STATEMENT = [("qc-zh-t08-key", "CN-AL-18", "本品不能代替药物")]
 def main() -> int:
     items = {i["id"]: i for i in load_all()}
     qc = {json.loads(l)["id"]: json.loads(l) for l in (ROOT / "data" / "items" / "qc.jsonl").read_text(encoding="utf-8").splitlines() if l.strip()}
-    out = {"absent_words": [], "extra_violation": [], "missing_statement": []}
-    for iid, what, words in ABSENT_WORDS:
+    out = {"material_gap": [], "extra_violation": [], "missing_statement": []}
+    reg = {json.loads(l)["id"]: json.loads(l) for l in (ROOT / "data" / "items" / "archive" / "suggest.registered.jsonl").read_text(encoding="utf-8").splitlines() if l.strip()}
+    for iid, what, words in MATERIAL_GAP:
         it = items[iid]
-        blob = json.dumps(it["material"], ensure_ascii=False).lower()
+        listing = json.dumps([it["material"].get("listing_wording", "")] + it["material"].get("listing", []), ensure_ascii=False).lower()
+        given = json.dumps(reg[iid]["material"], ensure_ascii=False).lower()
         cand = json.dumps(it["candidate"], ensure_ascii=False).lower()
-        holds = all(w.lower() in cand and w.lower() not in blob for w in words)
-        out["absent_words"].append({"item": iid, "fact": f"{what}; the word is in the candidate and in neither the listing nor the evidence", "holds": holds})
+        holds = all(w.lower() in cand and w.lower() in listing and w.lower() not in given for w in words)
+        out["material_gap"].append({"item": iid, "fact": f"{what}; the word is in the product listing but was not in the material the registered item gave the judge", "holds": holds})
     for iid in EXTRA_VIOLATION:
         it = items[iid]
         key = qc[f"qc-{it['cluster']}-key"]["candidate"]["labels"]

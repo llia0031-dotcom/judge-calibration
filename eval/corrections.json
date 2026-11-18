@@ -1,0 +1,30 @@
+{
+ "corrections": [
+  {
+   "id": "c1",
+   "date": "2026-11-18",
+   "why": "suggest items given the listing wording and the whole listing (change log, correction 1)",
+   "files": {
+    "eval/build_items.py": {
+     "from": "5aae03599351",
+     "to": "90f6728b4182"
+    },
+    "judgecal/prompts.py": {
+     "from": "b855443f74ee",
+     "to": "dc2cf542a97b"
+    },
+    "data/items/suggest.jsonl": {
+     "from": "67d4087c77de",
+     "to": "1fd0ef0a72a4"
+    },
+    "eval/run.py": {
+     "from": "2adb29135e6b",
+     "to": "23b94b78ffa0"
+    }
+   },
+   "registered_copy": {
+    "data/items/archive/suggest.registered.jsonl": "67d4087c77de"
+   }
+  }
+ ]
+}

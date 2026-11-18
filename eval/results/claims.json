@@ -22,11 +22,11 @@
   },
   {
    "id": "EVALUATION.md:11:2",
-   "text": "| Answers fixed when the item was written (ad reviews, resume verdicts, listing suggestions) | 711 | 699 of 711 verdicts agree (98.3%, kappa 0.966); 385 of 390 planted errors caught |",
+   "text": "| Answers fixed when the item was written (ad reviews, resume verdicts, listing suggestions) | 711 | 702 of 711 verdicts agree (98.7%, kappa 0.974); 385 of 390 planted errors caught |",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "| all | 711 | 699/711 (98.3%; 97.1%–99.0%) | 0.966 (0.945–0.983) | 0.967 | 385/390 (98.7%; 97.0%–99.5%) | 314/321 (97.8%; 95.6%–98.9%) | 696/711 (97.9%; 96.5%–98.7%) |  |"
+     "quote": "| all | 711 | 702/711 (98.7%; 97.6%–99.3%) | 0.974 (0.957–0.989) | 0.975 | 385/390 (98.7%; 97.0%–99.5%) | 317/321 (98.8%; 96.8%–99.5%) | 697/711 (98.0%; 96.7%–98.8%) |  |"
     }
    ]
   },
@@ -110,15 +110,15 @@
   },
   {
    "id": "EVALUATION.md:20:8",
-   "text": "- **Rules, then one judgment, then a queue for what the judge marks unsure** missed 2 of 390 errors with 6.9% of items queued, against 7 of 390 for the judge alone, and cost less (0.243 against 0.303 USD per 1,000 items) because the script settles some items without a call.",
+   "text": "- **Rules, then one judgment, then a queue for what the judge marks unsure** missed 2 of 390 errors with 6.9% of items queued, against 7 of 390 for the judge alone, and cost less (0.244 against 0.304 USD per 1,000 items) because the script settles some items without a call.",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "| B | 662/711 (93.1%; 91.0%–94.7%) | 2/390 (0.5%; 0.1%–1.9%) | 3/321 (0.9%; 0.3%–2.7%) | 49/711 (6.9%; 5.3%–9.0%) | 566 | 0.243 |"
+     "quote": "| B | 662/711 (93.1%; 91.0%–94.7%) | 2/390 (0.5%; 0.1%–1.9%) | 1/321 (0.3%; 0.1%–1.7%) | 49/711 (6.9%; 5.3%–9.0%) | 566 | 0.244 |"
     },
     {
      "source": "RESULTS.md",
-     "quote": "| A | 711/711 (100.0%; 99.5%–100.0%) | 7/390 (1.8%; 0.9%–3.7%) | 9/321 (2.8%; 1.5%–5.2%) | 0/711 (0.0%; 0.0%–0.5%) | 711 | 0.303 |"
+     "quote": "| A | 711/711 (100.0%; 99.5%–100.0%) | 7/390 (1.8%; 0.9%–3.7%) | 6/321 (1.9%; 0.9%–4.0%) | 0/711 (0.0%; 0.0%–0.5%) | 711 | 0.304 |"
     },
     {
      "source": "RESULTS.md",
@@ -128,25 +128,25 @@
   },
   {
    "id": "EVALUATION.md:21:9",
-   "text": "- **The judge's \"unsure\" is informative**: its first judgments marked sure were wrong 0.8% of the time, those marked unsure 22.4%.",
+   "text": "- **The judge's \"unsure\" is informative**: its first judgments marked sure were wrong 0.5% of the time, those marked unsure 20.4%.",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "Error rate of first judgments marked sure: 5/662 (0.8%; 0.3%–1.8%); marked unsure: 11/49 (22.4%; 13.0%–35.9%)."
+     "quote": "Error rate of first judgments marked sure: 3/662 (0.5%; 0.2%–1.3%); marked unsure: 10/49 (20.4%; 11.5%–33.6%)."
     }
    ]
   },
   {
    "id": "EVALUATION.md:22:10",
-   "text": "- **It was hard to push off course**: adding a long content-free passage or a sentence of assurance to a candidate changed no verdict out of 368; swapping the order of the answer options changed 2; a terse rubric changed 7 of 100 listing suggestions.",
+   "text": "- **It was hard to push off course**: padding a candidate with a long content-free passage changed no verdict out of 368, and neither padding nor a sentence of assurance made a wrong candidate pass; swapping the answer options changed 2 verdicts, as many as repeating the same prompt; rewording the rubric changed 5 and a terse rubric 4, all on good listing suggestions near the line.",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "| r2 | 368 | 7/368 (1.9%; 0.9%–3.9%) | 98.4% → 96.5% | 0.016 | 0.5% → 1.0% | 0.201 |"
+     "quote": "| r2 | 368 | 4/368 (1.1%; 0.4%–2.8%) | 99.2% → 98.1% | 0.125 | 0.5% → 0.5% | 0.205 |"
     },
     {
      "source": "RESULTS.md",
-     "quote": "| v1 | 0.860 | 100.0% / 66.1% | 100.0% / 83.3% | 72.2% / 94.4% | 0.219 |"
+     "quote": "### SummEval (1–5, three experts)"
     }
    ]
   },
@@ -180,16 +180,26 @@
   },
   {
    "id": "EVALUATION.md:24:13",
-   "text": "- 5 of the 12 constructed-answer disagreements trace to the answer key, not the judge ( ).",
+   "text": "- 2 of the 9 constructed-answer disagreements trace to the answer key, not the judge ( ).",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "Confusion (truth, judge; 0 none, 1 minor, 2 major): truth 0 judge 0: 26, truth 0 judge 1: 49, truth 0 judge 2: 5, truth 1 judge 0: 19, truth 1 judge 1: 50, truth 1 judge 2: 11, truth 2 judge 0: 12, truth 2 judge 1: 39, truth 2 judge 2: 29"
+     "quote": "| B | 662/711 (93.1%; 91.0%–94.7%) | 2/390 (0.5%; 0.1%–1.9%) | 1/321 (0.3%; 0.1%–1.7%) | 49/711 (6.9%; 5.3%–9.0%) | 566 | 0.244 |"
     }
    ]
   },
   {
-   "id": "EVALUATION.md:28:14",
+   "id": "EVALUATION.md:24:14",
+   "text": "As registered there were 12: three more came from listing-suggestion items that did not give the judge the product listing, an error in this study's items, corrected and rerun ( ).",
+   "evidence": [
+    {
+     "source": "RESULTS.md",
+     "quote": "| disagreements (material gap / answer key / judge) | 12 (3 / 2 / 7) | 9 (0 / 2 / 7) |"
+    }
+   ]
+  },
+  {
+   "id": "EVALUATION.md:28:15",
    "text": "**The judge.**  , effort  , structured JSON output, Message Batches; one item per request unless a section says otherwise; three judgments per test item.",
    "evidence": [
     {
@@ -199,7 +209,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:34:15",
+   "id": "EVALUATION.md:34:16",
    "text": "| review | constructed | an ad review (decision, violations, quotes) of a Grounded Review test ad; 266 of the items show the ad image | 469 |",
    "evidence": [
     {
@@ -213,7 +223,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:35:16",
+   "id": "EVALUATION.md:35:17",
    "text": "| claim | constructed | a \"requirement met\" verdict on a synthetic resume (Evidence Screening) | 142 |",
    "evidence": [
     {
@@ -223,7 +233,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:36:17",
+   "id": "EVALUATION.md:36:18",
    "text": "| suggest | constructed | a listing-rewrite suggestion (Sellpoint Check calibration pairs) | 100 |",
    "evidence": [
     {
@@ -233,17 +243,17 @@
    ]
   },
   {
-   "id": "EVALUATION.md:37:18",
+   "id": "EVALUATION.md:37:19",
    "text": "| regulator | regulator | an ad described in a UK ASA ruling or a Chinese regulator or court case | 46 |",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "| suggest | zh | 46 | 45/46 (97.8%; 88.7%–99.6%) | 95.7% | 100.0% |"
+     "quote": "| suggest | zh | 46 | 46/46 (100.0%; 92.3%–100.0%) | 100.0% | 100.0% |"
     }
    ]
   },
   {
-   "id": "EVALUATION.md:38:19",
+   "id": "EVALUATION.md:38:20",
    "text": "| jv | human | a RAG answer scored 0 / 0.5 / 1 by three annotators (Judge's Verdict) | 200 |",
    "evidence": [
     {
@@ -253,7 +263,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:39:20",
+   "id": "EVALUATION.md:39:21",
    "text": "| summeval | human | a news summary scored 1–5 by three experts on four dimensions (SummEval) | 480 |",
    "evidence": [
     {
@@ -263,7 +273,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:40:21",
+   "id": "EVALUATION.md:40:22",
    "text": "| mqm | human | a Chinese-to-English translation with professional MQM error annotation (WMT  ) | 240 |",
    "evidence": [
     {
@@ -273,7 +283,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:41:22",
+   "id": "EVALUATION.md:41:23",
    "text": "| qc | constructed | an annotation record (decision, category, clause, span) for the quality-check agent | 239 |",
    "evidence": [
     {
@@ -283,7 +293,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:43:23",
+   "id": "EVALUATION.md:43:24",
    "text": "In the three constructed families, right candidates are stored answers of the source projects that match their answer keys in full and pass the rule checks, and the suggestion pairs written as good; wrong candidates are the published misreadings, the suggestion pairs written as bad, and errors planted by stated rules (a swapped clause, an altered quote, a figure moved by one, a quote from another resume, a malformed structure).",
    "evidence": [
     {
@@ -293,7 +303,17 @@
    ]
   },
   {
-   "id": "EVALUATION.md:45:24",
+   "id": "EVALUATION.md:43:25",
+   "text": "After correction 1 the suggestion items also carry the listing's own sentence for the selling point and the rest of the listing, as the source project's grader saw them.",
+   "evidence": [
+    {
+     "source": "RESULTS.md",
+     "quote": "## 1. Prompt versions on the development split"
+    }
+   ]
+  },
+  {
+   "id": "EVALUATION.md:45:26",
    "text": "**Development and test.** 195 development items (review, claim and suggest) were used only to choose the judge prompt; everything reported below is on the test items.",
    "evidence": [
     {
@@ -303,7 +323,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:49:25",
+   "id": "EVALUATION.md:49:27",
    "text": "Four versions were written before any run ([  ):   the bare question;   the written rubric with a reason and a sure / unsure flag;   the rubric as separate yes / no checks with the verdict computed by code;     with three cautions (compare quotes character by character; length and assurances are not evidence; credit only what is in the material).",
    "evidence": [
     {
@@ -313,7 +333,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:49:26",
+   "id": "EVALUATION.md:49:28",
    "text": "The preregistered rule adopts a later version only if it raises the mean balanced accuracy over the three families by at least 0.02 without lowering any family's pass or fail recall by more than 0.05 and costs at most 1.5 times as much.",
    "evidence": [
     {
@@ -322,12 +342,12 @@
     },
     {
      "source": "RESULTS.md",
-     "quote": "| A | 711/711 (100.0%; 99.5%–100.0%) | 7/390 (1.8%; 0.9%–3.7%) | 9/321 (2.8%; 1.5%–5.2%) | 0/711 (0.0%; 0.0%–0.5%) | 711 | 0.303 |"
+     "quote": "| A judge only: errors missed / false alarms | 7/390 (1.8%; 0.9%–3.7%) / 9/321 (2.8%; 1.5%–5.2%) | 7/390 (1.8%; 0.9%–3.7%) / 6/321 (1.9%; 0.9%–4.0%) |"
     }
    ]
   },
   {
-   "id": "EVALUATION.md:51:27",
+   "id": "EVALUATION.md:51:29",
    "text": "| Version | Score (mean balanced accuracy) | review pass / fail recall | claim | suggest | USD per 1,000 calls | Decision |",
    "evidence": [
     {
@@ -337,7 +357,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:53:28",
+   "id": "EVALUATION.md:53:30",
    "text": "|   | 0.860 | 100.0% / 66.1% | 100.0% / 83.3% | 72.2% / 94.4% | 0.219 | — |",
    "evidence": [
     {
@@ -347,7 +367,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:54:29",
+   "id": "EVALUATION.md:54:31",
    "text": "|   | 0.976 | 100.0% / 96.6% | 100.0% / 100.0% | 88.9% / 100.0% | 0.263 | adopted |",
    "evidence": [
     {
@@ -357,7 +377,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:55:30",
+   "id": "EVALUATION.md:55:32",
    "text": "|   | 0.976 | 100.0% / 96.6% | 100.0% / 100.0% | 88.9% / 100.0% | 0.299 | not adopted: no gain |",
    "evidence": [
     {
@@ -367,7 +387,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:56:31",
+   "id": "EVALUATION.md:56:33",
    "text": "|   | 0.955 | 92.9% / 96.6% | 100.0% / 100.0% | 83.3% / 100.0% | 0.316 | not adopted: no gain, and review pass recall fell by 0.071 |",
    "evidence": [
     {
@@ -381,7 +401,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:58:32",
+   "id": "EVALUATION.md:58:34",
    "text": "The rubric is what matters: without it ( ) the judge caught only 66.1% of the wrong reviews on the development split.",
    "evidence": [
     {
@@ -391,9 +411,35 @@
    ]
   },
   {
-   "id": "EVALUATION.md:60:33",
-   "text": "On the test split   ran once beside  .   caught 75.6% of the wrong reviews, 62.9% of the wrong resume verdicts and 96.0% of the wrong suggestions;   (first judgment) 97.4%, 100.0% and 100.0%.",
+   "id": "EVALUATION.md:58:35",
+   "text": "With the listing added to the suggestion items (correction 1) the development scores became 0.888 ( ), 0.994 ( ), 0.985 ( ) and 0.973 ( ), and the rule still picks  .",
    "evidence": [
+    {
+     "source": "RESULTS.md",
+     "quote": "| dev v1: suggest pass / fail recall; score | 72.2% / 94.4%; 0.860 | 83.3% / 100.0%; 0.888 |"
+    },
+    {
+     "source": "RESULTS.md",
+     "quote": "| review | clause | errors caught | 0.985 | 100.0% | judge-reliable |"
+    },
+    {
+     "source": "RESULTS.md",
+     "quote": "| dev v2: suggest pass / fail recall; score | 88.9% / 100.0%; 0.976 | 100.0% / 100.0%; 0.994 |"
+    },
+    {
+     "source": "RESULTS.md",
+     "quote": "| dev v4: suggest pass / fail recall; score | 83.3% / 100.0%; 0.955 | 94.4% / 100.0%; 0.973 |"
+    }
+   ]
+  },
+  {
+   "id": "EVALUATION.md:60:36",
+   "text": "On the test split   ran once beside  .   caught 75.6% of the wrong reviews, 62.9% of the wrong resume verdicts and 100.0% of the wrong suggestions, but passed only 80.0% of the good suggestions;   (first judgment) caught 97.4%, 100.0% and 100.0% and passed 100.0% of the good suggestions.",
+   "evidence": [
+    {
+     "source": "RESULTS.md",
+     "quote": "| claim | 142 | 142/142 (100.0%; 97.4%–100.0%) | 1.000 (1.000–1.000) | 1.000 | 70/70 (100.0%; 94.8%–100.0%) | 72/72 (100.0%; 94.9%–100.0%) | 142/142 (100.0%; 97.4%–100.0%) | 1.000 |"
+    },
     {
      "source": "RESULTS.md",
      "quote": "| review | 469 | 96.0% | 75.6% | 97.0% | 97.4% |"
@@ -401,11 +447,15 @@
     {
      "source": "RESULTS.md",
      "quote": "| claim | 142 | 100.0% | 62.9% | 100.0% | 100.0% |"
+    },
+    {
+     "source": "RESULTS.md",
+     "quote": "| suggest | 100 | 80.0% | 100.0% | 100.0% | 100.0% |"
     }
    ]
   },
   {
-   "id": "EVALUATION.md:66:34",
+   "id": "EVALUATION.md:66:37",
    "text": "| Family | Items | Agreement | Cohen's kappa | AC1 | Errors caught | Right ones passed | Three judgments identical |",
    "evidence": [
     {
@@ -415,7 +465,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:68:35",
+   "id": "EVALUATION.md:68:38",
    "text": "| review | 469 | 460/469 (98.1%; 96.4%–99.0%) | 0.961 (0.934–0.983) | 0.962 | 265/270 (98.1%) | 195/199 (98.0%) | 455/469 (97.0%) |",
    "evidence": [
     {
@@ -425,7 +475,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:69:36",
+   "id": "EVALUATION.md:69:39",
    "text": "| claim | 142 | 142/142 (100.0%; 97.4%–100.0%) | 1.000 | 1.000 | 70/70 (100.0%) | 72/72 (100.0%) | 142/142 (100.0%) |",
    "evidence": [
     {
@@ -435,28 +485,28 @@
    ]
   },
   {
-   "id": "EVALUATION.md:70:37",
-   "text": "| suggest | 100 | 97/100 (97.0%; 91.5%–99.0%) | 0.940 (0.870–1.000) | 0.940 | 50/50 (100.0%) | 47/50 (94.0%) | 99/100 (99.0%) |",
+   "id": "EVALUATION.md:70:40",
+   "text": "| suggest | 100 | 100/100 (100.0%; 96.3%–100.0%) | 1.000 | 1.000 | 50/50 (100.0%) | 50/50 (100.0%) | 100/100 (100.0%) |",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "| suggest | 100 | 97/100 (97.0%; 91.5%–99.0%) | 0.940 (0.870–1.000) | 0.940 | 50/50 (100.0%; 92.9%–100.0%) | 47/50 (94.0%; 83.8%–97.9%) | 99/100 (99.0%; 94.6%–99.8%) | 0.987 |"
+     "quote": "| suggest | 100 | 100/100 (100.0%; 96.3%–100.0%) | 1.000 (1.000–1.000) | 1.000 | 50/50 (100.0%; 92.9%–100.0%) | 50/50 (100.0%; 92.9%–100.0%) | 100/100 (100.0%; 96.3%–100.0%) | 1.000 |"
     }
    ]
   },
   {
-   "id": "EVALUATION.md:71:38",
-   "text": "| all | 711 | 699/711 (98.3%; 97.1%–99.0%) | 0.966 (0.945–0.983) | 0.967 | 385/390 (98.7%) | 314/321 (97.8%) | 696/711 (97.9%) |",
+   "id": "EVALUATION.md:71:41",
+   "text": "| all | 711 | 702/711 (98.7%; 97.6%–99.3%) | 0.974 (0.957–0.989) | 0.975 | 385/390 (98.7%) | 317/321 (98.8%) | 697/711 (98.0%) |",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "| all | 711 | 699/711 (98.3%; 97.1%–99.0%) | 0.966 (0.945–0.983) | 0.967 | 385/390 (98.7%; 97.0%–99.5%) | 314/321 (97.8%; 95.6%–98.9%) | 696/711 (97.9%; 96.5%–98.7%) |  |"
+     "quote": "| all | 711 | 702/711 (98.7%; 97.6%–99.3%) | 0.974 (0.957–0.989) | 0.975 | 385/390 (98.7%; 97.0%–99.5%) | 317/321 (98.8%; 96.8%–99.5%) | 697/711 (98.0%; 96.7%–98.8%) |  |"
     }
    ]
   },
   {
-   "id": "EVALUATION.md:73:39",
-   "text": "Fleiss' kappa over the three judgments: 0.959 (review), 1.000 (claim), 0.987 (suggest).",
+   "id": "EVALUATION.md:73:42",
+   "text": "Fleiss' kappa over the three judgments: 0.959 (review), 1.000 (claim), 1.000 (suggest).",
    "evidence": [
     {
      "source": "RESULTS.md",
@@ -465,15 +515,11 @@
     {
      "source": "RESULTS.md",
      "quote": "| review | 469 | 460/469 (98.1%; 96.4%–99.0%) | 0.961 (0.934–0.983) | 0.962 | 265/270 (98.1%; 95.7%–99.2%) | 195/199 (98.0%; 94.9%–99.2%) | 455/469 (97.0%; 95.1%–98.2%) | 0.959 |"
-    },
-    {
-     "source": "RESULTS.md",
-     "quote": "| suggest | 100 | 97/100 (97.0%; 91.5%–99.0%) | 0.940 (0.870–1.000) | 0.940 | 50/50 (100.0%; 92.9%–100.0%) | 47/50 (94.0%; 83.8%–97.9%) | 99/100 (99.0%; 94.6%–99.8%) | 0.987 |"
     }
    ]
   },
   {
-   "id": "EVALUATION.md:79:40",
+   "id": "EVALUATION.md:79:43",
    "text": "| review | wrong decision, argued | 107 | 103/107 (96.3%; 90.8%–98.5%) |",
    "evidence": [
     {
@@ -483,7 +529,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:80:41",
+   "id": "EVALUATION.md:80:44",
    "text": "| review | swapped clause | 66 | 65/66 (98.5%) |",
    "evidence": [
     {
@@ -493,7 +539,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:81:42",
+   "id": "EVALUATION.md:81:45",
    "text": "| review | altered quote (rule-checkable) | 57 | 57/57 (100.0%) |",
    "evidence": [
     {
@@ -503,7 +549,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:82:43",
+   "id": "EVALUATION.md:82:46",
    "text": "| review | malformed structure (rule-checkable) | 40 | 40/40 (100.0%) |",
    "evidence": [
     {
@@ -513,7 +559,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:83:44",
+   "id": "EVALUATION.md:83:47",
    "text": "| review | right review | 199 | 195/199 (98.0%) |",
    "evidence": [
     {
@@ -523,7 +569,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:84:45",
+   "id": "EVALUATION.md:84:48",
    "text": "| claim | misreading of real resume text | 22 | 22/22 (100.0%) |",
    "evidence": [
     {
@@ -533,7 +579,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:85:46",
+   "id": "EVALUATION.md:85:49",
    "text": "| claim | figure, quote, quote from another resume (rule-checkable) | 48 | 48/48 (100.0%; 92.6%–100.0%) |",
    "evidence": [
     {
@@ -543,7 +589,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:86:47",
+   "id": "EVALUATION.md:86:50",
    "text": "| claim | right verdict | 72 | 72/72 (100.0%) |",
    "evidence": [
     {
@@ -553,27 +599,27 @@
    ]
   },
   {
-   "id": "EVALUATION.md:87:48",
+   "id": "EVALUATION.md:87:51",
    "text": "| suggest | contradicts, invents, drops what buyers confirmed, reads silence as proof, vague | 50 | 50/50 (100.0%) |",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "| suggest | 100 | 97/100 (97.0%; 91.5%–99.0%) | 0.940 (0.870–1.000) | 0.940 | 50/50 (100.0%; 92.9%–100.0%) | 47/50 (94.0%; 83.8%–97.9%) | 99/100 (99.0%; 94.6%–99.8%) | 0.987 |"
+     "quote": "| suggest | 100 | 100/100 (100.0%; 96.3%–100.0%) | 1.000 (1.000–1.000) | 1.000 | 50/50 (100.0%; 92.9%–100.0%) | 50/50 (100.0%; 92.9%–100.0%) | 100/100 (100.0%; 96.3%–100.0%) | 1.000 |"
     }
    ]
   },
   {
-   "id": "EVALUATION.md:88:49",
-   "text": "| suggest | good suggestion | 50 | 47/50 (94.0%) |",
+   "id": "EVALUATION.md:88:52",
+   "text": "| suggest | good suggestion | 50 | 50/50 (100.0%) |",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "| suggest | 100 | 97/100 (97.0%; 91.5%–99.0%) | 0.940 (0.870–1.000) | 0.940 | 50/50 (100.0%; 92.9%–100.0%) | 47/50 (94.0%; 83.8%–97.9%) | 99/100 (99.0%; 94.6%–99.8%) | 0.987 |"
+     "quote": "| suggest | 100 | 100/100 (100.0%; 96.3%–100.0%) | 1.000 (1.000–1.000) | 1.000 | 50/50 (100.0%; 92.9%–100.0%) | 50/50 (100.0%; 92.9%–100.0%) | 100/100 (100.0%; 96.3%–100.0%) | 1.000 |"
     }
    ]
   },
   {
-   "id": "EVALUATION.md:90:50",
+   "id": "EVALUATION.md:90:53",
    "text": "The hardest wrong candidates were reviews that argued, carefully and with verbatim quotes, for the wrong decision: 4 of 107 passed.",
    "evidence": [
     {
@@ -587,7 +633,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:90:51",
+   "id": "EVALUATION.md:90:54",
    "text": "In three of the four the judge's first judgment was marked unsure.",
    "evidence": [
     {
@@ -597,7 +643,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:94:52",
+   "id": "EVALUATION.md:94:55",
    "text": "Review items: English 217 of 224 right (96.9%), Chinese 243 of 245 (99.2%); image ads 263 of 266 (98.9%), text ads 197 of 203 (97.0%).",
    "evidence": [
     {
@@ -619,41 +665,17 @@
    ]
   },
   {
-   "id": "EVALUATION.md:98:53",
-   "text": "All 12 disagreements were read, and the five below were tested with a string check ([  , [  ).",
+   "id": "EVALUATION.md:98:56",
+   "text": "All 9 disagreements were read; the two below were tested with a string check ([  , [  ).",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "Confusion (truth, judge; 0 none, 1 minor, 2 major): truth 0 judge 0: 26, truth 0 judge 1: 49, truth 0 judge 2: 5, truth 1 judge 0: 19, truth 1 judge 1: 50, truth 1 judge 2: 11, truth 2 judge 0: 12, truth 2 judge 1: 39, truth 2 judge 2: 29"
+     "quote": "| B | 662/711 (93.1%; 91.0%–94.7%) | 2/390 (0.5%; 0.1%–1.9%) | 1/321 (0.3%; 0.1%–1.7%) | 49/711 (6.9%; 5.3%–9.0%) | 566 | 0.244 |"
     }
    ]
   },
   {
-   "id": "EVALUATION.md:100:54",
-   "text": "- Three \"good\" listing suggestions contain a property found in neither the listing nor the reviews (a   of 5.5; food made to order, 现做; a \"lightweight\" serum).",
-   "evidence": [
-    {
-     "source": "RESULTS.md",
-     "quote": "| v3 | 0.976 | 100.0% / 96.6% | 100.0% / 100.0% | 88.9% / 100.0% | 0.299 |"
-    },
-    {
-     "source": "key_issues.json",
-     "quote": "\"fact\": \"the suggestion names a pH of 5.5; the word is in the candidate and in neither the listing nor the evidence\","
-    }
-   ]
-  },
-  {
-   "id": "EVALUATION.md:100:55",
-   "text": "The rubric counts that as invention, and the judge failed all three on that ground.",
-   "evidence": [
-    {
-     "source": "RESULTS.md",
-     "quote": "| v3 | 0.976 | 100.0% / 96.6% | 100.0% / 100.0% | 88.9% / 100.0% | 0.299 |"
-    }
-   ]
-  },
-  {
-   "id": "EVALUATION.md:101:56",
+   "id": "EVALUATION.md:100:57",
    "text": "- Two stored reviews of alcohol ads match the answer key's category and clause but add a violation about something the ad leaves out (no alcohol strength statement), which the key does not list.",
    "evidence": [
     {
@@ -663,7 +685,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:103:57",
+   "id": "EVALUATION.md:102:58",
    "text": "The other seven are the judge's: four argued wrong-decision reviews passed, one swapped clause passed, and two right reviews of trap ads failed (in one the judge read triangle icons in the image as fake play buttons).",
    "evidence": [
     {
@@ -673,7 +695,153 @@
    ]
   },
   {
-   "id": "EVALUATION.md:109:58",
+   "id": "EVALUATION.md:106:59",
+   "text": "As registered, the judge failed three good listing suggestions for inventing a property: a   of 5.5, food made to order (现做) and a \"lightweight\" serum.",
+   "evidence": [
+    {
+     "source": "PREREGISTRATION.md",
+     "quote": "- 2026-11-18, after all stages, before the correction runs (correction 1). **The suggest items gave the judge less material than the source project's grader had.** `build_items.py` put the product name, the short name of the selling point, the label and the evidence reviews into each suggest item, but not the listing's own sentence for the selling point (`source_quote`) nor the rest of the listing (`features`). The rubric asks whether a suggestion claims something \"that appears in neither the listing wording nor the evidence\", so a suggestion that repeats a detail of the listing (for example \"pH balanced at 5.5\") could look invented. This was found by the source project when it checked the three good suggestions the judge failed on the test split. Correction, fixed before any correction request is sent:"
+    }
+   ]
+  },
+  {
+   "id": "EVALUATION.md:106:60",
+   "text": "The source project checked them: all three words are in the product listing (its sentence for that selling point is \"  balanced at 5.5\"; \"Lightweight, absorbs in seconds with no sticky finish\"; another selling point of the same set menu, \"手冲咖啡现磨现做\").",
+   "evidence": [
+    {
+     "source": "PREREGISTRATION.md",
+     "quote": "- 2026-11-18, after all stages, before the correction runs (correction 1). **The suggest items gave the judge less material than the source project's grader had.** `build_items.py` put the product name, the short name of the selling point, the label and the evidence reviews into each suggest item, but not the listing's own sentence for the selling point (`source_quote`) nor the rest of the listing (`features`). The rubric asks whether a suggestion claims something \"that appears in neither the listing wording nor the evidence\", so a suggestion that repeats a detail of the listing (for example \"pH balanced at 5.5\") could look invented. This was found by the source project when it checked the three good suggestions the judge failed on the test split. Correction, fixed before any correction request is sent:"
+    }
+   ]
+  },
+  {
+   "id": "EVALUATION.md:108:61",
+   "text": "The correction was written into the plan's change log before any correction request went out: every suggestion item now carries the listing's sentence for the selling point and the rest of the listing; nothing else in the items or prompts changed; the suggestion family was judged again in every stage it took part in (1,284 requests, 0.2106 USD); the registered answers are kept.",
+   "evidence": [
+    {
+     "source": "RESULTS.md",
+     "quote": "| correction 1 runs: calls, USD |  | 1284, 0.2106 |"
+    }
+   ]
+  },
+  {
+   "id": "EVALUATION.md:110:62",
+   "text": "| Measure | As registered | After correction 1 |",
+   "evidence": [
+    {
+     "source": "RESULTS.md",
+     "quote": "## 1. Prompt versions on the development split"
+    }
+   ]
+  },
+  {
+   "id": "EVALUATION.md:112:63",
+   "text": "| suggestions: agreement | 97/100 (97.0%) | 100/100 (100.0%) |",
+   "evidence": [
+    {
+     "source": "RESULTS.md",
+     "quote": "Judge alone on rule-checkable errors: 145/145 (100.0%; 97.4%–100.0%) caught (review 97/97 (100.0%; 96.2%–100.0%), claim 48/48 (100.0%; 92.6%–100.0%))."
+    }
+   ]
+  },
+  {
+   "id": "EVALUATION.md:113:64",
+   "text": "| good suggestions passed | 47/50 (94.0%) | 50/50 (100.0%) |",
+   "evidence": [
+    {
+     "source": "RESULTS.md",
+     "quote": "| suggest: right ones passed | 47/50 (94.0%; 83.8%–97.9%) | 50/50 (100.0%; 92.9%–100.0%) |"
+    }
+   ]
+  },
+  {
+   "id": "EVALUATION.md:114:65",
+   "text": "| all constructed items: agreement | 699/711 (98.3%; 97.1%–99.0%) | 702/711 (98.7%; 97.6%–99.3%) |",
+   "evidence": [
+    {
+     "source": "RESULTS.md",
+     "quote": "| all constructed: agreement | 699/711 (98.3%; 97.1%–99.0%) | 702/711 (98.7%; 97.6%–99.3%) |"
+    }
+   ]
+  },
+  {
+   "id": "EVALUATION.md:115:66",
+   "text": "| all constructed items: Cohen's kappa | 0.966 (0.945–0.983) | 0.974 (0.957–0.989) |",
+   "evidence": [
+    {
+     "source": "RESULTS.md",
+     "quote": "| all constructed: Cohen's kappa | 0.966 (0.945–0.983) | 0.974 (0.957–0.989) |"
+    }
+   ]
+  },
+  {
+   "id": "EVALUATION.md:116:67",
+   "text": "| disagreements: from the items / the answer key / the judge | 12: 3 / 2 / 7 | 9: 0 / 2 / 7 |",
+   "evidence": [
+    {
+     "source": "RESULTS.md",
+     "quote": "| disagreements (material gap / answer key / judge) | 12 (3 / 2 / 7) | 9 (0 / 2 / 7) |"
+    }
+   ]
+  },
+  {
+   "id": "EVALUATION.md:117:68",
+   "text": "| development score of   /   /   /   | 0.860 / 0.976 / 0.976 / 0.955 | 0.888 / 0.994 / 0.985 / 0.973 |",
+   "evidence": [
+    {
+     "source": "PREREGISTRATION.md",
+     "quote": "- 2026-11-18, after the dev stage: the adoption rule picked v2 (v2 over v1: score 0.976 against 0.860; v3 tied with v2 and was not adopted; v4 scored 0.955 and lowered the pass recall of review by 0.071). No v5 was written: v2 is within 0.03 of a perfect development score, so there was nothing a further version could gain that the rule would see. Nothing frozen was changed."
+    },
+    {
+     "source": "RESULTS.md",
+     "quote": "| review | clause | errors caught | 0.985 | 100.0% | judge-reliable |"
+    },
+    {
+     "source": "RESULTS.md",
+     "quote": "| dev v1: suggest pass / fail recall; score | 72.2% / 94.4%; 0.860 | 83.3% / 100.0%; 0.888 |"
+    },
+    {
+     "source": "RESULTS.md",
+     "quote": "| dev v2: suggest pass / fail recall; score | 88.9% / 100.0%; 0.976 | 100.0% / 100.0%; 0.994 |"
+    },
+    {
+     "source": "RESULTS.md",
+     "quote": "| dev v4: suggest pass / fail recall; score | 83.3% / 100.0%; 0.955 | 94.4% / 100.0%; 0.973 |"
+    }
+   ]
+  },
+  {
+   "id": "EVALUATION.md:119:69",
+   "text": "| prediction 8 (rewording changes more verdicts than repeating) | not held | held |",
+   "evidence": [
+    {
+     "source": "RESULTS.md",
+     "quote": "| all | 46 | 39/46 (84.8%; 71.8%–92.4%) | 0.594 (0.284–0.843) | 31/35 (88.6%; 74.0%–95.5%) | 8/11 (72.7%; 43.4%–90.3%) |"
+    }
+   ]
+  },
+  {
+   "id": "EVALUATION.md:121:70",
+   "text": "The two good suggestions the judge failed on the development split as registered were the same case (ten brightness levels; 质地清爽, a light texture): both are in their listings.",
+   "evidence": [
+    {
+     "source": "RESULTS.md",
+     "quote": "Targets: accept_at_<=2%: met, reject_at_>=10%: not met"
+    }
+   ]
+  },
+  {
+   "id": "EVALUATION.md:121:71",
+   "text": "One of the three, the set-menu rewrite, is arguable: it applies \"made to order\", said of the coffee, to the whole menu; with the listing the judge passed it in all three judgments, but it is one of the borderline items that changed under the perturbations ( ).",
+   "evidence": [
+    {
+     "source": "RESULTS.md",
+     "quote": "| v3 | 0.976 | 100.0% / 96.6% | 100.0% / 100.0% | 88.9% / 100.0% | 0.299 |"
+    }
+   ]
+  },
+  {
+   "id": "EVALUATION.md:127:72",
    "text": "| all | 46 | 39/46 (84.8%; 71.8%–92.4%) | 31/35 (88.6%) | 8/11 (72.7%) |",
    "evidence": [
     {
@@ -683,7 +851,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:110:59",
+   "id": "EVALUATION.md:128:73",
    "text": "| UK ASA | 30 | 26/30 (86.7%) | 20/23 | 6/7 |",
    "evidence": [
     {
@@ -693,7 +861,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:111:60",
+   "id": "EVALUATION.md:129:74",
    "text": "| China | 16 | 13/16 (81.2%) | 11/12 | 2/4 |",
    "evidence": [
     {
@@ -703,7 +871,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:112:61",
+   "id": "EVALUATION.md:130:75",
    "text": "| decision readable from the ad | 35 | 33/35 (94.3%; 81.4%–98.4%) | 27/28 | 6/7 |",
    "evidence": [
     {
@@ -713,7 +881,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:113:62",
+   "id": "EVALUATION.md:131:76",
    "text": "| decision turned on evidence the ad does not show | 11 | 6/11 (54.5%; 28.0%–78.7%) | 4/7 | 2/4 |",
    "evidence": [
     {
@@ -723,7 +891,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:115:63",
+   "id": "EVALUATION.md:133:77",
    "text": "Kappa 0.594 (0.284–0.843), AC1 0.757.",
    "evidence": [
     {
@@ -737,7 +905,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:115:64",
+   "id": "EVALUATION.md:133:78",
    "text": "The judge marked 24 of its 46 first judgments unsure, far more than on any constructed family, and five of the seven misses are in the evidence-dependent group: whether a statistic was substantiated, or whether a \"No.",
    "evidence": [
     {
@@ -746,12 +914,12 @@
     },
     {
      "source": "RESULTS.md",
-     "quote": "- Constructed-answer disagreements: 12; tracing to the answer key: 5; left to the judge: 7."
+     "quote": "| suggest items whose verdict changed under any change (item: changes) |  | sug-v1-P02-c1-good: r2; sug-v1-P05-c1-good: r2; sug-v1-P06-c3-good: assertive, r1; sug-v1-P12-c3-good: r1; sug-voice-V05-c1-good: r1; sug-zh-Z05-c1-good: r2; sug-zh-Z07-c2-good: assertive, low, r2 |"
     }
    ]
   },
   {
-   "id": "EVALUATION.md:115:65",
+   "id": "EVALUATION.md:133:79",
    "text": "1\" claim rested on real sales data, cannot be decided from the ad.",
    "evidence": [
     {
@@ -761,7 +929,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:115:66",
+   "id": "EVALUATION.md:133:80",
    "text": "The two others are a darts-themed alcohol poster the ASA found irresponsible and a Chinese air-conditioner slogan (\"完美变频\") the regulator did not treat as an absolute claim.",
    "evidence": [
     {
@@ -771,7 +939,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:123:67",
+   "id": "EVALUATION.md:141:81",
    "text": "| Judge vs the annotators' median, exact | 147/200 (73.5%; 67.0%–79.1%) |",
    "evidence": [
     {
@@ -781,7 +949,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:124:68",
+   "id": "EVALUATION.md:142:82",
    "text": "| Judge vs median, quadratic-weighted kappa | 0.796 (0.725–0.856) |",
    "evidence": [
     {
@@ -791,7 +959,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:125:69",
+   "id": "EVALUATION.md:143:83",
    "text": "| Annotator vs annotator, exact (three pairs) | 62.5% to 67.5% |",
    "evidence": [
     {
@@ -805,7 +973,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:126:70",
+   "id": "EVALUATION.md:144:84",
    "text": "| Judge vs each annotator, exact (mean of three) | 67.3% |",
    "evidence": [
     {
@@ -819,7 +987,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:127:71",
+   "id": "EVALUATION.md:145:85",
    "text": "| Annotator vs annotator, weighted kappa | 0.450 to 0.606 |",
    "evidence": [
     {
@@ -829,7 +997,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:128:72",
+   "id": "EVALUATION.md:146:86",
    "text": "| Judge vs each annotator, weighted kappa (mean) | 0.686 |",
    "evidence": [
     {
@@ -839,7 +1007,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:129:73",
+   "id": "EVALUATION.md:147:87",
    "text": "| Three judgments identical | 181/200 (90.5%) |",
    "evidence": [
     {
@@ -849,7 +1017,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:131:74",
+   "id": "EVALUATION.md:149:88",
    "text": "The judge agrees with each annotator about as often as the annotators agree with each other, and on the weighted kappa more closely than any two annotators do.",
    "evidence": [
     {
@@ -859,7 +1027,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:131:75",
+   "id": "EVALUATION.md:149:89",
    "text": "Where the three annotators gave the same score (97 items) the judge matched it on 88 (90.7%); where they split (103 items) on 59 (57.3%).",
    "evidence": [
     {
@@ -877,7 +1045,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:131:76",
+   "id": "EVALUATION.md:149:90",
    "text": "Partly right answers are the weak point: of 22 items whose median is 0.5, the judge gave 0.5 to 9.",
    "evidence": [
     {
@@ -887,7 +1055,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:137:77",
+   "id": "EVALUATION.md:155:91",
    "text": "| coherence | 0.536 (0.397–0.652) | 0.420 | 0.720 | 2.16 / 3.45 |",
    "evidence": [
     {
@@ -897,7 +1065,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:138:78",
+   "id": "EVALUATION.md:156:92",
    "text": "| consistency | 0.682 (0.541–0.801) | 0.633 | 0.633 | 4.42 / 4.74 |",
    "evidence": [
     {
@@ -907,7 +1075,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:139:79",
+   "id": "EVALUATION.md:157:93",
    "text": "| fluency | 0.408 (0.235–0.553) | 0.357 | 0.588 | 2.19 / 4.68 |",
    "evidence": [
     {
@@ -917,7 +1085,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:140:80",
+   "id": "EVALUATION.md:158:94",
    "text": "| relevance | 0.463 (0.333–0.572) | 0.360 | 0.514 | 3.06 / 3.87 |",
    "evidence": [
     {
@@ -927,7 +1095,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:142:81",
+   "id": "EVALUATION.md:160:95",
    "text": "The expert ceiling is the Spearman correlation of one expert with the mean of the other two, averaged over the three experts.",
    "evidence": [
     {
@@ -937,7 +1105,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:142:82",
+   "id": "EVALUATION.md:160:96",
    "text": "The judge ranks summaries by factual consistency as well as an expert does, but falls short on coherence, fluency and relevance, and it is much harsher than the experts on fluency (mean 2.19 against 4.68): it scores the lowercase, tokenised text of these system summaries as badly written.",
    "evidence": [
     {
@@ -947,7 +1115,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:142:83",
+   "id": "EVALUATION.md:160:97",
    "text": "The crowd ratings published with SummEval correlate with the experts at −0.106 to 0.054 on these items, which is why the experts are the reference here.",
    "evidence": [
     {
@@ -961,7 +1129,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:142:84",
+   "id": "EVALUATION.md:160:98",
    "text": "The judge is very repeatable on this family (at least 119 of 120 items per dimension within one point across three judgments), so its errors are systematic, not noise.",
    "evidence": [
     {
@@ -975,7 +1143,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:148:85",
+   "id": "EVALUATION.md:166:99",
    "text": "| Exact (none / minor / major) | 105/240 (43.8%; 37.6%–50.1%) |",
    "evidence": [
     {
@@ -985,7 +1153,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:149:86",
+   "id": "EVALUATION.md:167:100",
    "text": "| Weighted kappa | 0.290 (0.170–0.400) |",
    "evidence": [
     {
@@ -995,7 +1163,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:150:87",
+   "id": "EVALUATION.md:168:101",
    "text": "| Recall: none | 26/80 (32.5%) |",
    "evidence": [
     {
@@ -1005,7 +1173,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:151:88",
+   "id": "EVALUATION.md:169:102",
    "text": "| Recall: minor | 50/80 (62.5%) |",
    "evidence": [
     {
@@ -1015,7 +1183,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:152:89",
+   "id": "EVALUATION.md:170:103",
    "text": "| Recall: major | 29/80 (36.2%) |",
    "evidence": [
     {
@@ -1025,7 +1193,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:153:90",
+   "id": "EVALUATION.md:171:104",
    "text": "| Any error found (minor or major) | 129/160 (80.6%) |",
    "evidence": [
     {
@@ -1035,7 +1203,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:154:91",
+   "id": "EVALUATION.md:172:105",
    "text": "| Three judgments identical | 188/240 (78.3%) |",
    "evidence": [
     {
@@ -1045,7 +1213,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:156:92",
+   "id": "EVALUATION.md:174:106",
    "text": "The judge finds that something is wrong in four of five flawed translations, but cannot place the severity where the professional annotators did: it called 49 of the 80 clean translations minor and 39 of the 80 major ones minor.",
    "evidence": [
     {
@@ -1058,12 +1226,12 @@
     },
     {
      "source": "RESULTS.md",
-     "quote": "| Recall: none | 26/80 (32.5%; 23.2%–43.4%) |"
+     "quote": "| suggest | 100 | 80.0% | 100.0% | 100.0% | 100.0% |"
     }
    ]
   },
   {
-   "id": "EVALUATION.md:156:93",
+   "id": "EVALUATION.md:174:107",
    "text": "By domain the weighted kappa ranges from 0.145 (e-commerce) to 0.471 (social media).",
    "evidence": [
     {
@@ -1077,7 +1245,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:160:94",
+   "id": "EVALUATION.md:178:108",
    "text": "The preregistered thresholds (  of the plan): a dimension is judge-reliable if agreement is high (errors caught and right ones passed at least 0.85; weighted kappa or Spearman at least 0.6; regulator agreement at least 0.85) and the three judgments are identical on at least 90% of items.",
    "evidence": [
     {
@@ -1087,7 +1255,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:165:95",
+   "id": "EVALUATION.md:183:109",
    "text": "| judge-reliable | wrong decision, swapped clause, misread resume, the five suggestion faults, right candidates of all three constructed families; regulator decisions readable from the ad; Judge's Verdict items where annotators agree; SummEval consistency |",
    "evidence": [
     {
@@ -1097,7 +1265,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:166:96",
+   "id": "EVALUATION.md:184:110",
    "text": "| needs people | regulator decisions that turn on outside evidence; Judge's Verdict items where annotators split (weighted kappa 0.599); SummEval coherence, fluency and relevance; translation severity in all four MQM domains |",
    "evidence": [
     {
@@ -1111,17 +1279,17 @@
    ]
   },
   {
-   "id": "EVALUATION.md:172:97",
+   "id": "EVALUATION.md:190:111",
    "text": "On the 711 constructed test items.",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "| all | 711 | 699/711 (98.3%; 97.1%–99.0%) | 0.966 (0.945–0.983) | 0.967 | 385/390 (98.7%; 97.0%–99.5%) | 314/321 (97.8%; 95.6%–98.9%) | 696/711 (97.9%; 96.5%–98.7%) |  |"
+     "quote": "| all | 711 | 702/711 (98.7%; 97.6%–99.3%) | 0.974 (0.957–0.989) | 0.975 | 385/390 (98.7%; 97.0%–99.5%) | 317/321 (98.8%; 96.8%–99.5%) | 697/711 (98.0%; 96.7%–98.8%) |  |"
     }
    ]
   },
   {
-   "id": "EVALUATION.md:172:98",
+   "id": "EVALUATION.md:190:112",
    "text": " : as   with two judgments; unsure in either, or a split, goes to the queue.",
    "evidence": [
     {
@@ -1131,7 +1299,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:174:99",
+   "id": "EVALUATION.md:192:113",
    "text": "| Arm | Decided automatically | Errors missed | False alarms | Queue | Judge calls | USD per 1,000 items |",
    "evidence": [
     {
@@ -1141,85 +1309,81 @@
    ]
   },
   {
-   "id": "EVALUATION.md:176:100",
-   "text": "|   judge only | 711/711 (100.0%) | 7/390 (1.8%; 0.9%–3.7%) | 9/321 (2.8%) | 0 | 711 | 0.303 |",
+   "id": "EVALUATION.md:194:114",
+   "text": "|   judge only | 711/711 (100.0%) | 7/390 (1.8%; 0.9%–3.7%) | 6/321 (1.9%) | 0 | 711 | 0.304 |",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "| A | 711/711 (100.0%; 99.5%–100.0%) | 7/390 (1.8%; 0.9%–3.7%) | 9/321 (2.8%; 1.5%–5.2%) | 0/711 (0.0%; 0.0%–0.5%) | 711 | 0.303 |"
+     "quote": "| A | 711/711 (100.0%; 99.5%–100.0%) | 7/390 (1.8%; 0.9%–3.7%) | 6/321 (1.9%; 0.9%–4.0%) | 0/711 (0.0%; 0.0%–0.5%) | 711 | 0.304 |"
     }
    ]
   },
   {
-   "id": "EVALUATION.md:177:101",
-   "text": "|   rules, judge, queue | 662/711 (93.1%) | 2/390 (0.5%; 0.1%–1.9%) | 3/321 (0.9%) | 49/711 (6.9%) | 566 | 0.243 |",
+   "id": "EVALUATION.md:195:115",
+   "text": "|   rules, judge, queue | 662/711 (93.1%) | 2/390 (0.5%; 0.1%–1.9%) | 1/321 (0.3%) | 49/711 (6.9%) | 566 | 0.244 |",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "| B | 662/711 (93.1%; 91.0%–94.7%) | 2/390 (0.5%; 0.1%–1.9%) | 3/321 (0.9%; 0.3%–2.7%) | 49/711 (6.9%; 5.3%–9.0%) | 566 | 0.243 |"
+     "quote": "| B | 662/711 (93.1%; 91.0%–94.7%) | 2/390 (0.5%; 0.1%–1.9%) | 1/321 (0.3%; 0.1%–1.7%) | 49/711 (6.9%; 5.3%–9.0%) | 566 | 0.244 |"
     }
    ]
   },
   {
-   "id": "EVALUATION.md:178:102",
-   "text": "|   rules, two judgments, queue | 644/711 (90.6%) | 2/390 (0.5%) | 2/321 (0.6%) | 67/711 (9.4%) | 1,132 | 0.487 |",
+   "id": "EVALUATION.md:196:116",
+   "text": "|   rules, two judgments, queue | 645/711 (90.7%) | 2/390 (0.5%) | 1/321 (0.3%) | 66/711 (9.3%) | 1,132 | 0.489 |",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "| C | 644/711 (90.6%; 88.2%–92.5%) | 2/390 (0.5%; 0.1%–1.9%) | 2/321 (0.6%; 0.2%–2.2%) | 67/711 (9.4%; 7.5%–11.8%) | 1132 | 0.487 |"
+     "quote": "| C | 645/711 (90.7%; 88.4%–92.6%) | 2/390 (0.5%; 0.1%–1.9%) | 1/321 (0.3%; 0.1%–1.7%) | 66/711 (9.3%; 7.4%–11.6%) | 1132 | 0.489 |"
     }
    ]
   },
   {
-   "id": "EVALUATION.md:180:103",
-   "text": "  second judgment ( ) adds 18 queued items and doubles the calls for one false alarm fewer.",
+   "id": "EVALUATION.md:198:117",
+   "text": "  second judgment ( ) adds 17 queued items and doubles the calls without catching another error or avoiding another false alarm.",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "| claim | quote | 18 | 18/18 (100.0%; 82.4%–100.0%) | 18/18 (100.0%; 82.4%–100.0%) |"
+     "quote": "- Queue: C queued 17 more items than B; review items in B's queue: 46."
     }
    ]
   },
   {
-   "id": "EVALUATION.md:180:104",
-   "text": "The queue works because the judge's own flag is a good signal: first judgments marked sure were wrong on 5 of 662 items (0.8%), those marked unsure on 11 of 49 (22.4%).",
+   "id": "EVALUATION.md:198:118",
+   "text": "The queue works because the judge's own flag is a good signal: first judgments marked sure were wrong on 3 of 662 items (0.5%), those marked unsure on 10 of 49 (20.4%).",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "Error rate of first judgments marked sure: 5/662 (0.8%; 0.3%–1.8%); marked unsure: 11/49 (22.4%; 13.0%–35.9%)."
+     "quote": "Error rate of first judgments marked sure: 3/662 (0.5%; 0.2%–1.3%); marked unsure: 10/49 (20.4%; 11.5%–33.6%)."
     }
    ]
   },
   {
-   "id": "EVALUATION.md:180:105",
+   "id": "EVALUATION.md:198:119",
    "text": "Nearly all of B's queue is review items (46 of 49).",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "| suggest | correct | 50 | 47/50 (94.0%; 83.8%–97.9%) | 49/50 (98.0%; 89.5%–99.6%) |"
+     "quote": "| suggest | zh | 46 | 46/46 (100.0%; 92.3%–100.0%) | 100.0% | 100.0% |"
     },
     {
      "source": "RESULTS.md",
-     "quote": "| suggest | zh | 46 | 45/46 (97.8%; 88.7%–99.6%) | 95.7% | 100.0% |"
+     "quote": "Confusion (truth, judge; 0 none, 1 minor, 2 major): truth 0 judge 0: 26, truth 0 judge 1: 49, truth 0 judge 2: 5, truth 1 judge 0: 19, truth 1 judge 1: 50, truth 1 judge 2: 11, truth 2 judge 0: 12, truth 2 judge 1: 39, truth 2 judge 2: 29"
     }
    ]
   },
   {
-   "id": "EVALUATION.md:184:106",
+   "id": "EVALUATION.md:202:120",
    "text": "The adopted prompt was rerun once under each change on a fixed subsample of 368 test items (all claim and suggest test items, the review items of one ad in four).",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "| v4 | 0.955 | 92.9% / 96.6% | 100.0% / 100.0% | 83.3% / 100.0% | 0.316 |"
-    },
-    {
-     "source": "RESULTS.md",
-     "quote": "| repeat (noise floor) | 368 | 3/368 (0.8%; 0.3%–2.4%) |  |  |  |  |"
+     "quote": "| r2 | 368 | 4/368 (1.1%; 0.4%–2.8%) | 99.2% → 98.1% | 0.125 | 0.5% → 0.5% | 0.205 |"
     }
    ]
   },
   {
-   "id": "EVALUATION.md:184:107",
+   "id": "EVALUATION.md:202:121",
    "text": "The noise floor is how often the first two ordinary judgments differ.",
    "evidence": [
     {
@@ -1229,125 +1393,165 @@
    ]
   },
   {
-   "id": "EVALUATION.md:188:108",
-   "text": "| none (second judgment): noise floor | 3/368 (0.8%) | | | |",
+   "id": "EVALUATION.md:206:122",
+   "text": "| none (second judgment): noise floor | 2/368 (0.5%) | | | |",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "| repeat (noise floor) | 368 | 3/368 (0.8%; 0.3%–2.4%) |  |  |  |  |"
+     "quote": "| repeat (noise floor) | 368 | 2/368 (0.5%; 0.1%–2.0%) |  |  |  |  |"
     }
    ]
   },
   {
-   "id": "EVALUATION.md:189:109",
-   "text": "| rubric reworded, criteria in another order | 2/368 (0.5%) | 98.4% → 97.8% | 0.500 | 0.5% → 1.0% |",
+   "id": "EVALUATION.md:207:123",
+   "text": "| rubric reworded, criteria in another order | 5/368 (1.4%) | 99.2% → 97.8% | 0.062 | 0.5% → 1.0% |",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "| r1 | 368 | 2/368 (0.5%; 0.1%–2.0%) | 98.4% → 97.8% | 0.500 | 0.5% → 1.0% | 0.220 |"
+     "quote": "| r1 | 368 | 5/368 (1.4%; 0.6%–3.1%) | 99.2% → 97.8% | 0.062 | 0.5% → 1.0% | 0.223 |"
     }
    ]
   },
   {
-   "id": "EVALUATION.md:190:110",
-   "text": "| rubric terse | 7/368 (1.9%) | 98.4% → 96.5% | 0.016 | 0.5% → 1.0% |",
+   "id": "EVALUATION.md:208:124",
+   "text": "| rubric terse | 4/368 (1.1%) | 99.2% → 98.1% | 0.125 | 0.5% → 0.5% |",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "| r2 | 368 | 7/368 (1.9%; 0.9%–3.9%) | 98.4% → 96.5% | 0.016 | 0.5% → 1.0% | 0.201 |"
+     "quote": "| r2 | 368 | 4/368 (1.1%; 0.4%–2.8%) | 99.2% → 98.1% | 0.125 | 0.5% → 0.5% | 0.205 |"
     }
    ]
   },
   {
-   "id": "EVALUATION.md:191:111",
-   "text": "| answer options in the other order | 2/368 (0.5%) | 98.4% → 98.4% | 1.000 | 0.5% → 0.0% |",
+   "id": "EVALUATION.md:209:125",
+   "text": "| answer options in the other order | 2/368 (0.5%) | 99.2% → 99.2% | 1.000 | 0.5% → 0.0% |",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "| swap | 368 | 2/368 (0.5%; 0.1%–2.0%) | 98.4% → 98.4% | 1.000 | 0.5% → 0.0% | 0.219 |"
+     "quote": "| swap | 368 | 2/368 (0.5%; 0.1%–2.0%) | 99.2% → 99.2% | 1.000 | 0.5% → 0.0% | 0.220 |"
     }
    ]
   },
   {
-   "id": "EVALUATION.md:192:112",
-   "text": "| long content-free passage added to the candidate | 0/368 (0.0%) | 98.4% → 98.4% | 1.000 | 0.5% → 0.5% |",
+   "id": "EVALUATION.md:210:126",
+   "text": "| long content-free passage added to the candidate | 0/368 (0.0%) | 99.2% → 99.2% | 1.000 | 0.5% → 0.5% |",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "| swap | 368 | 2/368 (0.5%; 0.1%–2.0%) | 98.4% → 98.4% | 1.000 | 0.5% → 0.0% | 0.219 |"
+     "quote": "| swap | 368 | 2/368 (0.5%; 0.1%–2.0%) | 99.2% → 99.2% | 1.000 | 0.5% → 0.0% | 0.220 |"
     }
    ]
   },
   {
-   "id": "EVALUATION.md:193:113",
-   "text": "| one sentence of assurance added to the candidate | 0/368 (0.0%) | 98.4% → 98.4% | 1.000 | 0.5% → 0.5% |",
+   "id": "EVALUATION.md:211:127",
+   "text": "| one sentence of assurance added to the candidate | 2/368 (0.5%) | 99.2% → 98.6% | 0.500 | 0.5% → 0.5% |",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "| swap | 368 | 2/368 (0.5%; 0.1%–2.0%) | 98.4% → 98.4% | 1.000 | 0.5% → 0.0% | 0.219 |"
+     "quote": "| assertive | 368 | 2/368 (0.5%; 0.1%–2.0%) | 99.2% → 98.6% | 0.500 | 0.5% → 0.5% | 0.219 |"
     }
    ]
   },
   {
-   "id": "EVALUATION.md:194:114",
-   "text": "| effort low | 5/368 (1.4%) | 98.4% → 98.6% | 1.000 | 0.5% → 0.0% |",
+   "id": "EVALUATION.md:212:128",
+   "text": "| effort low | 4/368 (1.1%) | 99.2% → 99.2% | 1.000 | 0.5% → 0.0% |",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "| low | 368 | 5/368 (1.4%; 0.6%–3.1%) | 98.4% → 98.6% | 1.000 | 0.5% → 0.0% | 0.182 |"
+     "quote": "| low | 368 | 4/368 (1.1%; 0.4%–2.8%) | 99.2% → 99.2% | 1.000 | 0.5% → 0.0% | 0.185 |"
     }
    ]
   },
   {
-   "id": "EVALUATION.md:196:115",
-   "text": "Cutting it down to a terse list did change verdicts, all seven on listing suggestions (7 of 100).",
+   "id": "EVALUATION.md:214:129",
+   "text": "- Only the reworded rubric let one more wrong candidate through (an argued wrong-decision review; 0.5% → 1.0% of the wrong candidates); under every other change the same one wrong candidate or none passed.",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "| A | 711/711 (100.0%; 99.5%–100.0%) | 7/390 (1.8%; 0.9%–3.7%) | 9/321 (2.8%; 1.5%–5.2%) | 0/711 (0.0%; 0.0%–0.5%) | 711 | 0.303 |"
+     "quote": "### Judge's Verdict (0 / 0.5 / 1, three annotators)"
     }
    ]
   },
   {
-   "id": "EVALUATION.md:196:116",
-   "text": "Six were good suggestions now failed, all six with an empty rewrite field because they advise removing the claim or showing proof: the full rubric says a concrete removal or a thing to test is actionable, the terse \"Concrete enough for the seller to act on?\" does not say so.",
+   "id": "EVALUATION.md:214:130",
+   "text": "On the suggestion family the verdicts that moved were good suggestions near the line, failed under one change or another: seven items account for all the changes there (listed in the correction table of  ).",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "| suggest | absence_as_false | 6 | 6/6 (100.0%; 61.0%–100.0%) | 6/6 (100.0%; 61.0%–100.0%) |"
+     "quote": "| en | 30 | 26/30 (86.7%; 70.3%–94.7%) |  | 20/23 (87.0%; 67.9%–95.5%) | 6/7 (85.7%; 48.7%–97.4%) |"
     }
    ]
   },
   {
-   "id": "EVALUATION.md:198:117",
-   "text": "- Effort low cost 0.182 USD per 1,000 calls against 0.212 for the same items at medium, with no loss of accuracy here.",
+   "id": "EVALUATION.md:214:131",
+   "text": "Three of them changed only under the terse rubric, all three with an empty rewrite field because they advise removing the claim or showing proof: the full rubric says a concrete removal or a thing to test is actionable, the terse \"Concrete enough for the seller to act on?\" does not say so.",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "Base cost per call on this subsample: 0.212 USD per 1,000 calls."
+     "quote": "| v3 | 0.976 | 100.0% / 96.6% | 100.0% / 100.0% | 88.9% / 100.0% | 0.299 |"
+    }
+   ]
+  },
+  {
+   "id": "EVALUATION.md:215:132",
+   "text": "- Rewording the rubric (5 changes) and cutting it short (4) moved more verdicts than repeating the same prompt (2), on suggestions and, for the reworded rubric, on two reviews.",
+   "evidence": [
+    {
+     "source": "PREREGISTRATION.md",
+     "quote": "- 2026-11-18, after the dev stage: the adoption rule picked v2 (v2 over v1: score 0.976 against 0.860; v3 tied with v2 and was not adopted; v4 scored 0.955 and lowered the pass recall of review by 0.071). No v5 was written: v2 is within 0.03 of a perfect development score, so there was nothing a further version could gain that the rule would see. Nothing frozen was changed."
+    }
+   ]
+  },
+  {
+   "id": "EVALUATION.md:216:133",
+   "text": "- Length and confident tone did not move this judge: padding a candidate with a long account of how carefully it was prepared changed no verdict; one sentence of assurance (\"I have double-checked every point\") changed two, both good suggestions that also changed under another change, and neither in favour of the candidate.",
+   "evidence": [
+    {
+     "source": "RESULTS.md",
+     "quote": "Adopted judge prompt: v2. Intervals are 95% (Wilson for proportions, cluster bootstrap for kappas)."
+    }
+   ]
+  },
+  {
+   "id": "EVALUATION.md:217:134",
+   "text": "- Effort low cost 0.185 USD per 1,000 calls against 0.215 for the same items at medium, with no loss of accuracy here.",
+   "evidence": [
+    {
+     "source": "RESULTS.md",
+     "quote": "Base cost per call on this subsample: 0.215 USD per 1,000 calls."
     },
     {
      "source": "RESULTS.md",
-     "quote": "| low | 368 | 5/368 (1.4%; 0.6%–3.1%) | 98.4% → 98.6% | 1.000 | 0.5% → 0.0% | 0.182 |"
+     "quote": "| low | 368 | 4/368 (1.1%; 0.4%–2.8%) | 99.2% → 99.2% | 1.000 | 0.5% → 0.0% | 0.185 |"
     }
    ]
   },
   {
-   "id": "EVALUATION.md:202:118",
+   "id": "EVALUATION.md:218:135",
+   "text": "- As registered, without the listing in the suggestion items, the reworded rubric changed 2 verdicts, the terse rubric 7, the assurance none, against a noise floor of 3.",
+   "evidence": [
+    {
+     "source": "RESULTS.md",
+     "quote": "| assertive | 0/126 (0.0%; 0.0%–3.0%) | 0/142 (0.0%; 0.0%–2.6%) | 2/100 (2.0%; 0.6%–7.0%) |"
+    }
+   ]
+  },
+  {
+   "id": "EVALUATION.md:222:136",
    "text": "**Pairs.** For each test ad with a right and a wrong review, and for each suggestion pair, both were shown side by side in both orders (157 pairs, 314 requests).",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "| all | 711 | 699/711 (98.3%; 97.1%–99.0%) | 0.966 (0.945–0.983) | 0.967 | 385/390 (98.7%; 97.0%–99.5%) | 314/321 (97.8%; 95.6%–98.9%) | 696/711 (97.9%; 96.5%–98.7%) |  |"
+     "quote": "| all | 157 | 152/157 (96.8%; 92.8%–98.6%) | 153/157 (97.5%; 93.6%–99.0%) | 154/157 (98.1%; 94.5%–99.3%) |"
     },
     {
      "source": "RESULTS.md",
-     "quote": "| all | 157 | 152/157 (96.8%; 92.8%–98.6%) | 153/157 (97.5%; 93.6%–99.0%) | 154/157 (98.1%; 94.5%–99.3%) |"
+     "quote": "| all constructed: right ones passed | 314/321 (97.8%; 95.6%–98.9%) | 317/321 (98.8%; 96.8%–99.5%) |"
     }
    ]
   },
   {
-   "id": "EVALUATION.md:202:119",
+   "id": "EVALUATION.md:222:137",
    "text": "The judge picked the right one 152 times when it was shown first and 153 times when shown second (McNemar p = 1.000), and the same candidate in both orders in 154 of 157 pairs (98.1%).",
    "evidence": [
     {
@@ -1361,7 +1565,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:202:120",
+   "id": "EVALUATION.md:222:138",
    "text": "Of the three inconsistent pairs, one went to   both times and two to  , so there is no sign of a position bias.",
    "evidence": [
     {
@@ -1371,12 +1575,12 @@
    ]
   },
   {
-   "id": "EVALUATION.md:202:121",
-   "text": "Side by side, the judge was right on more pairs (about 97%) than when it judged the two candidates one at a time (both right on 144 of 157, 91.7%).",
+   "id": "EVALUATION.md:222:139",
+   "text": "Side by side, the judge was right on more pairs (about 97%) than when it judged the two candidates one at a time (both right on 147 of 157, 93.6%).",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "Inconsistent pairs: picked A both times 1, picked B both times 2. McNemar (first vs second) p = 1.000. Both items judged right one at a time: 144/157 (91.7%; 86.3%–95.1%)."
+     "quote": "Inconsistent pairs: picked A both times 1, picked B both times 2. McNemar (first vs second) p = 1.000. Both items judged right one at a time: 147/157 (93.6%; 88.7%–96.5%)."
     },
     {
      "source": "RESULTS.md",
@@ -1385,7 +1589,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:204:122",
+   "id": "EVALUATION.md:224:140",
    "text": "**Lists.** All test verdicts about one resume went into one request, in a fixed order and reversed (16 resumes, 142 verdicts).",
    "evidence": [
     {
@@ -1395,7 +1599,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:204:123",
+   "id": "EVALUATION.md:224:141",
    "text": "139 of the 142 verdicts were the same in both orders; accuracy was 140 of 142 in lists against 142 of 142 one at a time.",
    "evidence": [
     {
@@ -1405,7 +1609,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:208:124",
+   "id": "EVALUATION.md:228:142",
    "text": "Each test ad gave two annotation records: its answer key, and a copy with one planted error (approve and reject swapped; another category and clause; a span that exists in the ad but is not what breaks it; a span altered so it is no longer verbatim; a clause id not in the library).",
    "evidence": [
     {
@@ -1415,7 +1619,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:208:125",
+   "id": "EVALUATION.md:228:143",
    "text": "The agent saw one record, the ad and an index of the clause library, and had two tools:   (is this span verbatim in the ad?) and   (the text of a clause).",
    "evidence": [
     {
@@ -1425,7 +1629,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:212:126",
+   "id": "EVALUATION.md:232:144",
    "text": "| script only | 18/119 (15.1%) | 0/120 (0.0%) | 0/65 | 0/22 | 0/14 | 10/10 | 8/8 |",
    "evidence": [
     {
@@ -1435,7 +1639,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:213:127",
+   "id": "EVALUATION.md:233:145",
    "text": "| agent only | 119/119 (100.0%; 96.9%–100.0%) | 6/120 (5.0%; 2.3%–10.5%) | 65/65 | 22/22 | 14/14 | 10/10 | 8/8 |",
    "evidence": [
     {
@@ -1445,7 +1649,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:214:128",
+   "id": "EVALUATION.md:234:146",
    "text": "| script, then agent | 119/119 (100.0%) | 6/120 (5.0%) | 65/65 | 22/22 | 14/14 | 10/10 | 8/8 |",
    "evidence": [
     {
@@ -1455,7 +1659,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:216:129",
+   "id": "EVALUATION.md:236:147",
    "text": "The agent made 2.88 tool calls per record (every record had at least one) and named the right problem for 114 of the 119 errors it caught.",
    "evidence": [
     {
@@ -1465,7 +1669,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:216:130",
+   "id": "EVALUATION.md:236:148",
    "text": "It cost 0.52 USD per 1,000 records alone and 0.48 after the script, which settles the records it can.",
    "evidence": [
     {
@@ -1475,17 +1679,17 @@
    ]
   },
   {
-   "id": "EVALUATION.md:216:131",
+   "id": "EVALUATION.md:236:149",
    "text": "Of the six correct records it flagged, three were for describing a picture-only violation instead of quoting words, which the record format allows, and three for a violation the record does not list.",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "| 6 | three judgments identical less often on human-rated families | held |"
+     "quote": "| suggest items whose verdict changed under any change (item: changes) |  | sug-v1-P02-c1-good: r2; sug-v1-P05-c1-good: r2; sug-v1-P06-c3-good: assertive, r1; sug-v1-P12-c3-good: r1; sug-voice-V05-c1-good: r1; sug-zh-Z05-c1-good: r2; sug-zh-Z07-c2-good: assertive, low, r2 |"
     }
    ]
   },
   {
-   "id": "EVALUATION.md:218:132",
+   "id": "EVALUATION.md:238:150",
    "text": "**Acceptance standard** for a delivered batch of 100 records, fixed in advance:   at most 2% fail the script checks;   at most 10% of the rest are flagged by the agent;   of 20 unflagged records drawn at random, at most one is wrong on review.",
    "evidence": [
     {
@@ -1499,7 +1703,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:218:133",
+   "id": "EVALUATION.md:238:151",
    "text": "Simulated with 2,000 batches per error rate from the agent's stored verdicts (in   the answer key stands in for the reviewer):",
    "evidence": [
     {
@@ -1509,7 +1713,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:220:134",
+   "id": "EVALUATION.md:240:152",
    "text": "| True error rate | 0% | 1% | 2% | 5% | 10% | 20% |",
    "evidence": [
     {
@@ -1519,7 +1723,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:222:135",
+   "id": "EVALUATION.md:242:153",
    "text": "| Batches accepted | 99.1% | 96.2% | 91.5% | 62.0% | 13.6% | 0.1% |",
    "evidence": [
     {
@@ -1528,11 +1732,11 @@
     },
     {
      "source": "RESULTS.md",
-     "quote": "| suggest | 100 | 97/100 (97.0%; 91.5%–99.0%) | 0.940 (0.870–1.000) | 0.940 | 50/50 (100.0%; 92.9%–100.0%) | 47/50 (94.0%; 83.8%–97.9%) | 99/100 (99.0%; 94.6%–99.8%) | 0.987 |"
+     "quote": "| review | zh | 245 | 243/245 (99.2%; 97.1%–99.8%) | 99.1% | 99.3% |"
     },
     {
      "source": "RESULTS.md",
-     "quote": "| review | zh | 245 | 243/245 (99.2%; 97.1%–99.8%) | 99.1% | 99.3% |"
+     "quote": "| 2% | 91.5% | 0.2% | 8.2% | 0.0% |"
     },
     {
      "source": "RESULTS.md",
@@ -1545,7 +1749,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:224:136",
+   "id": "EVALUATION.md:244:154",
    "text": "The first target (accept at least 90% of batches at 2% errors or fewer) was met; the second (accept at most 10% at 10% errors or more) was not: 13.6% of batches with 10% errors passed.",
    "evidence": [
     {
@@ -1559,7 +1763,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:224:137",
+   "id": "EVALUATION.md:244:155",
    "text": "Post hoc, and not a result: on these records no single flag-rate threshold between 6% and 10% meets both targets, because the agent's false flags (5% of correct records) blur the flag rate.",
    "evidence": [
     {
@@ -1569,7 +1773,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:224:138",
+   "id": "EVALUATION.md:244:156",
    "text": "  version of   that counts only flags confirmed on review would separate the two cases; it was not tested.",
    "evidence": [
     {
@@ -1579,7 +1783,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:228:139",
+   "id": "EVALUATION.md:248:157",
    "text": "The plan allowed one comparison if the total spent was still at most 3.6 USD (it was 2.21).   judged 120 test items once (40 each of claim, suggest and mqm, chosen by hash), with the same prompts and effort; five live calls estimated the cost first.",
    "evidence": [
     {
@@ -1588,12 +1792,12 @@
     },
     {
      "source": "RESULTS.md",
-     "quote": "- Total calls: 10,033; spent before the second judge: 2.21 USD; second judge with its estimate: 125 calls, 0.1931 USD."
+     "quote": "- Total calls: 11,317; spent before the second judge: 2.21 USD; second judge with its estimate: 125 calls, 0.1931 USD; correction 1 runs: 1284 calls, 0.2106 USD."
     }
    ]
   },
   {
-   "id": "EVALUATION.md:232:140",
+   "id": "EVALUATION.md:252:158",
    "text": "| claim | 40 | 40/40 (100.0%) | 40/40 (100.0%) | 40/40 | 1.000 |",
    "evidence": [
     {
@@ -1603,17 +1807,17 @@
    ]
   },
   {
-   "id": "EVALUATION.md:233:141",
-   "text": "| suggest | 40 | 40/40 (100.0%) | 39/40 (97.5%) | 39/40 | 1.000 |",
+   "id": "EVALUATION.md:253:159",
+   "text": "| suggest | 40 | 40/40 (100.0%) | 40/40 (100.0%) | 40/40 | 1.000 |",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "| suggest | 40 | 40/40 (100.0%; 91.2%–100.0%) | 39/40 (97.5%; 87.1%–99.6%) | 39/40 (97.5%; 87.1%–99.6%) | 1.000 |"
+     "quote": "| claim | 40 | 40/40 (100.0%; 91.2%–100.0%) | 40/40 (100.0%; 91.2%–100.0%) | 40/40 (100.0%; 91.2%–100.0%) | 1.000 |"
     }
    ]
   },
   {
-   "id": "EVALUATION.md:234:142",
+   "id": "EVALUATION.md:254:160",
    "text": "| mqm | 40 | 18/40 (45.0%; 30.7%–60.2%) | 21/40 (52.5%; 37.5%–67.1%) | 29/40 | 0.508 |",
    "evidence": [
     {
@@ -1623,22 +1827,22 @@
    ]
   },
   {
-   "id": "EVALUATION.md:236:143",
-   "text": "On the same items   cost 1.483 USD per 1,000 calls against 0.114 for  , 13 times as much.",
+   "id": "EVALUATION.md:256:161",
+   "text": "On the same items   cost 1.516 USD per 1,000 calls against 0.116 for  , 13 times as much.",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "- Second judge on its 120 items: 1.483 USD per 1,000 calls against 0.114 for claude-haiku-5-5 on the same items, 13 times as much; clean translations called flawed: 8 of 9."
+     "quote": "- Second judge on its 120 items: 1.516 USD per 1,000 calls against 0.116 for claude-haiku-5-5 on the same items, 13 times as much; clean translations called flawed: 8 of 9."
     }
    ]
   },
   {
-   "id": "EVALUATION.md:236:144",
+   "id": "EVALUATION.md:256:162",
    "text": "On translation severity it was right three more times out of 40, not a significant difference, and it too called most clean translations flawed (8 of 9 here).",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "| B | 662/711 (93.1%; 91.0%–94.7%) | 2/390 (0.5%; 0.1%–1.9%) | 3/321 (0.9%; 0.3%–2.7%) | 49/711 (6.9%; 5.3%–9.0%) | 566 | 0.243 |"
+     "quote": "| disagreements (material gap / answer key / judge) | 12 (3 / 2 / 7) | 9 (0 / 2 / 7) |"
     },
     {
      "source": "RESULTS.md",
@@ -1651,7 +1855,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:242:145",
+   "id": "EVALUATION.md:262:163",
    "text": "| 1 | The judge alone catches less than 95% of rule-checkable errors | not held: it caught 145 of 145 |",
    "evidence": [
     {
@@ -1665,8 +1869,8 @@
    ]
   },
   {
-   "id": "EVALUATION.md:243:146",
-   "text": "| 2 | Agreement with regulators is lower than with constructed answers | held: 84.8% against 98.3% |",
+   "id": "EVALUATION.md:263:164",
+   "text": "| 2 | Agreement with regulators is lower than with constructed answers | held: 84.8% against 98.7% |",
    "evidence": [
     {
      "source": "RESULTS.md",
@@ -1674,7 +1878,7 @@
     },
     {
      "source": "RESULTS.md",
-     "quote": "| all | 711 | 699/711 (98.3%; 97.1%–99.0%) | 0.966 (0.945–0.983) | 0.967 | 385/390 (98.7%; 97.0%–99.5%) | 314/321 (97.8%; 95.6%–98.9%) | 696/711 (97.9%; 96.5%–98.7%) |  |"
+     "quote": "| all | 711 | 702/711 (98.7%; 97.6%–99.3%) | 0.974 (0.957–0.989) | 0.975 | 385/390 (98.7%; 97.0%–99.5%) | 317/321 (98.8%; 96.8%–99.5%) | 697/711 (98.0%; 96.7%–98.8%) |  |"
     },
     {
      "source": "RESULTS.md",
@@ -1683,7 +1887,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:244:147",
+   "id": "EVALUATION.md:264:165",
    "text": "| 3 | Lower on evidence-dependent regulator decisions | held: 54.5% against 94.3% |",
    "evidence": [
     {
@@ -1701,7 +1905,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:245:148",
+   "id": "EVALUATION.md:265:166",
    "text": "| 4 | On Judge's Verdict, the judge's agreement with each annotator lies within the annotators' range | held: 67.3% within 62.5% to 67.5% |",
    "evidence": [
     {
@@ -1719,7 +1923,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:246:149",
+   "id": "EVALUATION.md:266:167",
    "text": "| 5 | On SummEval, below the expert ceiling on all four dimensions | not held: on consistency 0.682 against 0.633 |",
    "evidence": [
     {
@@ -1733,32 +1937,36 @@
    ]
   },
   {
-   "id": "EVALUATION.md:247:150",
+   "id": "EVALUATION.md:267:168",
    "text": "| 6 | Three identical judgments less often on the human-rated families | held |",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "| 6 | three judgments identical less often on human-rated families | held |"
+     "quote": "| suggest items whose verdict changed under any change (item: changes) |  | sug-v1-P02-c1-good: r2; sug-v1-P05-c1-good: r2; sug-v1-P06-c3-good: assertive, r1; sug-v1-P12-c3-good: r1; sug-voice-V05-c1-good: r1; sug-zh-Z05-c1-good: r2; sug-zh-Z07-c2-good: assertive, low, r2 |"
     }
    ]
   },
   {
-   "id": "EVALUATION.md:248:151",
-   "text": "| 7 |   sentence of assurance raises the pass rate of wrong candidates by at least 2 points | not held: no verdict changed |",
+   "id": "EVALUATION.md:268:169",
+   "text": "| 7 |   sentence of assurance raises the pass rate of wrong candidates by at least 2 points | not held: 0.5% before and after |",
    "evidence": [
     {
      "source": "RESULTS.md",
      "quote": "| evidence_dependent | 11 | 6/11 (54.5%; 28.0%–78.7%) |  | 4/7 (57.1%; 25.0%–84.2%) | 2/4 (50.0%; 15.0%–85.0%) |"
+    },
+    {
+     "source": "RESULTS.md",
+     "quote": "### Judge's Verdict (0 / 0.5 / 1, three annotators)"
     }
    ]
   },
   {
-   "id": "EVALUATION.md:249:152",
-   "text": "| 8 | Rewording the rubric changes more verdicts than repeating it | not held: 0.5% and 1.9% against 0.8% (the terse rubric changed more, the reworded one fewer) |",
+   "id": "EVALUATION.md:269:170",
+   "text": "| 8 | Rewording the rubric changes more verdicts than repeating it | held: 1.4% and 1.1% against 0.5% (as registered: not held, 0.5% and 1.9% against 0.8%) |",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "| B | 662/711 (93.1%; 91.0%–94.7%) | 2/390 (0.5%; 0.1%–1.9%) | 3/321 (0.9%; 0.3%–2.7%) | 49/711 (6.9%; 5.3%–9.0%) | 566 | 0.243 |"
+     "quote": "| A | 711/711 (100.0%; 99.5%–100.0%) | 7/390 (1.8%; 0.9%–3.7%) | 6/321 (1.9%; 0.9%–4.0%) | 0/711 (0.0%; 0.0%–0.5%) | 711 | 0.304 |"
     },
     {
      "source": "RESULTS.md",
@@ -1766,12 +1974,20 @@
     },
     {
      "source": "RESULTS.md",
-     "quote": "Error rate of first judgments marked sure: 5/662 (0.8%; 0.3%–1.8%); marked unsure: 11/49 (22.4%; 13.0%–35.9%)."
+     "quote": "| r1 | 368 | 5/368 (1.4%; 0.6%–3.1%) | 99.2% → 97.8% | 0.062 | 0.5% → 1.0% | 0.223 |"
+    },
+    {
+     "source": "RESULTS.md",
+     "quote": "| r2 | 368 | 4/368 (1.1%; 0.4%–2.8%) | 99.2% → 98.1% | 0.125 | 0.5% → 0.5% | 0.205 |"
+    },
+    {
+     "source": "RESULTS.md",
+     "quote": "| low | 3/126 (2.4%; 0.8%–6.8%) | 0/142 (0.0%; 0.0%–2.6%) | 1/100 (1.0%; 0.2%–5.4%) |"
     }
    ]
   },
   {
-   "id": "EVALUATION.md:250:153",
+   "id": "EVALUATION.md:270:171",
    "text": "| 9 | Same pick in both orders in at least 90% of pairs | held: 98.1% |",
    "evidence": [
     {
@@ -1785,7 +2001,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:251:154",
+   "id": "EVALUATION.md:271:172",
    "text": "| 10 | Rules, judge and queue miss fewer errors than the judge alone, with a queue of at most 20% | held: 2 against 7, queue 6.9% |",
    "evidence": [
     {
@@ -1798,12 +2014,12 @@
     },
     {
      "source": "RESULTS.md",
-     "quote": "| B | 662/711 (93.1%; 91.0%–94.7%) | 2/390 (0.5%; 0.1%–1.9%) | 3/321 (0.9%; 0.3%–2.7%) | 49/711 (6.9%; 5.3%–9.0%) | 566 | 0.243 |"
+     "quote": "| B | 662/711 (93.1%; 91.0%–94.7%) | 2/390 (0.5%; 0.1%–1.9%) | 1/321 (0.3%; 0.1%–1.7%) | 49/711 (6.9%; 5.3%–9.0%) | 566 | 0.244 |"
     }
    ]
   },
   {
-   "id": "EVALUATION.md:252:155",
+   "id": "EVALUATION.md:272:173",
    "text": "| 11 | Script then agent catches at least 90% of wrong records and flags at most 10% of correct ones | held: 100.0% and 5.0% |",
    "evidence": [
     {
@@ -1817,7 +2033,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:253:156",
+   "id": "EVALUATION.md:273:174",
    "text": "| 12 | The acceptance standard meets both targets | not held: 13.6% accepted at 10% errors |",
    "evidence": [
     {
@@ -1831,21 +2047,21 @@
    ]
   },
   {
-   "id": "EVALUATION.md:257:157",
+   "id": "EVALUATION.md:277:175",
    "text": "All calls at batch price, except the 40 pilot calls, the 13 mechanics-check calls, the 5 cost-estimate calls and the last 13 agent turns, which went out as ordinary calls.",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "Error rate of first judgments marked sure: 5/662 (0.8%; 0.3%–1.8%); marked unsure: 11/49 (22.4%; 13.0%–35.9%)."
+     "quote": "| second judge, suggest: claude-haiku-5-5 / claude-sonnet-5-5 right | 40/40 (100.0%; 91.2%–100.0%) / 39/40 (97.5%; 87.1%–99.6%) | 40/40 (100.0%; 91.2%–100.0%) / 40/40 (100.0%; 91.2%–100.0%) |"
     },
     {
      "source": "RESULTS.md",
-     "quote": "| review | format | 40 | 40/40 (100.0%; 91.2%–100.0%) | 40/40 (100.0%; 91.2%–100.0%) |"
+     "quote": "| zh | 16 | 13/16 (81.2%; 57.0%–93.4%) |  | 11/12 (91.7%; 64.6%–98.5%) | 2/4 (50.0%; 15.0%–85.0%) |"
     }
    ]
   },
   {
-   "id": "EVALUATION.md:261:158",
+   "id": "EVALUATION.md:281:176",
    "text": "| pilot (request check, not scored) | 40 | 0.0153 |",
    "evidence": [
     {
@@ -1855,7 +2071,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:262:159",
+   "id": "EVALUATION.md:282:177",
    "text": "| quality-check agent, mechanics check (not scored) | 13 | 0.0049 |",
    "evidence": [
     {
@@ -1865,7 +2081,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:263:160",
+   "id": "EVALUATION.md:283:178",
    "text": "| argued wrong-decision reviews, written once | 288 | 0.1546 |",
    "evidence": [
     {
@@ -1875,7 +2091,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:264:161",
+   "id": "EVALUATION.md:284:179",
    "text": "| dev: four prompt versions | 780 | 0.2140 |",
    "evidence": [
     {
@@ -1889,7 +2105,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:265:162",
+   "id": "EVALUATION.md:285:180",
    "text": "| main: three judgments per test item,   once | 5,742 | 1.1257 |",
    "evidence": [
     {
@@ -1903,7 +2119,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:266:163",
+   "id": "EVALUATION.md:286:181",
    "text": "| perturb: six changes on 368 items | 2,208 | 0.4613 |",
    "evidence": [
     {
@@ -1916,12 +2132,12 @@
     },
     {
      "source": "RESULTS.md",
-     "quote": "| repeat (noise floor) | 368 | 3/368 (0.8%; 0.3%–2.4%) |  |  |  |  |"
+     "quote": "| repeat (noise floor) | 368 | 2/368 (0.5%; 0.1%–2.0%) |  |  |  |  |"
     }
    ]
   },
   {
-   "id": "EVALUATION.md:267:164",
+   "id": "EVALUATION.md:287:182",
    "text": "| pair | 314 | 0.0939 |",
    "evidence": [
     {
@@ -1931,7 +2147,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:268:165",
+   "id": "EVALUATION.md:288:183",
    "text": "| list | 32 | 0.0156 |",
    "evidence": [
     {
@@ -1941,7 +2157,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:269:166",
+   "id": "EVALUATION.md:289:184",
    "text": "| quality-check agent (239 records, 491 turns) | 491 | 0.1242 |",
    "evidence": [
     {
@@ -1955,7 +2171,7 @@
    ]
   },
   {
-   "id": "EVALUATION.md:270:167",
+   "id": "EVALUATION.md:290:185",
    "text": "| second judge: estimate and run | 125 | 0.  |",
    "evidence": [
     {
@@ -1964,36 +2180,46 @@
     },
     {
      "source": "RESULTS.md",
-     "quote": "- Total calls: 10,033; spent before the second judge: 2.21 USD; second judge with its estimate: 125 calls, 0.1931 USD."
+     "quote": "- Total calls: 11,317; spent before the second judge: 2.21 USD; second judge with its estimate: 125 calls, 0.1931 USD; correction 1 runs: 1284 calls, 0.2106 USD."
     }
    ]
   },
   {
-   "id": "EVALUATION.md:271:168",
-   "text": "| total | 10,033 | 2.4026 |",
+   "id": "EVALUATION.md:291:186",
+   "text": "| correction 1: the suggestion family again in every stage | 1,284 | 0.2106 |",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "Total: 2.4026 USD."
+     "quote": "| correction 1 runs: calls, USD |  | 1284, 0.2106 |"
+    }
+   ]
+  },
+  {
+   "id": "EVALUATION.md:292:187",
+   "text": "| total | 11,317 | 2.6132 |",
+   "evidence": [
+    {
+     "source": "RESULTS.md",
+     "quote": "Total: 2.6132 USD."
     },
     {
      "source": "RESULTS.md",
-     "quote": "- Total calls: 10,033; spent before the second judge: 2.21 USD; second judge with its estimate: 125 calls, 0.1931 USD."
+     "quote": "- Total calls: 11,317; spent before the second judge: 2.21 USD; second judge with its estimate: 125 calls, 0.1931 USD; correction 1 runs: 1284 calls, 0.2106 USD."
     }
    ]
   },
   {
-   "id": "EVALUATION.md:273:169",
-   "text": "The judge's own price, per 1,000 judgments at batch price: 0.400 USD for an ad review (the clause library is in every request), 0.121 for a resume verdict, 0.109 for a listing suggestion.",
+   "id": "EVALUATION.md:294:188",
+   "text": "The judge's own price, per 1,000 judgments at batch price: 0.400 USD for an ad review (the clause library is in every request), 0.121 for a resume verdict, 0.116 for a listing suggestion (with the listing).",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "- Judge price per 1,000 judgments (batch): review 0.400 USD, claim 0.121 USD, suggest 0.109 USD."
+     "quote": "- Judge price per 1,000 judgments (batch): review 0.400 USD, claim 0.121 USD, suggest 0.116 USD."
     }
    ]
   },
   {
-   "id": "EVALUATION.md:277:170",
+   "id": "EVALUATION.md:298:189",
    "text": "- **One judge model, one sitting.** Other models, other days and other effort levels may differ;   compares one more model on 120 items.",
    "evidence": [
     {
@@ -2003,17 +2229,17 @@
    ]
   },
   {
-   "id": "EVALUATION.md:278:171",
-   "text": "- **The constructed items are as good as the rules that made them.**   shows five places where the answer key is the weaker side.",
+   "id": "EVALUATION.md:299:190",
+   "text": "- **The constructed items are as good as the rules and the material that made them.**   shows two places where the answer key is the weaker side, and   a family whose items gave the judge less material than the source's grader had, found after the run and corrected.",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "### SummEval (1–5, three experts)"
+     "quote": "Adopted judge prompt: v2. Intervals are 95% (Wilson for proportions, cluster bootstrap for kappas)."
     }
    ]
   },
   {
-   "id": "EVALUATION.md:280:172",
+   "id": "EVALUATION.md:301:191",
    "text": "- **Small groups.** 46 regulator ads, 11 of them evidence-dependent; 4 to 22 items in some error types.",
    "evidence": [
     {
@@ -2031,17 +2257,17 @@
    ]
   },
   {
-   "id": "EVALUATION.md:281:173",
-   "text": "- **Near the ceiling on two families.** The judge got every resume verdict right; those items can no longer separate prompts or models.",
+   "id": "EVALUATION.md:302:192",
+   "text": "- **At the ceiling on two families.** The judge got every resume verdict and, after correction 1, every listing suggestion right; those items can no longer separate prompts or models.",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "Adopted judge prompt: v2. Intervals are 95% (Wilson for proportions, cluster bootstrap for kappas)."
+     "quote": "Adoption steps: v2 vs v1: adopted; v3 vs v2: not adopted (score_up_0.02); v4 vs v2: not adopted (score_up_0.02, no_pass_recall_drop_0.05)"
     }
    ]
   },
   {
-   "id": "README.md:3:174",
+   "id": "README.md:3:193",
    "text": "This project measures one judge (  grading answers against a written rubric) against three kinds of reference kept apart: answers fixed when the test item was written, decisions published by regulators and courts, and human ratings that ship with public datasets.",
    "evidence": [
     {
@@ -2051,17 +2277,17 @@
    ]
   },
   {
-   "id": "README.md:11:175",
+   "id": "README.md:11:194",
    "text": "Its test ads, answer keys and stored reviews are the largest family here, including the image ads, and its 46 regulator and court cases are the regulator reference.",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "| suggest | zh | 46 | 45/46 (97.8%; 88.7%–99.6%) | 95.7% | 100.0% |"
+     "quote": "| suggest | zh | 46 | 46/46 (100.0%; 92.3%–100.0%) | 100.0% | 100.0% |"
     }
    ]
   },
   {
-   "id": "README.md:12:176",
+   "id": "README.md:12:195",
    "text": "Its \"requirement met\" verdicts and its 40 planted misreadings are the claim family.",
    "evidence": [
     {
@@ -2071,25 +2297,21 @@
    ]
   },
   {
-   "id": "README.md:22:177",
-   "text": "| Does the judge agree with answers fixed when the items were written? | Yes, on these items: 699 of 711 verdicts (98.3%, Cohen's kappa 0.966) on ad reviews, resume verdicts and listing suggestions, 385 of 390 planted errors caught, and the same verdict three times out of three on 696 of 711. 5 of the 12 disagreements trace to the answer key, not the judge. |",
+   "id": "README.md:22:196",
+   "text": "| Does the judge agree with answers fixed when the items were written? | Yes, on these items: 702 of 711 verdicts (98.7%, Cohen's kappa 0.974) on ad reviews, resume verdicts and listing suggestions, 385 of 390 planted errors caught, and the same verdict three times out of three on 697 of 711. 2 of the 9 disagreements trace to the answer key, not the judge. As first run there were 12: three more came from listing-suggestion items that left out the product listing, an error in this study's items, corrected and rerun (report,  ). |",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "| all | 711 | 699/711 (98.3%; 97.1%–99.0%) | 0.966 (0.945–0.983) | 0.967 | 385/390 (98.7%; 97.0%–99.5%) | 314/321 (97.8%; 95.6%–98.9%) | 696/711 (97.9%; 96.5%–98.7%) |  |"
+     "quote": "| all | 711 | 702/711 (98.7%; 97.6%–99.3%) | 0.974 (0.957–0.989) | 0.975 | 385/390 (98.7%; 97.0%–99.5%) | 317/321 (98.8%; 96.8%–99.5%) | 697/711 (98.0%; 96.7%–98.8%) |  |"
     },
     {
      "source": "RESULTS.md",
-     "quote": "### SummEval (1–5, three experts)"
-    },
-    {
-     "source": "RESULTS.md",
-     "quote": "| zh | 16 | 13/16 (81.2%; 57.0%–93.4%) |  | 11/12 (91.7%; 64.6%–98.5%) | 2/4 (50.0%; 15.0%–85.0%) |"
+     "quote": "| disagreements (material gap / answer key / judge) | 12 (3 / 2 / 7) | 9 (0 / 2 / 7) |"
     }
    ]
   },
   {
-   "id": "README.md:23:178",
+   "id": "README.md:23:197",
    "text": "| With regulators and courts? | Less: 39 of 46 published decisions (84.8%). 33 of 35 where the decision can be read off the ad, 6 of 11 where it turned on evidence the ad does not show. |",
    "evidence": [
     {
@@ -2103,7 +2325,7 @@
    ]
   },
   {
-   "id": "README.md:24:179",
+   "id": "README.md:24:198",
    "text": "| With human ratings that ship with public datasets? | Close on a coarse scale: on Judge's Verdict it agrees with each annotator 67.3% of the time, inside the annotators' own range of 62.5% to 67.5%. Moderate on summary quality: SummEval Spearman 0.408 (fluency) to 0.682 (consistency). Weak on translation severity: WMT MQM weighted kappa 0.290. |",
    "evidence": [
     {
@@ -2129,12 +2351,12 @@
    ]
   },
   {
-   "id": "README.md:25:180",
+   "id": "README.md:25:199",
    "text": "| What should a script check, and what a judge? |   script: quotes that are not verbatim, figures not in the quote, unknown clause ids, malformed records. The judge caught all 145 of these too, but the script costs nothing.   judge: clear-cut objective errors (wrong decision, wrong clause, misread resume, invented property), at least 96.3% caught on every such type. People: ratings where annotators disagree, and decisions that turn on outside evidence. |",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "| review | decision | 107 | 103/107 (96.3%; 90.8%–98.5%) | 102/107 (95.3%; 89.5%–98.0%) |"
+     "quote": "| suggest | 100 | 100/100 (100.0%; 96.3%–100.0%) | 1.000 (1.000–1.000) | 1.000 | 50/50 (100.0%; 92.9%–100.0%) | 50/50 (100.0%; 92.9%–100.0%) | 100/100 (100.0%; 96.3%–100.0%) | 1.000 |"
     },
     {
      "source": "RESULTS.md",
@@ -2143,34 +2365,34 @@
    ]
   },
   {
-   "id": "README.md:26:181",
-   "text": "| Rules, then a judge, then a queue? | Rules first, one judgment, and the judgments marked unsure to a review queue missed 2 of 390 errors with 6.9% of items queued, against 7 of 390 for the judge alone, and cost less (0.243 against 0.303 USD per 1,000 items). The judge's unsure flag is a real signal: 0.8% of its sure judgments were wrong, 22.4% of its unsure ones. |",
+   "id": "README.md:26:200",
+   "text": "| Rules, then a judge, then a queue? | Rules first, one judgment, and the judgments marked unsure to a review queue missed 2 of 390 errors with 6.9% of items queued, against 7 of 390 for the judge alone, and cost less (0.244 against 0.304 USD per 1,000 items). The judge's unsure flag is a real signal: 0.5% of its sure judgments were wrong, 20.4% of its unsure ones. |",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "| B | 662/711 (93.1%; 91.0%–94.7%) | 2/390 (0.5%; 0.1%–1.9%) | 3/321 (0.9%; 0.3%–2.7%) | 49/711 (6.9%; 5.3%–9.0%) | 566 | 0.243 |"
+     "quote": "| B | 662/711 (93.1%; 91.0%–94.7%) | 2/390 (0.5%; 0.1%–1.9%) | 1/321 (0.3%; 0.1%–1.7%) | 49/711 (6.9%; 5.3%–9.0%) | 566 | 0.244 |"
     },
     {
      "source": "RESULTS.md",
-     "quote": "| A | 711/711 (100.0%; 99.5%–100.0%) | 7/390 (1.8%; 0.9%–3.7%) | 9/321 (2.8%; 1.5%–5.2%) | 0/711 (0.0%; 0.0%–0.5%) | 711 | 0.303 |"
-    },
-    {
-     "source": "RESULTS.md",
-     "quote": "Error rate of first judgments marked sure: 5/662 (0.8%; 0.3%–1.8%); marked unsure: 11/49 (22.4%; 13.0%–35.9%)."
+     "quote": "| A | 711/711 (100.0%; 99.5%–100.0%) | 7/390 (1.8%; 0.9%–3.7%) | 6/321 (1.9%; 0.9%–4.0%) | 0/711 (0.0%; 0.0%–0.5%) | 711 | 0.304 |"
     },
     {
      "source": "RESULTS.md",
      "quote": "| Version | Score (mean BA) | review pass / fail recall | claim | suggest | USD per 1,000 calls |"
+    },
+    {
+     "source": "RESULTS.md",
+     "quote": "Error rate of first judgments marked sure: 3/662 (0.5%; 0.2%–1.3%); marked unsure: 10/49 (20.4%; 11.5%–33.6%)."
     }
    ]
   },
   {
-   "id": "README.md:27:182",
-   "text": "| Can wording, order or padding push it off course? | Hardly, on these items. Padding a candidate with a long account of its own care, or a sentence of assurance, changed none of 368 verdicts; swapping the answer options changed 2; a terse rubric changed 7 of 100 listing suggestions. In pairs it picked the same candidate in both orders 154 times out of 157. |",
+   "id": "README.md:27:201",
+   "text": "| Can wording, order or padding push it off course? | Hardly, on these items. Padding a candidate with a long account of its own care changed none of 368 verdicts, and neither padding nor a sentence of assurance made a wrong candidate pass; swapping the answer options changed 2, as many as repeating the same prompt; rewording the rubric changed 5 and a terse rubric 4, mostly good listing suggestions near the line. In pairs it picked the same candidate in both orders 154 times out of 157. |",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "| r2 | 368 | 7/368 (1.9%; 0.9%–3.9%) | 98.4% → 96.5% | 0.016 | 0.5% → 1.0% | 0.201 |"
+     "quote": "| r2 | 368 | 4/368 (1.1%; 0.4%–2.8%) | 99.2% → 98.1% | 0.125 | 0.5% → 0.5% | 0.205 |"
     },
     {
      "source": "RESULTS.md",
@@ -2178,12 +2400,12 @@
     },
     {
      "source": "RESULTS.md",
-     "quote": "| v1 | 0.860 | 100.0% / 66.1% | 100.0% / 83.3% | 72.2% / 94.4% | 0.219 |"
+     "quote": "### SummEval (1–5, three experts)"
     }
    ]
   },
   {
-   "id": "README.md:28:183",
+   "id": "README.md:28:202",
    "text": "| Can an agent check annotation records? | With two tools (is this span in the ad? what does this clause say?) it caught all 119 planted errors in 239 records and flagged 6 of the 120 correct ones, for 0.52 USD per 1,000 records. The acceptance standard built on it accepted 91.5% of batches with 2% errors but also 13.6% with 10% errors, missing its second target. |",
    "evidence": [
     {
@@ -2209,7 +2431,7 @@
    ]
   },
   {
-   "id": "README.md:29:184",
+   "id": "README.md:29:203",
    "text": "| Does a larger judge help? | Not here.   cost 13 times as much on the same 120 items, matched   on resume verdicts and suggestions, and was right three more times out of 40 on translation severity (p = 0.508). |",
    "evidence": [
     {
@@ -2218,7 +2440,7 @@
     },
     {
      "source": "RESULTS.md",
-     "quote": "- Second judge on its 120 items: 1.483 USD per 1,000 calls against 0.114 for claude-haiku-5-5 on the same items, 13 times as much; clean translations called flawed: 8 of 9."
+     "quote": "- Second judge on its 120 items: 1.516 USD per 1,000 calls against 0.116 for claude-haiku-5-5 on the same items, 13 times as much; clean translations called flawed: 8 of 9."
     },
     {
      "source": "RESULTS.md",
@@ -2227,27 +2449,31 @@
    ]
   },
   {
-   "id": "README.md:31:185",
-   "text": "Of 12 preregistered predictions, 7 held and 5 did not; each is listed with its result in [  .",
+   "id": "README.md:31:204",
+   "text": "Of 12 preregistered predictions, 8 held and 4 did not; each is listed with its result in [  .",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "- Constructed-answer disagreements: 12; tracing to the answer key: 5; left to the judge: 7."
+     "quote": "| zh | 16 | 13/16 (81.2%; 57.0%–93.4%) |  | 11/12 (91.7%; 64.6%–98.5%) | 2/4 (50.0%; 15.0%–85.0%) |"
+    },
+    {
+     "source": "RESULTS.md",
+     "quote": "| all | 46 | 39/46 (84.8%; 71.8%–92.4%) | 0.594 (0.284–0.843) | 31/35 (88.6%; 74.0%–95.5%) | 8/11 (72.7%; 43.4%–90.3%) |"
     }
    ]
   },
   {
-   "id": "README.md:31:186",
-   "text": "The whole project cost 2.40 USD in API calls.",
+   "id": "README.md:31:205",
+   "text": "The whole project cost 2.61 USD in API calls.",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "| repeat (noise floor) | 368 | 3/368 (0.8%; 0.3%–2.4%) |  |  |  |  |"
+     "quote": "- Total spent: 2.61 USD, the correction runs included."
     }
    ]
   },
   {
-   "id": "README.md:53:187",
+   "id": "README.md:53:206",
    "text": "|   | the judge prompts ( – , three rubric wordings), the rule checks, the batch runner, the statistics |",
    "evidence": [
     {
@@ -2257,7 +2483,7 @@
    ]
   },
   {
-   "id": "README.md:56:188",
+   "id": "README.md:56:207",
    "text": "|   | the items of the seven families and the quality-check records, with their sources and licences |",
    "evidence": [
     {
@@ -2267,7 +2493,7 @@
    ]
   },
   {
-   "id": "README.md:65:189",
+   "id": "README.md:65:208",
    "text": "| [nvidia/judges-verdict  | human-rated RAG answers (three annotators each) | CC   4.0;   keeps it |",
    "evidence": [
     {
@@ -2277,7 +2503,7 @@
    ]
   },
   {
-   "id": "README.md:74:190",
+   "id": "README.md:74:209",
    "text": "- **One judge, one sitting.** Other models, days and settings may differ; one more model was compared on 120 items only.",
    "evidence": [
     {
@@ -2287,17 +2513,17 @@
    ]
   },
   {
-   "id": "README.md:75:191",
-   "text": "- **Constructed answers are as good as the rules that made them.** In five places the answer key, not the judge, is the weaker side.",
+   "id": "README.md:75:210",
+   "text": "- **Constructed answers are as good as the rules and material that made them.** In two places the answer key, not the judge, is the weaker side.",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "### SummEval (1–5, three experts)"
+     "quote": "Adopted judge prompt: v2. Intervals are 95% (Wilson for proportions, cluster bootstrap for kappas)."
     }
    ]
   },
   {
-   "id": "README.md:77:192",
+   "id": "README.md:77:211",
    "text": "- **Small groups.** 46 regulator decisions, 11 of them evidence-dependent; 4 to 22 items in some error types.",
    "evidence": [
     {
@@ -2315,7 +2541,7 @@
    ]
   },
   {
-   "id": "README.md:77:193",
+   "id": "README.md:77:212",
    "text": "The tables give 95% intervals.",
    "evidence": [
     {
@@ -2325,7 +2551,7 @@
    ]
   },
   {
-   "id": "README.md:84:194",
+   "id": "README.md:84:213",
    "text": "MIT, except   (CC   4.0) and the other data files listed in  .",
    "evidence": [
     {
@@ -2335,7 +2561,7 @@
    ]
   },
   {
-   "id": "README.zh-CN.md:3:195",
+   "id": "README.zh-CN.md:3:214",
    "text": "这个项目拿一个裁判（  按写好的评分表判对错、打分），分别和三种参照比：出题时就定好的答案、监管机构和法院公布的结论、公开数据集自带的人工评分，三种分开算。",
    "evidence": [
     {
@@ -2345,7 +2571,7 @@
    ]
   },
   {
-   "id": "README.zh-CN.md:3:196",
+   "id": "README.zh-CN.md:3:215",
    "text": "然后定出哪些检查交给脚本、哪些可以交给裁判、哪些要留给人，再用一个质检 Agent 检查标注记录，配一份能量化的验收标准。",
    "evidence": [
     {
@@ -2355,17 +2581,17 @@
    ]
   },
   {
-   "id": "README.zh-CN.md:11:197",
+   "id": "README.zh-CN.md:11:216",
    "text": "它的 46 个监管和法院案例是“监管裁决”这一种参照。",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "| suggest | zh | 46 | 45/46 (97.8%; 88.7%–99.6%) | 95.7% | 100.0% |"
+     "quote": "| suggest | zh | 46 | 46/46 (100.0%; 92.3%–100.0%) | 100.0% | 100.0% |"
     }
    ]
   },
   {
-   "id": "README.zh-CN.md:12:198",
+   "id": "README.zh-CN.md:12:217",
    "text": "它的“符合要求”判断和 40 条植入的看错意思，是这里的 claim 组。",
    "evidence": [
     {
@@ -2375,25 +2601,21 @@
    ]
   },
   {
-   "id": "README.zh-CN.md:22:199",
-   "text": "| 裁判和出题时定好的答案一致吗？ | 在这些题上一致：广告审核意见、简历判断、卖点修改建议共 711 道，699 道一致（98.3%，Cohen's kappa 0.966）；植入的 390 处错误抓到 385 处；711 道里 696 道三次判得一样。12 处不一致里有 5 处是答案本身的问题，不是裁判的问题。 |",
+   "id": "README.zh-CN.md:22:218",
+   "text": "| 裁判和出题时定好的答案一致吗？ | 在这些题上一致：广告审核意见、简历判断、卖点修改建议共 711 道，702 道一致（98.7%，Cohen's kappa 0.974）；植入的 390 处错误抓到 385 处；711 道里 697 道三次判得一样。9 处不一致里有 2 处是答案本身的问题，不是裁判的问题。第一次跑时是 12 处：多出的 3 处来自修改建议题没给裁判商品页，是本项目建题的错，已更正并重跑（报告 ）。 |",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "| all | 711 | 699/711 (98.3%; 97.1%–99.0%) | 0.966 (0.945–0.983) | 0.967 | 385/390 (98.7%; 97.0%–99.5%) | 314/321 (97.8%; 95.6%–98.9%) | 696/711 (97.9%; 96.5%–98.7%) |  |"
+     "quote": "| all | 711 | 702/711 (98.7%; 97.6%–99.3%) | 0.974 (0.957–0.989) | 0.975 | 385/390 (98.7%; 97.0%–99.5%) | 317/321 (98.8%; 96.8%–99.5%) | 697/711 (98.0%; 96.7%–98.8%) |  |"
     },
     {
      "source": "RESULTS.md",
-     "quote": "### SummEval (1–5, three experts)"
-    },
-    {
-     "source": "RESULTS.md",
-     "quote": "| zh | 16 | 13/16 (81.2%; 57.0%–93.4%) |  | 11/12 (91.7%; 64.6%–98.5%) | 2/4 (50.0%; 15.0%–85.0%) |"
+     "quote": "| disagreements (material gap / answer key / judge) | 12 (3 / 2 / 7) | 9 (0 / 2 / 7) |"
     }
    ]
   },
   {
-   "id": "README.zh-CN.md:23:200",
+   "id": "README.zh-CN.md:23:219",
    "text": "| 和监管机构、法院的结论一致吗？ | 差一些：46 个公开结论里一致 39 个（84.8%）。能从广告本身看出结论的 35 个里对 33 个；结论取决于广告以外证据的 11 个里只对 6 个。 |",
    "evidence": [
     {
@@ -2407,7 +2629,7 @@
    ]
   },
   {
-   "id": "README.zh-CN.md:24:201",
+   "id": "README.zh-CN.md:24:220",
    "text": "| 和公开数据集自带的人工评分一致吗？ | 粗粒度的打分接近：Judge's Verdict 上，裁判和每位标注员的一致率是 67.3%，落在标注员彼此之间的 62.5% 到 67.5% 之内。摘要质量中等：SummEval 的 Spearman 从 0.408（流畅度）到 0.682（事实一致）。翻译错误的轻重判断弱：WMT MQM 加权 kappa 0.290。 |",
    "evidence": [
     {
@@ -2433,12 +2655,12 @@
    ]
   },
   {
-   "id": "README.zh-CN.md:25:202",
+   "id": "README.zh-CN.md:25:221",
    "text": "| 哪些交给脚本，哪些交给裁判？ | 脚本：引文不是原话、数字不在引文里、条款编号不存在、记录格式不对。这 145 处裁判也全抓到了，但脚本不花钱、也不会错。裁判：有事实可依的客观错误（结论判反、条款引错、看错简历、编造商品属性），每一类都抓到 96.3% 以上。人：标注员之间本来就有分歧的评分，以及要靠外部证据才能定的结论。 |",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "| review | decision | 107 | 103/107 (96.3%; 90.8%–98.5%) | 102/107 (95.3%; 89.5%–98.0%) |"
+     "quote": "| suggest | 100 | 100/100 (100.0%; 96.3%–100.0%) | 1.000 (1.000–1.000) | 1.000 | 50/50 (100.0%; 92.9%–100.0%) | 50/50 (100.0%; 92.9%–100.0%) | 100/100 (100.0%; 96.3%–100.0%) | 1.000 |"
     },
     {
      "source": "RESULTS.md",
@@ -2447,38 +2669,34 @@
    ]
   },
   {
-   "id": "README.zh-CN.md:26:203",
-   "text": "| 规则、裁判、复核队列一起用效果如何？ | 先跑规则，再判一次，裁判自己标“拿不准”的进复核队列：390 处错误漏掉 2 处，6.9% 的题进队列；只用裁判漏掉 7 处。前一种还更便宜（每 1,000 道 0.243 美元对 0.303 美元），因为规则先拦下的不用再调模型。裁判的“拿不准”很有用：它说“确定”的判断错 0.8%，说“拿不准”的错 22.4%。 |",
+   "id": "README.zh-CN.md:26:222",
+   "text": "| 规则、裁判、复核队列一起用效果如何？ | 先跑规则，再判一次，裁判自己标“拿不准”的进复核队列：390 处错误漏掉 2 处，6.9% 的题进队列；只用裁判漏掉 7 处。前一种还更便宜（每 1,000 道 0.244 美元对 0.304 美元），因为规则先拦下的不用再调模型。裁判的“拿不准”很有用：它说“确定”的判断错 0.5%，说“拿不准”的错 20.4%。 |",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "| B | 662/711 (93.1%; 91.0%–94.7%) | 2/390 (0.5%; 0.1%–1.9%) | 3/321 (0.9%; 0.3%–2.7%) | 49/711 (6.9%; 5.3%–9.0%) | 566 | 0.243 |"
+     "quote": "| B | 662/711 (93.1%; 91.0%–94.7%) | 2/390 (0.5%; 0.1%–1.9%) | 1/321 (0.3%; 0.1%–1.7%) | 49/711 (6.9%; 5.3%–9.0%) | 566 | 0.244 |"
     },
     {
      "source": "RESULTS.md",
-     "quote": "| A | 711/711 (100.0%; 99.5%–100.0%) | 7/390 (1.8%; 0.9%–3.7%) | 9/321 (2.8%; 1.5%–5.2%) | 0/711 (0.0%; 0.0%–0.5%) | 711 | 0.303 |"
-    },
-    {
-     "source": "RESULTS.md",
-     "quote": "Error rate of first judgments marked sure: 5/662 (0.8%; 0.3%–1.8%); marked unsure: 11/49 (22.4%; 13.0%–35.9%)."
-    },
-    {
-     "source": "RESULTS.md",
-     "quote": "## 1. Prompt versions on the development split"
+     "quote": "| A | 711/711 (100.0%; 99.5%–100.0%) | 7/390 (1.8%; 0.9%–3.7%) | 6/321 (1.9%; 0.9%–4.0%) | 0/711 (0.0%; 0.0%–0.5%) | 711 | 0.304 |"
     },
     {
      "source": "RESULTS.md",
      "quote": "| Version | Score (mean BA) | review pass / fail recall | claim | suggest | USD per 1,000 calls |"
+    },
+    {
+     "source": "RESULTS.md",
+     "quote": "Error rate of first judgments marked sure: 3/662 (0.5%; 0.2%–1.3%); marked unsure: 10/49 (20.4%; 11.5%–33.6%)."
     }
    ]
   },
   {
-   "id": "README.zh-CN.md:27:204",
-   "text": "| 换说法、换顺序、加废话会让它判偏吗？ | 在这些题上几乎不会。给候选答案加一大段“我做得很仔细”或一句“我已逐项核对”，368 道里一道都没变；把选项顺序反过来，变了 2 道；评分表改成简短版，100 条修改建议里变了 7 条。成对比较时，157 对里有 154 对两种顺序选的是同一个。 |",
+   "id": "README.zh-CN.md:27:223",
+   "text": "| 换说法、换顺序、加废话会让它判偏吗？ | 在这些题上几乎不会。给候选答案加一大段“我做得很仔细”，368 道里一道都没变；加废话或加一句“我已逐项核对”，都没有让错的答案被放过；把选项顺序反过来变了 2 道，和同一提示词重判一次变的一样多；评分表换个说法变了 5 道，改成简短版变了 4 道，大多是处在边界上的好修改建议。成对比较时，157 对里有 154 对两种顺序选的是同一个。 |",
    "evidence": [
     {
-     "source": "RESULTS.md",
-     "quote": "| r2 | 368 | 7/368 (1.9%; 0.9%–3.9%) | 98.4% → 96.5% | 0.016 | 0.5% → 1.0% | 0.201 |"
+     "source": "PREREGISTRATION.md",
+     "quote": "- 2026-11-18, after the dev stage: the adoption rule picked v2 (v2 over v1: score 0.976 against 0.860; v3 tied with v2 and was not adopted; v4 scored 0.955 and lowered the pass recall of review by 0.071). No v5 was written: v2 is within 0.03 of a perfect development score, so there was nothing a further version could gain that the rule would see. Nothing frozen was changed."
     },
     {
      "source": "RESULTS.md",
@@ -2486,12 +2704,12 @@
     },
     {
      "source": "RESULTS.md",
-     "quote": "| v1 | 0.860 | 100.0% / 66.1% | 100.0% / 83.3% | 72.2% / 94.4% | 0.219 |"
+     "quote": "| repeat (noise floor) | 368 | 2/368 (0.5%; 0.1%–2.0%) |  |  |  |  |"
     }
    ]
   },
   {
-   "id": "README.zh-CN.md:28:205",
+   "id": "README.zh-CN.md:28:224",
    "text": "| 能用 Agent 质检标注记录吗？ | 给它两个工具（这段原话在广告里吗？这条条款原文是什么？），239 条记录里植入的 119 处错误全部查出，120 条正确记录误报 6 条，每 1,000 条 0.52 美元。基于它定的验收标准：错误率 2% 的批次 91.5% 能通过，但错误率 10% 的批次也有 13.6% 能通过，第二个目标没达到。 |",
    "evidence": [
     {
@@ -2517,7 +2735,7 @@
    ]
   },
   {
-   "id": "README.zh-CN.md:29:206",
+   "id": "README.zh-CN.md:29:225",
    "text": "| 换更大的模型当裁判有用吗？ | 这里没用。  在同样 120 道题上贵 13 倍，简历判断和修改建议上和   一样，翻译轻重 40 道里多对 3 道（p = 0.508）。 |",
    "evidence": [
     {
@@ -2526,7 +2744,7 @@
     },
     {
      "source": "RESULTS.md",
-     "quote": "- Second judge on its 120 items: 1.483 USD per 1,000 calls against 0.114 for claude-haiku-5-5 on the same items, 13 times as much; clean translations called flawed: 8 of 9."
+     "quote": "- Second judge on its 120 items: 1.516 USD per 1,000 calls against 0.116 for claude-haiku-5-5 on the same items, 13 times as much; clean translations called flawed: 8 of 9."
     },
     {
      "source": "RESULTS.md",
@@ -2535,27 +2753,31 @@
    ]
   },
   {
-   "id": "README.zh-CN.md:31:207",
-   "text": "预注册的 12 条预测里 7 条成立、5 条不成立，每条和结果都列在 [  （英文）。",
+   "id": "README.zh-CN.md:31:226",
+   "text": "预注册的 12 条预测里 8 条成立、4 条不成立，每条和结果都列在 [  （英文）。",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "- Constructed-answer disagreements: 12; tracing to the answer key: 5; left to the judge: 7."
+     "quote": "| zh | 16 | 13/16 (81.2%; 57.0%–93.4%) |  | 11/12 (91.7%; 64.6%–98.5%) | 2/4 (50.0%; 15.0%–85.0%) |"
+    },
+    {
+     "source": "RESULTS.md",
+     "quote": "| all | 46 | 39/46 (84.8%; 71.8%–92.4%) | 0.594 (0.284–0.843) | 31/35 (88.6%; 74.0%–95.5%) | 8/11 (72.7%; 43.4%–90.3%) |"
     }
    ]
   },
   {
-   "id": "README.zh-CN.md:31:208",
-   "text": "整个项目调用接口共花 2.40 美元。",
+   "id": "README.zh-CN.md:31:227",
+   "text": "整个项目调用接口共花 2.61 美元。",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "| repeat (noise floor) | 368 | 3/368 (0.8%; 0.3%–2.4%) |  |  |  |  |"
+     "quote": "- Total spent: 2.61 USD, the correction runs included."
     }
    ]
   },
   {
-   "id": "README.zh-CN.md:53:209",
+   "id": "README.zh-CN.md:53:228",
    "text": "|   | 裁判提示词（ – ，评分表三种措辞）、规则检查、批量调用、统计 |",
    "evidence": [
     {
@@ -2565,7 +2787,7 @@
    ]
   },
   {
-   "id": "README.zh-CN.md:56:210",
+   "id": "README.zh-CN.md:56:229",
    "text": "|   | 七组题和质检记录，附来源和许可证 |",
    "evidence": [
     {
@@ -2575,7 +2797,7 @@
    ]
   },
   {
-   "id": "README.zh-CN.md:65:211",
+   "id": "README.zh-CN.md:65:230",
    "text": "| [nvidia/judges-verdict  | 带人工评分的 RAG 回答（每条三位标注员） | CC   4.0；  沿用 |",
    "evidence": [
     {
@@ -2585,7 +2807,7 @@
    ]
   },
   {
-   "id": "README.zh-CN.md:74:212",
+   "id": "README.zh-CN.md:74:231",
    "text": "- **只有一个裁判、跑一次。",
    "evidence": [
     {
@@ -2595,7 +2817,7 @@
    ]
   },
   {
-   "id": "README.zh-CN.md:74:213",
+   "id": "README.zh-CN.md:74:232",
    "text": "另一个模型只比了 120 道题。",
    "evidence": [
     {
@@ -2605,17 +2827,17 @@
    ]
   },
   {
-   "id": "README.zh-CN.md:75:214",
-   "text": "** 有 5 处是答案本身比裁判弱。",
+   "id": "README.zh-CN.md:75:233",
+   "text": "** 有 2 处是答案本身比裁判弱。",
    "evidence": [
     {
      "source": "RESULTS.md",
-     "quote": "### SummEval (1–5, three experts)"
+     "quote": "Adopted judge prompt: v2. Intervals are 95% (Wilson for proportions, cluster bootstrap for kappas)."
     }
    ]
   },
   {
-   "id": "README.zh-CN.md:77:215",
+   "id": "README.zh-CN.md:77:234",
    "text": "** 监管结论 46 个，其中依赖外部证据的 11 个；",
    "evidence": [
     {
@@ -2625,7 +2847,7 @@
    ]
   },
   {
-   "id": "README.zh-CN.md:77:216",
+   "id": "README.zh-CN.md:77:235",
    "text": "有些错误类型只有 4 到 22 道。",
    "evidence": [
     {
@@ -2639,7 +2861,7 @@
    ]
   },
   {
-   "id": "README.zh-CN.md:77:217",
+   "id": "README.zh-CN.md:77:236",
    "text": "表里都给了 95% 区间。",
    "evidence": [
     {
@@ -2649,7 +2871,17 @@
    ]
   },
   {
-   "id": "README.zh-CN.md:84:218",
+   "id": "README.zh-CN.md:78:237",
+   "text": "** 裁判全对，这两组分不出提示词或模型的高低了。",
+   "evidence": [
+    {
+     "source": "RESULTS.md",
+     "quote": "Adopted judge prompt: v2. Intervals are 95% (Wilson for proportions, cluster bootstrap for kappas)."
+    }
+   ]
+  },
+  {
+   "id": "README.zh-CN.md:84:238",
    "text": "  是 CC   4.0，其余数据文件见  。",
    "evidence": [
     {
@@ -2660,8 +2892,8 @@
   }
  ],
  "summary": {
-  "claims": 219,
-  "supported": 219,
+  "claims": 239,
+  "supported": 239,
   "not_supported": 0
  }
 }

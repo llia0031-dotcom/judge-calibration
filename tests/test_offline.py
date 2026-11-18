@@ -145,8 +145,29 @@ class StoredResults(unittest.TestCase):
 
     def test_constructed_agreement(self):
         res, J = self.S.binary_section(self.items, self.st, "v2")
-        self.assertEqual((res["pooled"]["agreement"]["k"], res["pooled"]["agreement"]["n"]), (699, 711))
+        self.assertEqual((res["pooled"]["agreement"]["k"], res["pooled"]["agreement"]["n"]), (702, 711))
         self.assertEqual(res["pooled"]["agreement"]["k"], self.summary["binary"]["pooled"]["agreement"]["k"])
+
+    def test_constructed_agreement_as_registered(self):
+        """Without the correction runs (change log, correction 1) the registered numbers come back."""
+        self.S.REGISTERED = True
+        try:
+            st = self.S.store("main")
+            res, J = self.S.binary_section(self.items, st, "v2")
+            self.assertEqual(res["pooled"]["agreement"]["k"], 699)
+            self.assertEqual(res["families"]["suggest"]["overall"]["agreement"]["k"], 97)
+            self.assertEqual(self.S.adopt(self.items)["version"], "v2")
+        finally:
+            self.S.REGISTERED = False
+
+    def test_correction_changes_only_the_suggest_family(self):
+        import json as _j
+
+        for name in ("main", "perturb", "pair", "dev"):
+            p = ROOT / "eval" / "results" / "raw" / f"{name}-c1.jsonl"
+            keys = [_j.loads(l)["key"] for l in p.read_text(encoding="utf-8").splitlines() if l.strip()]
+            self.assertTrue(keys)
+            self.assertTrue(all(k.split("|")[1].startswith("sug-") for k in keys), name)
 
     def test_combination(self):
         res, J = self.S.binary_section(self.items, self.st, "v2")

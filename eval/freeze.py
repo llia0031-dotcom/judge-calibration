@@ -42,6 +42,15 @@ def main() -> int:
         pc = ROOT / "eval" / "public_copy.json"
         if pc.exists():
             public = json.loads(pc.read_text(encoding="utf-8"))["changed"]
+        # corrections written in the change log, each with the frozen hash it starts from and the hash it ends at
+        cc = ROOT / "eval" / "corrections.json"
+        if cc.exists():
+            for c in json.loads(cc.read_text(encoding="utf-8"))["corrections"]:
+                for f, hh in c["files"].items():
+                    if f in public:   # a corrected file that the public copy changes again
+                        public[f] = {"from": hh["from"], "to": public[f]["to"]}
+                    else:
+                        public[f] = hh
         bad = []
         for f, h in re.findall(r"\| `([^`]+)` \| ([0-9a-f]{12}|not in this copy) \|", text):
             p = ROOT / f

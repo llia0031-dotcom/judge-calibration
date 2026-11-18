@@ -1,0 +1,3265 @@
+{
+ "adopted": "v2",
+ "dev": {
+  "version": "v2",
+  "steps": [
+   {
+    "candidate": "v2",
+    "against": "v1",
+    "checks": {
+     "score_up_0.02": true,
+     "no_fail_recall_drop_0.05": true,
+     "no_pass_recall_drop_0.05": true,
+     "cost_at_most_1.5x": true
+    },
+    "adopted": true
+   },
+   {
+    "candidate": "v3",
+    "against": "v2",
+    "checks": {
+     "score_up_0.02": false,
+     "no_fail_recall_drop_0.05": true,
+     "no_pass_recall_drop_0.05": true,
+     "cost_at_most_1.5x": true
+    },
+    "adopted": false
+   },
+   {
+    "candidate": "v4",
+    "against": "v2",
+    "checks": {
+     "score_up_0.02": false,
+     "no_fail_recall_drop_0.05": true,
+     "no_pass_recall_drop_0.05": false,
+     "cost_at_most_1.5x": true
+    },
+    "adopted": false
+   }
+  ],
+  "table": {
+   "v1": {
+    "families": {
+     "claim": {
+      "pass_recall": {
+       "k": 28,
+       "n": 28,
+       "rate": 1.0,
+       "lo": 0.879357,
+       "hi": 1.0
+      },
+      "fail_recall": {
+       "k": 25,
+       "n": 30,
+       "rate": 0.833333,
+       "lo": 0.664356,
+       "hi": 0.926635
+      },
+      "ba": 0.916667
+     },
+     "review": {
+      "pass_recall": {
+       "k": 42,
+       "n": 42,
+       "rate": 1.0,
+       "lo": 0.916201,
+       "hi": 1.0
+      },
+      "fail_recall": {
+       "k": 39,
+       "n": 59,
+       "rate": 0.661017,
+       "lo": 0.533725,
+       "hi": 0.768623
+      },
+      "ba": 0.830508
+     },
+     "suggest": {
+      "pass_recall": {
+       "k": 13,
+       "n": 18,
+       "rate": 0.722222,
+       "lo": 0.491273,
+       "hi": 0.875002
+      },
+      "fail_recall": {
+       "k": 17,
+       "n": 18,
+       "rate": 0.944444,
+       "lo": 0.742427,
+       "hi": 0.990125
+      },
+      "ba": 0.833333
+     }
+    },
+    "score": 0.860169,
+    "cost_per_call": 0.000219,
+    "answered": 195,
+    "expected": 195
+   },
+   "v2": {
+    "families": {
+     "claim": {
+      "pass_recall": {
+       "k": 28,
+       "n": 28,
+       "rate": 1.0,
+       "lo": 0.879357,
+       "hi": 1.0
+      },
+      "fail_recall": {
+       "k": 30,
+       "n": 30,
+       "rate": 1.0,
+       "lo": 0.886487,
+       "hi": 1.0
+      },
+      "ba": 1.0
+     },
+     "review": {
+      "pass_recall": {
+       "k": 42,
+       "n": 42,
+       "rate": 1.0,
+       "lo": 0.916201,
+       "hi": 1.0
+      },
+      "fail_recall": {
+       "k": 57,
+       "n": 59,
+       "rate": 0.966102,
+       "lo": 0.884564,
+       "hi": 0.990654
+      },
+      "ba": 0.983051
+     },
+     "suggest": {
+      "pass_recall": {
+       "k": 16,
+       "n": 18,
+       "rate": 0.888889,
+       "lo": 0.672002,
+       "hi": 0.96898
+      },
+      "fail_recall": {
+       "k": 18,
+       "n": 18,
+       "rate": 1.0,
+       "lo": 0.824121,
+       "hi": 1.0
+      },
+      "ba": 0.944444
+     }
+    },
+    "score": 0.975832,
+    "cost_per_call": 0.000263,
+    "answered": 195,
+    "expected": 195
+   },
+   "v3": {
+    "families": {
+     "claim": {
+      "pass_recall": {
+       "k": 28,
+       "n": 28,
+       "rate": 1.0,
+       "lo": 0.879357,
+       "hi": 1.0
+      },
+      "fail_recall": {
+       "k": 30,
+       "n": 30,
+       "rate": 1.0,
+       "lo": 0.886487,
+       "hi": 1.0
+      },
+      "ba": 1.0
+     },
+     "review": {
+      "pass_recall": {
+       "k": 42,
+       "n": 42,
+       "rate": 1.0,
+       "lo": 0.916201,
+       "hi": 1.0
+      },
+      "fail_recall": {
+       "k": 57,
+       "n": 59,
+       "rate": 0.966102,
+       "lo": 0.884564,
+       "hi": 0.990654
+      },
+      "ba": 0.983051
+     },
+     "suggest": {
+      "pass_recall": {
+       "k": 16,
+       "n": 18,
+       "rate": 0.888889,
+       "lo": 0.672002,
+       "hi": 0.96898
+      },
+      "fail_recall": {
+       "k": 18,
+       "n": 18,
+       "rate": 1.0,
+       "lo": 0.824121,
+       "hi": 1.0
+      },
+      "ba": 0.944444
+     }
+    },
+    "score": 0.975832,
+    "cost_per_call": 0.000299,
+    "answered": 195,
+    "expected": 195
+   },
+   "v4": {
+    "families": {
+     "claim": {
+      "pass_recall": {
+       "k": 28,
+       "n": 28,
+       "rate": 1.0,
+       "lo": 0.879357,
+       "hi": 1.0
+      },
+      "fail_recall": {
+       "k": 30,
+       "n": 30,
+       "rate": 1.0,
+       "lo": 0.886487,
+       "hi": 1.0
+      },
+      "ba": 1.0
+     },
+     "review": {
+      "pass_recall": {
+       "k": 39,
+       "n": 42,
+       "rate": 0.928571,
+       "lo": 0.809906,
+       "hi": 0.97541
+      },
+      "fail_recall": {
+       "k": 57,
+       "n": 59,
+       "rate": 0.966102,
+       "lo": 0.884564,
+       "hi": 0.990654
+      },
+      "ba": 0.947337
+     },
+     "suggest": {
+      "pass_recall": {
+       "k": 15,
+       "n": 18,
+       "rate": 0.833333,
+       "lo": 0.60778,
+       "hi": 0.941634
+      },
+      "fail_recall": {
+       "k": 18,
+       "n": 18,
+       "rate": 1.0,
+       "lo": 0.824121,
+       "hi": 1.0
+      },
+      "ba": 0.916667
+     }
+    },
+    "score": 0.954668,
+    "cost_per_call": 0.000316,
+    "answered": 195,
+    "expected": 195
+   }
+  }
+ },
+ "registered": true,
+ "binary": {
+  "answered": 711,
+  "expected": 711,
+  "families": {
+   "review": {
+    "overall": {
+     "n": 469,
+     "agreement": {
+      "k": 460,
+      "n": 469,
+      "rate": 0.98081,
+      "lo": 0.963936,
+      "hi": 0.989872
+     },
+     "kappa": {
+      "kappa": 0.960746,
+      "lo": 0.934321,
+      "hi": 0.982854,
+      "n": 469
+     },
+     "ac1": 0.962457,
+     "recall": {
+      "k": 265,
+      "n": 270,
+      "rate": 0.981481,
+      "lo": 0.95739,
+      "hi": 0.992065
+     },
+     "false_positive": {
+      "k": 4,
+      "n": 199,
+      "rate": 0.020101,
+      "lo": 0.007844,
+      "hi": 0.050534
+     },
+     "pass_recall": {
+      "k": 195,
+      "n": 199,
+      "rate": 0.979899,
+      "lo": 0.949466,
+      "hi": 0.992156
+     },
+     "fail_recall": {
+      "k": 265,
+      "n": 270,
+      "rate": 0.981481,
+      "lo": 0.95739,
+      "hi": 0.992065
+     },
+     "ba": 0.98069
+    },
+    "by_dimension": {
+     "clause": {
+      "n": 66,
+      "right": {
+       "k": 65,
+       "n": 66,
+       "rate": 0.984848,
+       "lo": 0.919041,
+       "hi": 0.99732
+      }
+     },
+     "correct": {
+      "n": 199,
+      "right": {
+       "k": 195,
+       "n": 199,
+       "rate": 0.979899,
+       "lo": 0.949466,
+       "hi": 0.992156
+      }
+     },
+     "decision": {
+      "n": 107,
+      "right": {
+       "k": 103,
+       "n": 107,
+       "rate": 0.962617,
+       "lo": 0.9078,
+       "hi": 0.985368
+      }
+     },
+     "format": {
+      "n": 40,
+      "right": {
+       "k": 40,
+       "n": 40,
+       "rate": 1.0,
+       "lo": 0.912378,
+       "hi": 1.0
+      }
+     },
+     "quote": {
+      "n": 57,
+      "right": {
+       "k": 57,
+       "n": 57,
+       "rate": 1.0,
+       "lo": 0.936861,
+       "hi": 1.0
+      }
+     }
+    },
+    "by_lang": {
+     "en": {
+      "n": 224,
+      "right": {
+       "k": 217,
+       "n": 224,
+       "rate": 0.96875,
+       "lo": 0.936912,
+       "hi": 0.984782
+      },
+      "pass_recall": {
+       "k": 90,
+       "n": 93,
+       "rate": 0.967742,
+       "lo": 0.909406,
+       "hi": 0.988969
+      },
+      "fail_recall": {
+       "k": 127,
+       "n": 131,
+       "rate": 0.969466,
+       "lo": 0.924119,
+       "hi": 0.988063
+      },
+      "ba": 0.968604
+     },
+     "zh": {
+      "n": 245,
+      "right": {
+       "k": 243,
+       "n": 245,
+       "rate": 0.991837,
+       "lo": 0.97073,
+       "hi": 0.997758
+      },
+      "pass_recall": {
+       "k": 105,
+       "n": 106,
+       "rate": 0.990566,
+       "lo": 0.948486,
+       "hi": 0.998333
+      },
+      "fail_recall": {
+       "k": 138,
+       "n": 139,
+       "rate": 0.992806,
+       "lo": 0.960376,
+       "hi": 0.998729
+      },
+      "ba": 0.991686
+     }
+    },
+    "by_modality": {
+     "image": {
+      "n": 266,
+      "right": {
+       "k": 263,
+       "n": 266,
+       "rate": 0.988722,
+       "lo": 0.967372,
+       "hi": 0.996157
+      },
+      "pass_recall": {
+       "k": 109,
+       "n": 111,
+       "rate": 0.981982,
+       "lo": 0.936674,
+       "hi": 0.995045
+      },
+      "fail_recall": {
+       "k": 154,
+       "n": 155,
+       "rate": 0.993548,
+       "lo": 0.964364,
+       "hi": 0.99886
+      },
+      "ba": 0.987765
+     },
+     "text": {
+      "n": 203,
+      "right": {
+       "k": 197,
+       "n": 203,
+       "rate": 0.970443,
+       "lo": 0.937028,
+       "hi": 0.986385
+      },
+      "pass_recall": {
+       "k": 86,
+       "n": 88,
+       "rate": 0.977273,
+       "lo": 0.920875,
+       "hi": 0.993745
+      },
+      "fail_recall": {
+       "k": 111,
+       "n": 115,
+       "rate": 0.965217,
+       "lo": 0.913967,
+       "hi": 0.986392
+      },
+      "ba": 0.971245
+     }
+    },
+    "stability": {
+     "all_three_same": {
+      "k": 455,
+      "n": 469,
+      "rate": 0.970149,
+      "lo": 0.950523,
+      "hi": 0.982137
+     },
+     "fleiss": 0.959247
+    },
+    "stability_by_dimension": {
+     "clause": {
+      "k": 66,
+      "n": 66,
+      "rate": 1.0,
+      "lo": 0.944997,
+      "hi": 1.0
+     },
+     "correct": {
+      "k": 190,
+      "n": 199,
+      "rate": 0.954774,
+      "lo": 0.916296,
+      "hi": 0.976027
+     },
+     "decision": {
+      "k": 102,
+      "n": 107,
+      "rate": 0.953271,
+      "lo": 0.895246,
+      "hi": 0.979877
+     },
+     "format": {
+      "k": 40,
+      "n": 40,
+      "rate": 1.0,
+      "lo": 0.912378,
+      "hi": 1.0
+     },
+     "quote": {
+      "k": 57,
+      "n": 57,
+      "rate": 1.0,
+      "lo": 0.936861,
+      "hi": 1.0
+     }
+    },
+    "v1_single": {
+     "pass_recall": {
+      "k": 191,
+      "n": 199,
+      "rate": 0.959799,
+      "lo": 0.922691,
+      "hi": 0.979491
+     },
+     "fail_recall": {
+      "k": 204,
+      "n": 270,
+      "rate": 0.755556,
+      "lo": 0.700944,
+      "hi": 0.802997
+     },
+     "ba": 0.857677,
+     "n": 469
+    },
+    "adopted_single": {
+     "pass_recall": {
+      "k": 193,
+      "n": 199,
+      "rate": 0.969849,
+      "lo": 0.935792,
+      "hi": 0.98611
+     },
+     "fail_recall": {
+      "k": 263,
+      "n": 270,
+      "rate": 0.974074,
+      "lo": 0.947462,
+      "hi": 0.987386
+     },
+     "ba": 0.971962
+    },
+    "judge_on_rule_checkable": {
+     "k": 97,
+     "n": 97,
+     "rate": 1.0,
+     "lo": 0.961906,
+     "hi": 1.0
+    }
+   },
+   "claim": {
+    "overall": {
+     "n": 142,
+     "agreement": {
+      "k": 142,
+      "n": 142,
+      "rate": 1.0,
+      "lo": 0.97366,
+      "hi": 1.0
+     },
+     "kappa": {
+      "kappa": 1.0,
+      "lo": 1.0,
+      "hi": 1.0,
+      "n": 142
+     },
+     "ac1": 1.0,
+     "recall": {
+      "k": 70,
+      "n": 70,
+      "rate": 1.0,
+      "lo": 0.947977,
+      "hi": 1.0
+     },
+     "false_positive": {
+      "k": 0,
+      "n": 72,
+      "rate": 0.0,
+      "lo": 0.0,
+      "hi": 0.050651
+     },
+     "pass_recall": {
+      "k": 72,
+      "n": 72,
+      "rate": 1.0,
+      "lo": 0.949349,
+      "hi": 1.0
+     },
+     "fail_recall": {
+      "k": 70,
+      "n": 70,
+      "rate": 1.0,
+      "lo": 0.947977,
+      "hi": 1.0
+     },
+     "ba": 1.0
+    },
+    "by_dimension": {
+     "correct": {
+      "n": 72,
+      "right": {
+       "k": 72,
+       "n": 72,
+       "rate": 1.0,
+       "lo": 0.949349,
+       "hi": 1.0
+      }
+     },
+     "figure": {
+      "n": 16,
+      "right": {
+       "k": 16,
+       "n": 16,
+       "rate": 1.0,
+       "lo": 0.806392,
+       "hi": 1.0
+      }
+     },
+     "foreign": {
+      "n": 14,
+      "right": {
+       "k": 14,
+       "n": 14,
+       "rate": 1.0,
+       "lo": 0.784689,
+       "hi": 1.0
+      }
+     },
+     "misreading": {
+      "n": 22,
+      "right": {
+       "k": 22,
+       "n": 22,
+       "rate": 1.0,
+       "lo": 0.851345,
+       "hi": 1.0
+      }
+     },
+     "quote": {
+      "n": 18,
+      "right": {
+       "k": 18,
+       "n": 18,
+       "rate": 1.0,
+       "lo": 0.824121,
+       "hi": 1.0
+      }
+     }
+    },
+    "by_lang": {
+     "en": {
+      "n": 61,
+      "right": {
+       "k": 61,
+       "n": 61,
+       "rate": 1.0,
+       "lo": 0.940756,
+       "hi": 1.0
+      },
+      "pass_recall": {
+       "k": 33,
+       "n": 33,
+       "rate": 1.0,
+       "lo": 0.89573,
+       "hi": 1.0
+      },
+      "fail_recall": {
+       "k": 28,
+       "n": 28,
+       "rate": 1.0,
+       "lo": 0.879357,
+       "hi": 1.0
+      },
+      "ba": 1.0
+     },
+     "zh": {
+      "n": 81,
+      "right": {
+       "k": 81,
+       "n": 81,
+       "rate": 1.0,
+       "lo": 0.954722,
+       "hi": 1.0
+      },
+      "pass_recall": {
+       "k": 39,
+       "n": 39,
+       "rate": 1.0,
+       "lo": 0.910333,
+       "hi": 1.0
+      },
+      "fail_recall": {
+       "k": 42,
+       "n": 42,
+       "rate": 1.0,
+       "lo": 0.916201,
+       "hi": 1.0
+      },
+      "ba": 1.0
+     }
+    },
+    "by_modality": {
+     "text": {
+      "n": 142,
+      "right": {
+       "k": 142,
+       "n": 142,
+       "rate": 1.0,
+       "lo": 0.97366,
+       "hi": 1.0
+      },
+      "pass_recall": {
+       "k": 72,
+       "n": 72,
+       "rate": 1.0,
+       "lo": 0.949349,
+       "hi": 1.0
+      },
+      "fail_recall": {
+       "k": 70,
+       "n": 70,
+       "rate": 1.0,
+       "lo": 0.947977,
+       "hi": 1.0
+      },
+      "ba": 1.0
+     }
+    },
+    "stability": {
+     "all_three_same": {
+      "k": 142,
+      "n": 142,
+      "rate": 1.0,
+      "lo": 0.97366,
+      "hi": 1.0
+     },
+     "fleiss": 1.0
+    },
+    "stability_by_dimension": {
+     "correct": {
+      "k": 72,
+      "n": 72,
+      "rate": 1.0,
+      "lo": 0.949349,
+      "hi": 1.0
+     },
+     "figure": {
+      "k": 16,
+      "n": 16,
+      "rate": 1.0,
+      "lo": 0.806392,
+      "hi": 1.0
+     },
+     "foreign": {
+      "k": 14,
+      "n": 14,
+      "rate": 1.0,
+      "lo": 0.784689,
+      "hi": 1.0
+     },
+     "misreading": {
+      "k": 22,
+      "n": 22,
+      "rate": 1.0,
+      "lo": 0.851345,
+      "hi": 1.0
+     },
+     "quote": {
+      "k": 18,
+      "n": 18,
+      "rate": 1.0,
+      "lo": 0.824121,
+      "hi": 1.0
+     }
+    },
+    "v1_single": {
+     "pass_recall": {
+      "k": 72,
+      "n": 72,
+      "rate": 1.0,
+      "lo": 0.949349,
+      "hi": 1.0
+     },
+     "fail_recall": {
+      "k": 44,
+      "n": 70,
+      "rate": 0.628571,
+      "lo": 0.511472,
+      "hi": 0.732293
+     },
+     "ba": 0.814286,
+     "n": 142
+    },
+    "adopted_single": {
+     "pass_recall": {
+      "k": 72,
+      "n": 72,
+      "rate": 1.0,
+      "lo": 0.949349,
+      "hi": 1.0
+     },
+     "fail_recall": {
+      "k": 70,
+      "n": 70,
+      "rate": 1.0,
+      "lo": 0.947977,
+      "hi": 1.0
+     },
+     "ba": 1.0
+    },
+    "judge_on_rule_checkable": {
+     "k": 48,
+     "n": 48,
+     "rate": 1.0,
+     "lo": 0.9259,
+     "hi": 1.0
+    }
+   },
+   "suggest": {
+    "overall": {
+     "n": 100,
+     "agreement": {
+      "k": 97,
+      "n": 100,
+      "rate": 0.97,
+      "lo": 0.915481,
+      "hi": 0.989745
+     },
+     "kappa": {
+      "kappa": 0.94,
+      "lo": 0.869565,
+      "hi": 1.0,
+      "n": 100
+     },
+     "ac1": 0.940054,
+     "recall": {
+      "k": 50,
+      "n": 50,
+      "rate": 1.0,
+      "lo": 0.928652,
+      "hi": 1.0
+     },
+     "false_positive": {
+      "k": 3,
+      "n": 50,
+      "rate": 0.06,
+      "lo": 0.020615,
+      "hi": 0.162171
+     },
+     "pass_recall": {
+      "k": 47,
+      "n": 50,
+      "rate": 0.94,
+      "lo": 0.837829,
+      "hi": 0.979385
+     },
+     "fail_recall": {
+      "k": 50,
+      "n": 50,
+      "rate": 1.0,
+      "lo": 0.928652,
+      "hi": 1.0
+     },
+     "ba": 0.97
+    },
+    "by_dimension": {
+     "absence_as_false": {
+      "n": 6,
+      "right": {
+       "k": 6,
+       "n": 6,
+       "rate": 1.0,
+       "lo": 0.609666,
+       "hi": 1.0
+      }
+     },
+     "contradicts": {
+      "n": 20,
+      "right": {
+       "k": 20,
+       "n": 20,
+       "rate": 1.0,
+       "lo": 0.838875,
+       "hi": 1.0
+      }
+     },
+     "correct": {
+      "n": 50,
+      "right": {
+       "k": 47,
+       "n": 50,
+       "rate": 0.94,
+       "lo": 0.837829,
+       "hi": 0.979385
+      }
+     },
+     "drops_confirmed": {
+      "n": 4,
+      "right": {
+       "k": 4,
+       "n": 4,
+       "rate": 1.0,
+       "lo": 0.510109,
+       "hi": 1.0
+      }
+     },
+     "invents": {
+      "n": 9,
+      "right": {
+       "k": 9,
+       "n": 9,
+       "rate": 1.0,
+       "lo": 0.700855,
+       "hi": 1.0
+      }
+     },
+     "vague": {
+      "n": 11,
+      "right": {
+       "k": 11,
+       "n": 11,
+       "rate": 1.0,
+       "lo": 0.741167,
+       "hi": 1.0
+      }
+     }
+    },
+    "by_lang": {
+     "en": {
+      "n": 54,
+      "right": {
+       "k": 52,
+       "n": 54,
+       "rate": 0.962963,
+       "lo": 0.874648,
+       "hi": 0.989784
+      },
+      "pass_recall": {
+       "k": 25,
+       "n": 27,
+       "rate": 0.925926,
+       "lo": 0.766304,
+       "hi": 0.979445
+      },
+      "fail_recall": {
+       "k": 27,
+       "n": 27,
+       "rate": 1.0,
+       "lo": 0.875445,
+       "hi": 1.0
+      },
+      "ba": 0.962963
+     },
+     "zh": {
+      "n": 46,
+      "right": {
+       "k": 45,
+       "n": 46,
+       "rate": 0.978261,
+       "lo": 0.886647,
+       "hi": 0.996152
+      },
+      "pass_recall": {
+       "k": 22,
+       "n": 23,
+       "rate": 0.956522,
+       "lo": 0.790088,
+       "hi": 0.992283
+      },
+      "fail_recall": {
+       "k": 23,
+       "n": 23,
+       "rate": 1.0,
+       "lo": 0.856883,
+       "hi": 1.0
+      },
+      "ba": 0.978261
+     }
+    },
+    "by_modality": {
+     "text": {
+      "n": 100,
+      "right": {
+       "k": 97,
+       "n": 100,
+       "rate": 0.97,
+       "lo": 0.915481,
+       "hi": 0.989745
+      },
+      "pass_recall": {
+       "k": 47,
+       "n": 50,
+       "rate": 0.94,
+       "lo": 0.837829,
+       "hi": 0.979385
+      },
+      "fail_recall": {
+       "k": 50,
+       "n": 50,
+       "rate": 1.0,
+       "lo": 0.928652,
+       "hi": 1.0
+      },
+      "ba": 0.97
+     }
+    },
+    "stability": {
+     "all_three_same": {
+      "k": 99,
+      "n": 100,
+      "rate": 0.99,
+      "lo": 0.945514,
+      "hi": 0.998233
+     },
+     "fleiss": 0.986629
+    },
+    "stability_by_dimension": {
+     "absence_as_false": {
+      "k": 6,
+      "n": 6,
+      "rate": 1.0,
+      "lo": 0.609666,
+      "hi": 1.0
+     },
+     "contradicts": {
+      "k": 20,
+      "n": 20,
+      "rate": 1.0,
+      "lo": 0.838875,
+      "hi": 1.0
+     },
+     "correct": {
+      "k": 49,
+      "n": 50,
+      "rate": 0.98,
+      "lo": 0.895046,
+      "hi": 0.996461
+     },
+     "drops_confirmed": {
+      "k": 4,
+      "n": 4,
+      "rate": 1.0,
+      "lo": 0.510109,
+      "hi": 1.0
+     },
+     "invents": {
+      "k": 9,
+      "n": 9,
+      "rate": 1.0,
+      "lo": 0.700855,
+      "hi": 1.0
+     },
+     "vague": {
+      "k": 11,
+      "n": 11,
+      "rate": 1.0,
+      "lo": 0.741167,
+      "hi": 1.0
+     }
+    },
+    "v1_single": {
+     "pass_recall": {
+      "k": 43,
+      "n": 50,
+      "rate": 0.86,
+      "lo": 0.738138,
+      "hi": 0.930492
+     },
+     "fail_recall": {
+      "k": 48,
+      "n": 50,
+      "rate": 0.96,
+      "lo": 0.865399,
+      "hi": 0.988961
+     },
+     "ba": 0.91,
+     "n": 100
+    },
+    "adopted_single": {
+     "pass_recall": {
+      "k": 47,
+      "n": 50,
+      "rate": 0.94,
+      "lo": 0.837829,
+      "hi": 0.979385
+     },
+     "fail_recall": {
+      "k": 50,
+      "n": 50,
+      "rate": 1.0,
+      "lo": 0.928652,
+      "hi": 1.0
+     },
+     "ba": 0.97
+    }
+   }
+  },
+  "pooled": {
+   "n": 711,
+   "agreement": {
+    "k": 699,
+    "n": 711,
+    "rate": 0.983122,
+    "lo": 0.970733,
+    "hi": 0.990319
+   },
+   "kappa": {
+    "kappa": 0.965905,
+    "lo": 0.945206,
+    "hi": 0.983389,
+    "n": 711
+   },
+   "ac1": 0.966578,
+   "recall": {
+    "k": 385,
+    "n": 390,
+    "rate": 0.987179,
+    "lo": 0.970344,
+    "hi": 0.994512
+   },
+   "false_positive": {
+    "k": 7,
+    "n": 321,
+    "rate": 0.021807,
+    "lo": 0.010603,
+    "hi": 0.044321
+   },
+   "pass_recall": {
+    "k": 314,
+    "n": 321,
+    "rate": 0.978193,
+    "lo": 0.955679,
+    "hi": 0.989397
+   },
+   "fail_recall": {
+    "k": 385,
+    "n": 390,
+    "rate": 0.987179,
+    "lo": 0.970344,
+    "hi": 0.994512
+   },
+   "ba": 0.982686
+  },
+  "judge_on_rule_checkable": {
+   "k": 145,
+   "n": 145,
+   "rate": 1.0,
+   "lo": 0.974191,
+   "hi": 1.0
+  },
+  "stability_all_three_same": {
+   "k": 696,
+   "n": 711,
+   "rate": 0.978903,
+   "lo": 0.965485,
+   "hi": 0.987174
+  },
+  "cost_per_call": {
+   "review": 0.0004,
+   "claim": 0.000121,
+   "suggest": 0.000109
+  }
+ },
+ "regulator": {
+  "overall": {
+   "n": 46,
+   "agreement": {
+    "k": 39,
+    "n": 46,
+    "rate": 0.847826,
+    "lo": 0.717759,
+    "hi": 0.924277
+   },
+   "kappa": {
+    "kappa": 0.594458,
+    "lo": 0.283737,
+    "hi": 0.842825,
+    "n": 46
+   },
+   "ac1": 0.756522,
+   "recall": {
+    "k": 31,
+    "n": 35,
+    "rate": 0.885714,
+    "lo": 0.740485,
+    "hi": 0.954648
+   },
+   "false_positive": {
+    "k": 3,
+    "n": 11,
+    "rate": 0.272727,
+    "lo": 0.097461,
+    "hi": 0.565645
+   },
+   "pass_recall": {
+    "k": 8,
+    "n": 11,
+    "rate": 0.727273,
+    "lo": 0.434355,
+    "hi": 0.902539
+   },
+   "fail_recall": {
+    "k": 31,
+    "n": 35,
+    "rate": 0.885714,
+    "lo": 0.740485,
+    "hi": 0.954648
+   },
+   "ba": 0.806494
+  },
+  "expected": 46,
+  "by_lang": {
+   "en": {
+    "n": 30,
+    "agreement": {
+     "k": 26,
+     "n": 30,
+     "rate": 0.866667,
+     "lo": 0.703187,
+     "hi": 0.946903
+    },
+    "pass_recall": {
+     "k": 6,
+     "n": 7,
+     "rate": 0.857143,
+     "lo": 0.486872,
+     "hi": 0.97432
+    },
+    "fail_recall": {
+     "k": 20,
+     "n": 23,
+     "rate": 0.869565,
+     "lo": 0.678725,
+     "hi": 0.954623
+    },
+    "ba": 0.863354
+   },
+   "zh": {
+    "n": 16,
+    "agreement": {
+     "k": 13,
+     "n": 16,
+     "rate": 0.8125,
+     "lo": 0.569911,
+     "hi": 0.934084
+    },
+    "pass_recall": {
+     "k": 2,
+     "n": 4,
+     "rate": 0.5,
+     "lo": 0.150039,
+     "hi": 0.849961
+    },
+    "fail_recall": {
+     "k": 11,
+     "n": 12,
+     "rate": 0.916667,
+     "lo": 0.64612,
+     "hi": 0.985135
+    },
+    "ba": 0.708333
+   }
+  },
+  "by_dimension": {
+   "evidence_dependent": {
+    "n": 11,
+    "agreement": {
+     "k": 6,
+     "n": 11,
+     "rate": 0.545455,
+     "lo": 0.280092,
+     "hi": 0.787287
+    },
+    "pass_recall": {
+     "k": 2,
+     "n": 4,
+     "rate": 0.5,
+     "lo": 0.150039,
+     "hi": 0.849961
+    },
+    "fail_recall": {
+     "k": 4,
+     "n": 7,
+     "rate": 0.571429,
+     "lo": 0.250458,
+     "hi": 0.84178
+    },
+    "ba": 0.535714
+   },
+   "on_the_face": {
+    "n": 35,
+    "agreement": {
+     "k": 33,
+     "n": 35,
+     "rate": 0.942857,
+     "lo": 0.813929,
+     "hi": 0.984187
+    },
+    "pass_recall": {
+     "k": 6,
+     "n": 7,
+     "rate": 0.857143,
+     "lo": 0.486872,
+     "hi": 0.97432
+    },
+    "fail_recall": {
+     "k": 27,
+     "n": 28,
+     "rate": 0.964286,
+     "lo": 0.822878,
+     "hi": 0.993667
+    },
+    "ba": 0.910714
+   }
+  },
+  "stability": {
+   "k": 45,
+   "n": 46,
+   "rate": 0.978261,
+   "lo": 0.886647,
+   "hi": 0.996152
+  },
+  "unsure_share": {
+   "k": 24,
+   "n": 46,
+   "rate": 0.521739,
+   "lo": 0.381374,
+   "hi": 0.658753
+  }
+ },
+ "jv": {
+  "n": 200,
+  "exact": {
+   "k": 147,
+   "n": 200,
+   "rate": 0.735,
+   "lo": 0.669824,
+   "hi": 0.791318
+  },
+  "weighted_kappa": {
+   "kappa": 0.796236,
+   "lo": 0.725239,
+   "hi": 0.856162,
+   "n": 200
+  },
+  "human_pairs": {
+   "A1-A2": {
+    "exact": 0.675,
+    "wkappa": 0.605561
+   },
+   "A1-A3": {
+    "exact": 0.625,
+    "wkappa": 0.450183
+   },
+   "A2-A3": {
+    "exact": 0.63,
+    "wkappa": 0.514505
+   }
+  },
+  "judge_vs_each": {
+   "judge-A1": {
+    "exact": 0.69,
+    "wkappa": 0.673901
+   },
+   "judge-A2": {
+    "exact": 0.715,
+    "wkappa": 0.782485
+   },
+   "judge-A3": {
+    "exact": 0.615,
+    "wkappa": 0.601445
+   }
+  },
+  "human_range_exact": [
+   0.625,
+   0.675
+  ],
+  "human_range_wkappa": [
+   0.450183,
+   0.605561
+  ],
+  "judge_mean_exact": 0.673333,
+  "judge_mean_wkappa": 0.685944,
+  "human_mean_exact": 0.643333,
+  "human_mean_wkappa": 0.523416,
+  "by_dimension": {
+   "annotators_agree": {
+    "n": 97,
+    "exact": {
+     "k": 88,
+     "n": 97,
+     "rate": 0.907216,
+     "lo": 0.832991,
+     "hi": 0.950417
+    },
+    "weighted_kappa": 0.9492
+   },
+   "annotators_split": {
+    "n": 103,
+    "exact": {
+     "k": 59,
+     "n": 103,
+     "rate": 0.572816,
+     "lo": 0.476363,
+     "hi": 0.664032
+    },
+    "weighted_kappa": 0.599327
+   }
+  },
+  "confusion": {
+   "truth 0 judge 0": 64,
+   "truth 0 judge 1": 17,
+   "truth 0 judge 2": 1,
+   "truth 1 judge 0": 9,
+   "truth 1 judge 1": 9,
+   "truth 1 judge 2": 4,
+   "truth 2 judge 0": 4,
+   "truth 2 judge 1": 18,
+   "truth 2 judge 2": 74
+  },
+  "stability": {
+   "k": 181,
+   "n": 200,
+   "rate": 0.905,
+   "lo": 0.856398,
+   "hi": 0.938337
+  }
+ },
+ "summeval": {
+  "coherence": {
+   "n": 120,
+   "spearman": 0.535673,
+   "spearman_lo": 0.397323,
+   "spearman_hi": 0.651783,
+   "kendall": 0.420163,
+   "expert_ceiling_spearman": 0.719952,
+   "crowd_vs_expert_spearman": 0.054125,
+   "judge_mean": 2.161111,
+   "expert_mean": 3.45,
+   "stable_within_1": {
+    "k": 120,
+    "n": 120,
+    "rate": 1.0,
+    "lo": 0.968981,
+    "hi": 1.0
+   },
+   "all_three_same": {
+    "k": 91,
+    "n": 120,
+    "rate": 0.758333,
+    "lo": 0.674499,
+    "hi": 0.826142
+   }
+  },
+  "consistency": {
+   "n": 120,
+   "spearman": 0.681804,
+   "spearman_lo": 0.54125,
+   "spearman_hi": 0.801429,
+   "kendall": 0.633471,
+   "expert_ceiling_spearman": 0.633041,
+   "crowd_vs_expert_spearman": -0.093433,
+   "judge_mean": 4.419444,
+   "expert_mean": 4.738889,
+   "stable_within_1": {
+    "k": 119,
+    "n": 120,
+    "rate": 0.991667,
+    "lo": 0.954304,
+    "hi": 0.998527
+   },
+   "all_three_same": {
+    "k": 100,
+    "n": 120,
+    "rate": 0.833333,
+    "lo": 0.756547,
+    "hi": 0.88944
+   }
+  },
+  "fluency": {
+   "n": 120,
+   "spearman": 0.407624,
+   "spearman_lo": 0.234557,
+   "spearman_hi": 0.553443,
+   "kendall": 0.357273,
+   "expert_ceiling_spearman": 0.587884,
+   "crowd_vs_expert_spearman": -0.106423,
+   "judge_mean": 2.186111,
+   "expert_mean": 4.680556,
+   "stable_within_1": {
+    "k": 120,
+    "n": 120,
+    "rate": 1.0,
+    "lo": 0.968981,
+    "hi": 1.0
+   },
+   "all_three_same": {
+    "k": 87,
+    "n": 120,
+    "rate": 0.725,
+    "lo": 0.63907,
+    "hi": 0.796971
+   }
+  },
+  "relevance": {
+   "n": 120,
+   "spearman": 0.463334,
+   "spearman_lo": 0.333388,
+   "spearman_hi": 0.571793,
+   "kendall": 0.36021,
+   "expert_ceiling_spearman": 0.51389,
+   "crowd_vs_expert_spearman": -0.10617,
+   "judge_mean": 3.055556,
+   "expert_mean": 3.866667,
+   "stable_within_1": {
+    "k": 120,
+    "n": 120,
+    "rate": 1.0,
+    "lo": 0.968981,
+    "hi": 1.0
+   },
+   "all_three_same": {
+    "k": 86,
+    "n": 120,
+    "rate": 0.716667,
+    "lo": 0.630298,
+    "hi": 0.789594
+   }
+  }
+ },
+ "mqm": {
+  "n": 240,
+  "exact": {
+   "k": 105,
+   "n": 240,
+   "rate": 0.4375,
+   "lo": 0.376212,
+   "hi": 0.500757
+  },
+  "weighted_kappa": {
+   "kappa": 0.290076,
+   "lo": 0.170494,
+   "hi": 0.40017,
+   "n": 240
+  },
+  "recall": {
+   "none": {
+    "k": 26,
+    "n": 80,
+    "rate": 0.325,
+    "lo": 0.232442,
+    "hi": 0.433595
+   },
+   "minor": {
+    "k": 50,
+    "n": 80,
+    "rate": 0.625,
+    "lo": 0.515487,
+    "hi": 0.723058
+   },
+   "major": {
+    "k": 29,
+    "n": 80,
+    "rate": 0.3625,
+    "lo": 0.265708,
+    "hi": 0.471892
+   }
+  },
+  "any_error_recall": {
+   "k": 129,
+   "n": 160,
+   "rate": 0.80625,
+   "lo": 0.738126,
+   "hi": 0.860013
+  },
+  "none_kept": {
+   "k": 26,
+   "n": 80,
+   "rate": 0.325,
+   "lo": 0.232442,
+   "hi": 0.433595
+  },
+  "confusion": {
+   "truth 0 judge 0": 26,
+   "truth 0 judge 1": 49,
+   "truth 0 judge 2": 5,
+   "truth 1 judge 0": 19,
+   "truth 1 judge 1": 50,
+   "truth 1 judge 2": 11,
+   "truth 2 judge 0": 12,
+   "truth 2 judge 1": 39,
+   "truth 2 judge 2": 29
+  },
+  "stability": {
+   "k": 188,
+   "n": 240,
+   "rate": 0.783333,
+   "lo": 0.726969,
+   "hi": 0.830771
+  },
+  "by_domain": {
+   "conversation": {
+    "n": 60,
+    "exact": {
+     "k": 22,
+     "n": 60,
+     "rate": 0.366667,
+     "lo": 0.256209,
+     "hi": 0.49317
+    },
+    "weighted_kappa": 0.242424
+   },
+   "ecommerce": {
+    "n": 60,
+    "exact": {
+     "k": 25,
+     "n": 60,
+     "rate": 0.416667,
+     "lo": 0.300643,
+     "hi": 0.542719
+    },
+    "weighted_kappa": 0.145455
+   },
+   "news": {
+    "n": 60,
+    "exact": {
+     "k": 28,
+     "n": 60,
+     "rate": 0.466667,
+     "lo": 0.346279,
+     "hi": 0.591066
+    },
+    "weighted_kappa": 0.273973
+   },
+   "social": {
+    "n": 60,
+    "exact": {
+     "k": 30,
+     "n": 60,
+     "rate": 0.5,
+     "lo": 0.37735,
+     "hi": 0.62265
+    },
+    "weighted_kappa": 0.470588
+   }
+  }
+ },
+ "grouping": [
+  {
+   "family": "review",
+   "dimension": "clause",
+   "metric": "errors caught",
+   "value": 0.984848,
+   "stable": 1.0,
+   "group": "judge-reliable"
+  },
+  {
+   "family": "review",
+   "dimension": "correct",
+   "metric": "pass recall",
+   "value": 0.979899,
+   "stable": 0.954774,
+   "group": "judge-reliable"
+  },
+  {
+   "family": "review",
+   "dimension": "decision",
+   "metric": "errors caught",
+   "value": 0.962617,
+   "stable": 0.953271,
+   "group": "judge-reliable"
+  },
+  {
+   "family": "review",
+   "dimension": "format",
+   "metric": "errors caught",
+   "value": 1.0,
+   "stable": 1.0,
+   "group": "rule-checkable"
+  },
+  {
+   "family": "review",
+   "dimension": "quote",
+   "metric": "errors caught",
+   "value": 1.0,
+   "stable": 1.0,
+   "group": "rule-checkable"
+  },
+  {
+   "family": "claim",
+   "dimension": "correct",
+   "metric": "pass recall",
+   "value": 1.0,
+   "stable": 1.0,
+   "group": "judge-reliable"
+  },
+  {
+   "family": "claim",
+   "dimension": "figure",
+   "metric": "errors caught",
+   "value": 1.0,
+   "stable": 1.0,
+   "group": "rule-checkable"
+  },
+  {
+   "family": "claim",
+   "dimension": "foreign",
+   "metric": "errors caught",
+   "value": 1.0,
+   "stable": 1.0,
+   "group": "rule-checkable"
+  },
+  {
+   "family": "claim",
+   "dimension": "misreading",
+   "metric": "errors caught",
+   "value": 1.0,
+   "stable": 1.0,
+   "group": "judge-reliable"
+  },
+  {
+   "family": "claim",
+   "dimension": "quote",
+   "metric": "errors caught",
+   "value": 1.0,
+   "stable": 1.0,
+   "group": "rule-checkable"
+  },
+  {
+   "family": "suggest",
+   "dimension": "absence_as_false",
+   "metric": "errors caught",
+   "value": 1.0,
+   "stable": 1.0,
+   "group": "judge-reliable"
+  },
+  {
+   "family": "suggest",
+   "dimension": "contradicts",
+   "metric": "errors caught",
+   "value": 1.0,
+   "stable": 1.0,
+   "group": "judge-reliable"
+  },
+  {
+   "family": "suggest",
+   "dimension": "correct",
+   "metric": "pass recall",
+   "value": 0.94,
+   "stable": 0.98,
+   "group": "judge-reliable"
+  },
+  {
+   "family": "suggest",
+   "dimension": "drops_confirmed",
+   "metric": "errors caught",
+   "value": 1.0,
+   "stable": 1.0,
+   "group": "judge-reliable"
+  },
+  {
+   "family": "suggest",
+   "dimension": "invents",
+   "metric": "errors caught",
+   "value": 1.0,
+   "stable": 1.0,
+   "group": "judge-reliable"
+  },
+  {
+   "family": "suggest",
+   "dimension": "vague",
+   "metric": "errors caught",
+   "value": 1.0,
+   "stable": 1.0,
+   "group": "judge-reliable"
+  },
+  {
+   "family": "regulator",
+   "dimension": "evidence_dependent",
+   "metric": "agreement",
+   "value": 0.545455,
+   "stable": 0.978261,
+   "group": "needs people"
+  },
+  {
+   "family": "regulator",
+   "dimension": "on_the_face",
+   "metric": "agreement",
+   "value": 0.942857,
+   "stable": 0.978261,
+   "group": "judge-reliable"
+  },
+  {
+   "family": "jv",
+   "dimension": "annotators_agree",
+   "metric": "weighted kappa",
+   "value": 0.9492,
+   "stable": 0.905,
+   "group": "judge-reliable"
+  },
+  {
+   "family": "jv",
+   "dimension": "annotators_split",
+   "metric": "weighted kappa",
+   "value": 0.599327,
+   "stable": 0.905,
+   "group": "needs people"
+  },
+  {
+   "family": "summeval",
+   "dimension": "coherence",
+   "metric": "Spearman",
+   "value": 0.535673,
+   "stable": 1.0,
+   "group": "needs people"
+  },
+  {
+   "family": "summeval",
+   "dimension": "consistency",
+   "metric": "Spearman",
+   "value": 0.681804,
+   "stable": 0.991667,
+   "group": "judge-reliable"
+  },
+  {
+   "family": "summeval",
+   "dimension": "fluency",
+   "metric": "Spearman",
+   "value": 0.407624,
+   "stable": 1.0,
+   "group": "needs people"
+  },
+  {
+   "family": "summeval",
+   "dimension": "relevance",
+   "metric": "Spearman",
+   "value": 0.463334,
+   "stable": 1.0,
+   "group": "needs people"
+  },
+  {
+   "family": "mqm",
+   "dimension": "conversation",
+   "metric": "weighted kappa",
+   "value": 0.242424,
+   "stable": 0.783333,
+   "group": "needs people"
+  },
+  {
+   "family": "mqm",
+   "dimension": "ecommerce",
+   "metric": "weighted kappa",
+   "value": 0.145455,
+   "stable": 0.783333,
+   "group": "needs people"
+  },
+  {
+   "family": "mqm",
+   "dimension": "news",
+   "metric": "weighted kappa",
+   "value": 0.273973,
+   "stable": 0.783333,
+   "group": "needs people"
+  },
+  {
+   "family": "mqm",
+   "dimension": "social",
+   "metric": "weighted kappa",
+   "value": 0.470588,
+   "stable": 0.783333,
+   "group": "needs people"
+  }
+ ],
+ "combination": {
+  "A": {
+   "n": 711,
+   "wrong_candidates": 390,
+   "coverage": {
+    "k": 711,
+    "n": 711,
+    "rate": 1.0,
+    "lo": 0.994626,
+    "hi": 1.0
+   },
+   "queue": {
+    "k": 0,
+    "n": 711,
+    "rate": 0.0,
+    "lo": 0.0,
+    "hi": 0.005374
+   },
+   "missed": {
+    "k": 7,
+    "n": 390,
+    "rate": 0.017949,
+    "lo": 0.008721,
+    "hi": 0.03658
+   },
+   "false_alarms": {
+    "k": 9,
+    "n": 321,
+    "rate": 0.028037,
+    "lo": 0.014819,
+    "hi": 0.052418
+   },
+   "judge_calls": 711,
+   "cost_usd": 0.215441,
+   "cost_per_1000_items": 0.303012
+  },
+  "B": {
+   "n": 711,
+   "wrong_candidates": 390,
+   "coverage": {
+    "k": 662,
+    "n": 711,
+    "rate": 0.931083,
+    "lo": 0.910053,
+    "hi": 0.94748
+   },
+   "queue": {
+    "k": 49,
+    "n": 711,
+    "rate": 0.068917,
+    "lo": 0.05252,
+    "hi": 0.089947
+   },
+   "missed": {
+    "k": 2,
+    "n": 390,
+    "rate": 0.005128,
+    "lo": 0.001407,
+    "hi": 0.018503
+   },
+   "false_alarms": {
+    "k": 3,
+    "n": 321,
+    "rate": 0.009346,
+    "lo": 0.003183,
+    "hi": 0.027113
+   },
+   "judge_calls": 566,
+   "cost_usd": 0.172727,
+   "cost_per_1000_items": 0.242936
+  },
+  "C": {
+   "n": 711,
+   "wrong_candidates": 390,
+   "coverage": {
+    "k": 644,
+    "n": 711,
+    "rate": 0.905767,
+    "lo": 0.882059,
+    "hi": 0.925113
+   },
+   "queue": {
+    "k": 67,
+    "n": 711,
+    "rate": 0.094233,
+    "lo": 0.074887,
+    "hi": 0.117941
+   },
+   "missed": {
+    "k": 2,
+    "n": 390,
+    "rate": 0.005128,
+    "lo": 0.001407,
+    "hi": 0.018503
+   },
+   "false_alarms": {
+    "k": 2,
+    "n": 321,
+    "rate": 0.006231,
+    "lo": 0.00171,
+    "hi": 0.022429
+   },
+   "judge_calls": 1132,
+   "cost_usd": 0.34611,
+   "cost_per_1000_items": 0.486793
+  },
+  "B_by_family": {
+   "review": {
+    "n": 469,
+    "missed_A": {
+     "k": 7,
+     "n": 270,
+     "rate": 0.025926,
+     "lo": 0.012614,
+     "hi": 0.052538
+    },
+    "missed_B": {
+     "k": 2,
+     "n": 270,
+     "rate": 0.007407,
+     "lo": 0.002034,
+     "hi": 0.026601
+    },
+    "queue_B": {
+     "k": 46,
+     "n": 469,
+     "rate": 0.098081,
+     "lo": 0.07434,
+     "hi": 0.128353
+    }
+   },
+   "claim": {
+    "n": 142,
+    "missed_A": {
+     "k": 0,
+     "n": 70,
+     "rate": 0.0,
+     "lo": 0.0,
+     "hi": 0.052023
+    },
+    "missed_B": {
+     "k": 0,
+     "n": 70,
+     "rate": 0.0,
+     "lo": 0.0,
+     "hi": 0.052023
+    },
+    "queue_B": {
+     "k": 0,
+     "n": 142,
+     "rate": 0.0,
+     "lo": 0.0,
+     "hi": 0.02634
+    }
+   },
+   "suggest": {
+    "n": 100,
+    "missed_A": {
+     "k": 0,
+     "n": 50,
+     "rate": 0.0,
+     "lo": 0.0,
+     "hi": 0.071348
+    },
+    "missed_B": {
+     "k": 0,
+     "n": 50,
+     "rate": 0.0,
+     "lo": 0.0,
+     "hi": 0.071348
+    },
+    "queue_B": {
+     "k": 3,
+     "n": 100,
+     "rate": 0.03,
+     "lo": 0.010255,
+     "hi": 0.084519
+    }
+   }
+  },
+  "error_rate_sure": {
+   "k": 5,
+   "n": 662,
+   "rate": 0.007553,
+   "lo": 0.00323,
+   "hi": 0.017558
+  },
+  "error_rate_unsure": {
+   "k": 11,
+   "n": 49,
+   "rate": 0.22449,
+   "lo": 0.13025,
+   "hi": 0.358788
+  }
+ },
+ "perturb": {
+  "noise_floor": {
+   "k": 3,
+   "n": 368,
+   "rate": 0.008152,
+   "lo": 0.002776,
+   "hi": 0.023691
+  },
+  "r1": {
+   "n": 368,
+   "flip": {
+    "k": 2,
+    "n": 368,
+    "rate": 0.005435,
+    "lo": 0.001492,
+    "hi": 0.019596
+   },
+   "accuracy_base": {
+    "k": 362,
+    "n": 368,
+    "rate": 0.983696,
+    "lo": 0.964891,
+    "hi": 0.992507
+   },
+   "accuracy_new": {
+    "k": 360,
+    "n": 368,
+    "rate": 0.978261,
+    "lo": 0.957696,
+    "hi": 0.988944
+   },
+   "mcnemar_p": 0.5,
+   "wrong_pass_base": {
+    "k": 1,
+    "n": 195,
+    "rate": 0.005128,
+    "lo": 0.000906,
+    "hi": 0.028472
+   },
+   "wrong_pass_new": {
+    "k": 2,
+    "n": 195,
+    "rate": 0.010256,
+    "lo": 0.002817,
+    "hi": 0.036619
+   },
+   "right_pass_base": {
+    "k": 168,
+    "n": 173,
+    "rate": 0.971098,
+    "lo": 0.934137,
+    "hi": 0.987593
+   },
+   "right_pass_new": {
+    "k": 167,
+    "n": 173,
+    "rate": 0.965318,
+    "lo": 0.92641,
+    "hi": 0.98401
+   },
+   "cost_per_call": 0.00022,
+   "by_family": {
+    "review": {
+     "n": 126,
+     "flip": {
+      "k": 2,
+      "n": 126,
+      "rate": 0.015873,
+      "lo": 0.004364,
+      "hi": 0.056029
+     }
+    },
+    "claim": {
+     "n": 142,
+     "flip": {
+      "k": 0,
+      "n": 142,
+      "rate": 0.0,
+      "lo": 0.0,
+      "hi": 0.02634
+     }
+    },
+    "suggest": {
+     "n": 100,
+     "flip": {
+      "k": 0,
+      "n": 100,
+      "rate": 0.0,
+      "lo": 0.0,
+      "hi": 0.036993
+     }
+    }
+   }
+  },
+  "r2": {
+   "n": 368,
+   "flip": {
+    "k": 7,
+    "n": 368,
+    "rate": 0.019022,
+    "lo": 0.009244,
+    "hi": 0.038737
+   },
+   "accuracy_base": {
+    "k": 362,
+    "n": 368,
+    "rate": 0.983696,
+    "lo": 0.964891,
+    "hi": 0.992507
+   },
+   "accuracy_new": {
+    "k": 355,
+    "n": 368,
+    "rate": 0.964674,
+    "lo": 0.940506,
+    "hi": 0.979241
+   },
+   "mcnemar_p": 0.015625,
+   "wrong_pass_base": {
+    "k": 1,
+    "n": 195,
+    "rate": 0.005128,
+    "lo": 0.000906,
+    "hi": 0.028472
+   },
+   "wrong_pass_new": {
+    "k": 2,
+    "n": 195,
+    "rate": 0.010256,
+    "lo": 0.002817,
+    "hi": 0.036619
+   },
+   "right_pass_base": {
+    "k": 168,
+    "n": 173,
+    "rate": 0.971098,
+    "lo": 0.934137,
+    "hi": 0.987593
+   },
+   "right_pass_new": {
+    "k": 162,
+    "n": 173,
+    "rate": 0.936416,
+    "lo": 0.889744,
+    "hi": 0.964128
+   },
+   "cost_per_call": 0.000201,
+   "by_family": {
+    "review": {
+     "n": 126,
+     "flip": {
+      "k": 0,
+      "n": 126,
+      "rate": 0.0,
+      "lo": 0.0,
+      "hi": 0.029586
+     }
+    },
+    "claim": {
+     "n": 142,
+     "flip": {
+      "k": 0,
+      "n": 142,
+      "rate": 0.0,
+      "lo": 0.0,
+      "hi": 0.02634
+     }
+    },
+    "suggest": {
+     "n": 100,
+     "flip": {
+      "k": 7,
+      "n": 100,
+      "rate": 0.07,
+      "lo": 0.034319,
+      "hi": 0.137495
+     }
+    }
+   }
+  },
+  "swap": {
+   "n": 368,
+   "flip": {
+    "k": 2,
+    "n": 368,
+    "rate": 0.005435,
+    "lo": 0.001492,
+    "hi": 0.019596
+   },
+   "accuracy_base": {
+    "k": 362,
+    "n": 368,
+    "rate": 0.983696,
+    "lo": 0.964891,
+    "hi": 0.992507
+   },
+   "accuracy_new": {
+    "k": 362,
+    "n": 368,
+    "rate": 0.983696,
+    "lo": 0.964891,
+    "hi": 0.992507
+   },
+   "mcnemar_p": 1.0,
+   "wrong_pass_base": {
+    "k": 1,
+    "n": 195,
+    "rate": 0.005128,
+    "lo": 0.000906,
+    "hi": 0.028472
+   },
+   "wrong_pass_new": {
+    "k": 0,
+    "n": 195,
+    "rate": 0.0,
+    "lo": 0.0,
+    "hi": 0.019319
+   },
+   "right_pass_base": {
+    "k": 168,
+    "n": 173,
+    "rate": 0.971098,
+    "lo": 0.934137,
+    "hi": 0.987593
+   },
+   "right_pass_new": {
+    "k": 167,
+    "n": 173,
+    "rate": 0.965318,
+    "lo": 0.92641,
+    "hi": 0.98401
+   },
+   "cost_per_call": 0.000219,
+   "by_family": {
+    "review": {
+     "n": 126,
+     "flip": {
+      "k": 2,
+      "n": 126,
+      "rate": 0.015873,
+      "lo": 0.004364,
+      "hi": 0.056029
+     }
+    },
+    "claim": {
+     "n": 142,
+     "flip": {
+      "k": 0,
+      "n": 142,
+      "rate": 0.0,
+      "lo": 0.0,
+      "hi": 0.02634
+     }
+    },
+    "suggest": {
+     "n": 100,
+     "flip": {
+      "k": 0,
+      "n": 100,
+      "rate": 0.0,
+      "lo": 0.0,
+      "hi": 0.036993
+     }
+    }
+   }
+  },
+  "verbose": {
+   "n": 368,
+   "flip": {
+    "k": 0,
+    "n": 368,
+    "rate": 0.0,
+    "lo": 0.0,
+    "hi": 0.010331
+   },
+   "accuracy_base": {
+    "k": 362,
+    "n": 368,
+    "rate": 0.983696,
+    "lo": 0.964891,
+    "hi": 0.992507
+   },
+   "accuracy_new": {
+    "k": 362,
+    "n": 368,
+    "rate": 0.983696,
+    "lo": 0.964891,
+    "hi": 0.992507
+   },
+   "mcnemar_p": 1.0,
+   "wrong_pass_base": {
+    "k": 1,
+    "n": 195,
+    "rate": 0.005128,
+    "lo": 0.000906,
+    "hi": 0.028472
+   },
+   "wrong_pass_new": {
+    "k": 1,
+    "n": 195,
+    "rate": 0.005128,
+    "lo": 0.000906,
+    "hi": 0.028472
+   },
+   "right_pass_base": {
+    "k": 168,
+    "n": 173,
+    "rate": 0.971098,
+    "lo": 0.934137,
+    "hi": 0.987593
+   },
+   "right_pass_new": {
+    "k": 168,
+    "n": 173,
+    "rate": 0.971098,
+    "lo": 0.934137,
+    "hi": 0.987593
+   },
+   "cost_per_call": 0.000216,
+   "by_family": {
+    "review": {
+     "n": 126,
+     "flip": {
+      "k": 0,
+      "n": 126,
+      "rate": 0.0,
+      "lo": 0.0,
+      "hi": 0.029586
+     }
+    },
+    "claim": {
+     "n": 142,
+     "flip": {
+      "k": 0,
+      "n": 142,
+      "rate": 0.0,
+      "lo": 0.0,
+      "hi": 0.02634
+     }
+    },
+    "suggest": {
+     "n": 100,
+     "flip": {
+      "k": 0,
+      "n": 100,
+      "rate": 0.0,
+      "lo": 0.0,
+      "hi": 0.036993
+     }
+    }
+   }
+  },
+  "assertive": {
+   "n": 368,
+   "flip": {
+    "k": 0,
+    "n": 368,
+    "rate": 0.0,
+    "lo": 0.0,
+    "hi": 0.010331
+   },
+   "accuracy_base": {
+    "k": 362,
+    "n": 368,
+    "rate": 0.983696,
+    "lo": 0.964891,
+    "hi": 0.992507
+   },
+   "accuracy_new": {
+    "k": 362,
+    "n": 368,
+    "rate": 0.983696,
+    "lo": 0.964891,
+    "hi": 0.992507
+   },
+   "mcnemar_p": 1.0,
+   "wrong_pass_base": {
+    "k": 1,
+    "n": 195,
+    "rate": 0.005128,
+    "lo": 0.000906,
+    "hi": 0.028472
+   },
+   "wrong_pass_new": {
+    "k": 1,
+    "n": 195,
+    "rate": 0.005128,
+    "lo": 0.000906,
+    "hi": 0.028472
+   },
+   "right_pass_base": {
+    "k": 168,
+    "n": 173,
+    "rate": 0.971098,
+    "lo": 0.934137,
+    "hi": 0.987593
+   },
+   "right_pass_new": {
+    "k": 168,
+    "n": 173,
+    "rate": 0.971098,
+    "lo": 0.934137,
+    "hi": 0.987593
+   },
+   "cost_per_call": 0.000215,
+   "by_family": {
+    "review": {
+     "n": 126,
+     "flip": {
+      "k": 0,
+      "n": 126,
+      "rate": 0.0,
+      "lo": 0.0,
+      "hi": 0.029586
+     }
+    },
+    "claim": {
+     "n": 142,
+     "flip": {
+      "k": 0,
+      "n": 142,
+      "rate": 0.0,
+      "lo": 0.0,
+      "hi": 0.02634
+     }
+    },
+    "suggest": {
+     "n": 100,
+     "flip": {
+      "k": 0,
+      "n": 100,
+      "rate": 0.0,
+      "lo": 0.0,
+      "hi": 0.036993
+     }
+    }
+   }
+  },
+  "low": {
+   "n": 368,
+   "flip": {
+    "k": 5,
+    "n": 368,
+    "rate": 0.013587,
+    "lo": 0.005817,
+    "hi": 0.031407
+   },
+   "accuracy_base": {
+    "k": 362,
+    "n": 368,
+    "rate": 0.983696,
+    "lo": 0.964891,
+    "hi": 0.992507
+   },
+   "accuracy_new": {
+    "k": 363,
+    "n": 368,
+    "rate": 0.986413,
+    "lo": 0.968593,
+    "hi": 0.994183
+   },
+   "mcnemar_p": 1.0,
+   "wrong_pass_base": {
+    "k": 1,
+    "n": 195,
+    "rate": 0.005128,
+    "lo": 0.000906,
+    "hi": 0.028472
+   },
+   "wrong_pass_new": {
+    "k": 0,
+    "n": 195,
+    "rate": 0.0,
+    "lo": 0.0,
+    "hi": 0.019319
+   },
+   "right_pass_base": {
+    "k": 168,
+    "n": 173,
+    "rate": 0.971098,
+    "lo": 0.934137,
+    "hi": 0.987593
+   },
+   "right_pass_new": {
+    "k": 168,
+    "n": 173,
+    "rate": 0.971098,
+    "lo": 0.934137,
+    "hi": 0.987593
+   },
+   "cost_per_call": 0.000182,
+   "by_family": {
+    "review": {
+     "n": 126,
+     "flip": {
+      "k": 3,
+      "n": 126,
+      "rate": 0.02381,
+      "lo": 0.00813,
+      "hi": 0.067666
+     }
+    },
+    "claim": {
+     "n": 142,
+     "flip": {
+      "k": 0,
+      "n": 142,
+      "rate": 0.0,
+      "lo": 0.0,
+      "hi": 0.02634
+     }
+    },
+    "suggest": {
+     "n": 100,
+     "flip": {
+      "k": 2,
+      "n": 100,
+      "rate": 0.02,
+      "lo": 0.005502,
+      "hi": 0.070012
+     }
+    }
+   }
+  },
+  "base_cost_per_call": 0.000212
+ },
+ "pairs_lists": {
+  "pairs": {
+   "n": 157,
+   "right_first": {
+    "k": 152,
+    "n": 157,
+    "rate": 0.968153,
+    "lo": 0.927622,
+    "hi": 0.986322
+   },
+   "right_second": {
+    "k": 153,
+    "n": 157,
+    "rate": 0.974522,
+    "lo": 0.936329,
+    "hi": 0.990049
+   },
+   "consistent": {
+    "k": 154,
+    "n": 157,
+    "rate": 0.980892,
+    "lo": 0.945332,
+    "hi": 0.993481
+   },
+   "inconsistent_picks_A": 1,
+   "inconsistent_picks_B": 2,
+   "single_item_both_right": {
+    "k": 144,
+    "n": 157,
+    "rate": 0.917197,
+    "lo": 0.863494,
+    "hi": 0.950973
+   },
+   "mcnemar_first_vs_second": 1.0,
+   "by_family": {
+    "review": {
+     "n": 107,
+     "right_first": {
+      "k": 102,
+      "n": 107,
+      "rate": 0.953271,
+      "lo": 0.895246,
+      "hi": 0.979877
+     },
+     "right_second": {
+      "k": 103,
+      "n": 107,
+      "rate": 0.962617,
+      "lo": 0.9078,
+      "hi": 0.985368
+     },
+     "consistent": {
+      "k": 104,
+      "n": 107,
+      "rate": 0.971963,
+      "lo": 0.920792,
+      "hi": 0.99042
+     }
+    },
+    "suggest": {
+     "n": 50,
+     "right_first": {
+      "k": 50,
+      "n": 50,
+      "rate": 1.0,
+      "lo": 0.928652,
+      "hi": 1.0
+     },
+     "right_second": {
+      "k": 50,
+      "n": 50,
+      "rate": 1.0,
+      "lo": 0.928652,
+      "hi": 1.0
+     },
+     "consistent": {
+      "k": 50,
+      "n": 50,
+      "rate": 1.0,
+      "lo": 0.928652,
+      "hi": 1.0
+     }
+    }
+   }
+  },
+  "lists": {
+   "verdicts": 142,
+   "same_in_both_orders": {
+    "k": 139,
+    "n": 142,
+    "rate": 0.978873,
+    "lo": 0.93973,
+    "hi": 0.992789
+   },
+   "accuracy_in_list": {
+    "k": 140,
+    "n": 142,
+    "rate": 0.985915,
+    "lo": 0.950104,
+    "hi": 0.996129
+   },
+   "accuracy_single": {
+    "k": 142,
+    "n": 142,
+    "rate": 1.0,
+    "lo": 0.97366,
+    "hi": 1.0
+   },
+   "lists": 16
+  }
+ },
+ "qc": {
+  "records": 239,
+  "answered": 239,
+  "wrong": 119,
+  "correct": 120,
+  "script": {
+   "caught": {
+    "k": 18,
+    "n": 119,
+    "rate": 0.151261,
+    "lo": 0.097873,
+    "hi": 0.226459
+   },
+   "false_flags": {
+    "k": 0,
+    "n": 120,
+    "rate": 0.0,
+    "lo": 0.0,
+    "hi": 0.031019
+   },
+   "by_type": {
+    "decision": {
+     "k": 0,
+     "n": 65,
+     "rate": 0.0,
+     "lo": 0.0,
+     "hi": 0.055802
+    },
+    "category": {
+     "k": 0,
+     "n": 22,
+     "rate": 0.0,
+     "lo": 0.0,
+     "hi": 0.148655
+    },
+    "span_semantic": {
+     "k": 0,
+     "n": 14,
+     "rate": 0.0,
+     "lo": 0.0,
+     "hi": 0.215311
+    },
+    "span_altered": {
+     "k": 10,
+     "n": 10,
+     "rate": 1.0,
+     "lo": 0.722467,
+     "hi": 1.0
+    },
+    "unknown_clause": {
+     "k": 8,
+     "n": 8,
+     "rate": 1.0,
+     "lo": 0.675592,
+     "hi": 1.0
+    }
+   }
+  },
+  "agent": {
+   "caught": {
+    "k": 119,
+    "n": 119,
+    "rate": 1.0,
+    "lo": 0.968728,
+    "hi": 1.0
+   },
+   "false_flags": {
+    "k": 6,
+    "n": 120,
+    "rate": 0.05,
+    "lo": 0.023114,
+    "hi": 0.104803
+   },
+   "by_type": {
+    "decision": {
+     "k": 65,
+     "n": 65,
+     "rate": 1.0,
+     "lo": 0.944198,
+     "hi": 1.0
+    },
+    "category": {
+     "k": 22,
+     "n": 22,
+     "rate": 1.0,
+     "lo": 0.851345,
+     "hi": 1.0
+    },
+    "span_semantic": {
+     "k": 14,
+     "n": 14,
+     "rate": 1.0,
+     "lo": 0.784689,
+     "hi": 1.0
+    },
+    "span_altered": {
+     "k": 10,
+     "n": 10,
+     "rate": 1.0,
+     "lo": 0.722467,
+     "hi": 1.0
+    },
+    "unknown_clause": {
+     "k": 8,
+     "n": 8,
+     "rate": 1.0,
+     "lo": 0.675592,
+     "hi": 1.0
+    }
+   }
+  },
+  "pipeline": {
+   "caught": {
+    "k": 119,
+    "n": 119,
+    "rate": 1.0,
+    "lo": 0.968728,
+    "hi": 1.0
+   },
+   "false_flags": {
+    "k": 6,
+    "n": 120,
+    "rate": 0.05,
+    "lo": 0.023114,
+    "hi": 0.104803
+   },
+   "by_type": {
+    "decision": {
+     "k": 65,
+     "n": 65,
+     "rate": 1.0,
+     "lo": 0.944198,
+     "hi": 1.0
+    },
+    "category": {
+     "k": 22,
+     "n": 22,
+     "rate": 1.0,
+     "lo": 0.851345,
+     "hi": 1.0
+    },
+    "span_semantic": {
+     "k": 14,
+     "n": 14,
+     "rate": 1.0,
+     "lo": 0.784689,
+     "hi": 1.0
+    },
+    "span_altered": {
+     "k": 10,
+     "n": 10,
+     "rate": 1.0,
+     "lo": 0.722467,
+     "hi": 1.0
+    },
+    "unknown_clause": {
+     "k": 8,
+     "n": 8,
+     "rate": 1.0,
+     "lo": 0.675592,
+     "hi": 1.0
+    }
+   }
+  },
+  "agent_cost_per_record": 0.00052,
+  "pipeline_cost_per_record": 0.00048,
+  "tool_calls_per_record": 2.878661,
+  "records_without_tool_call": 0,
+  "problem_named_right": {
+   "k": 114,
+   "n": 119,
+   "rate": 0.957983,
+   "lo": 0.905401,
+   "hi": 0.981922
+  },
+  "acceptance": {
+   "0.00": {
+    "accepted": 0.991,
+    "failed_S1": 0.0,
+    "failed_S2": 0.009,
+    "failed_S3": 0.0
+   },
+   "0.01": {
+    "accepted": 0.962,
+    "failed_S1": 0.0015,
+    "failed_S2": 0.0365,
+    "failed_S3": 0.0
+   },
+   "0.02": {
+    "accepted": 0.915,
+    "failed_S1": 0.0025,
+    "failed_S2": 0.0825,
+    "failed_S3": 0.0
+   },
+   "0.05": {
+    "accepted": 0.6195,
+    "failed_S1": 0.041,
+    "failed_S2": 0.3575,
+    "failed_S3": 0.0
+   },
+   "0.10": {
+    "accepted": 0.1355,
+    "failed_S1": 0.195,
+    "failed_S2": 0.8345,
+    "failed_S3": 0.0
+   },
+   "0.20": {
+    "accepted": 0.001,
+    "failed_S1": 0.5975,
+    "failed_S2": 0.999,
+    "failed_S3": 0.0
+   }
+  },
+  "targets_met": {
+   "accept_at_<=2%": true,
+   "reject_at_>=10%": false
+  }
+ },
+ "second_judge": {
+  "n": 120,
+  "by_family": {
+   "claim": {
+    "n": 40,
+    "sonnet_right": {
+     "k": 40,
+     "n": 40,
+     "rate": 1.0,
+     "lo": 0.912378,
+     "hi": 1.0
+    },
+    "haiku_right": {
+     "k": 40,
+     "n": 40,
+     "rate": 1.0,
+     "lo": 0.912378,
+     "hi": 1.0
+    },
+    "same_verdict": {
+     "k": 40,
+     "n": 40,
+     "rate": 1.0,
+     "lo": 0.912378,
+     "hi": 1.0
+    },
+    "mcnemar_p": 1.0
+   },
+   "mqm": {
+    "n": 40,
+    "sonnet_right": {
+     "k": 21,
+     "n": 40,
+     "rate": 0.525,
+     "lo": 0.374974,
+     "hi": 0.670645
+    },
+    "haiku_right": {
+     "k": 18,
+     "n": 40,
+     "rate": 0.45,
+     "lo": 0.307053,
+     "hi": 0.601709
+    },
+    "same_verdict": {
+     "k": 29,
+     "n": 40,
+     "rate": 0.725,
+     "lo": 0.57165,
+     "hi": 0.83892
+    },
+    "mcnemar_p": 0.507812
+   },
+   "suggest": {
+    "n": 40,
+    "sonnet_right": {
+     "k": 39,
+     "n": 40,
+     "rate": 0.975,
+     "lo": 0.871186,
+     "hi": 0.995573
+    },
+    "haiku_right": {
+     "k": 40,
+     "n": 40,
+     "rate": 1.0,
+     "lo": 0.912378,
+     "hi": 1.0
+    },
+    "same_verdict": {
+     "k": 39,
+     "n": 40,
+     "rate": 0.975,
+     "lo": 0.871186,
+     "hi": 0.995573
+    },
+    "mcnemar_p": 1.0
+   }
+  },
+  "sonnet_cost_per_call": 0.001483
+ },
+ "cost": {
+  "dev-c1": {
+   "calls": 144,
+   "input_tokens": 169372,
+   "output_tokens": 46685,
+   "cost_usd": 0.0201
+  },
+  "dev": {
+   "calls": 780,
+   "input_tokens": 2798390,
+   "output_tokens": 296463,
+   "cost_usd": 0.214
+  },
+  "flips": {
+   "calls": 288,
+   "input_tokens": 1630012,
+   "output_tokens": 292580,
+   "cost_usd": 0.1546
+  },
+  "list": {
+   "calls": 32,
+   "input_tokens": 87062,
+   "output_tokens": 45004,
+   "cost_usd": 0.0156
+  },
+  "main-c1": {
+   "calls": 400,
+   "input_tokens": 385384,
+   "output_tokens": 107707,
+   "cost_usd": 0.0462
+  },
+  "main": {
+   "calls": 5742,
+   "input_tokens": 14810153,
+   "output_tokens": 1540722,
+   "cost_usd": 1.1257
+  },
+  "pair-c1": {
+   "calls": 100,
+   "input_tokens": 107622,
+   "output_tokens": 15993,
+   "cost_usd": 0.0094
+  },
+  "pair": {
+   "calls": 314,
+   "input_tokens": 1387678,
+   "output_tokens": 97905,
+   "cost_usd": 0.0939
+  },
+  "perturb-c1": {
+   "calls": 600,
+   "input_tokens": 624602,
+   "output_tokens": 165371,
+   "cost_usd": 0.0726
+  },
+  "perturb": {
+   "calls": 2208,
+   "input_tokens": 5992988,
+   "output_tokens": 646644,
+   "cost_usd": 0.4613
+  },
+  "pilot": {
+   "calls": 40,
+   "input_tokens": 90795,
+   "output_tokens": 12374,
+   "cost_usd": 0.0153
+  },
+  "qc-pilot": {
+   "calls": 13,
+   "input_tokens": 33052,
+   "output_tokens": 3240,
+   "cost_usd": 0.0049
+  },
+  "qc": {
+   "calls": 491,
+   "input_tokens": 1583644,
+   "output_tokens": 165920,
+   "cost_usd": 0.1242
+  },
+  "second-c1": {
+   "calls": 40,
+   "input_tokens": 42364,
+   "output_tokens": 3992,
+   "cost_usd": 0.0623
+  },
+  "second-estimate": {
+   "calls": 5,
+   "input_tokens": 5261,
+   "output_tokens": 456,
+   "cost_usd": 0.0151
+  },
+  "second": {
+   "calls": 120,
+   "input_tokens": 112764,
+   "output_tokens": 13041,
+   "cost_usd": 0.178
+  },
+  "total_usd": 2.6132
+ },
+ "predictions": {
+  "1": {
+   "prediction": "judge alone catches < 95% of rule-checkable errors",
+   "held": false
+  },
+  "2": {
+   "prediction": "regulator agreement lower than constructed agreement",
+   "held": true
+  },
+  "3": {
+   "prediction": "lower on evidence-dependent decisions",
+   "held": true
+  },
+  "4": {
+   "prediction": "jv: judge mean pairwise exact agreement within the human range",
+   "held": true
+  },
+  "5": {
+   "prediction": "summeval: judge below the expert ceiling on all four dimensions",
+   "held": false
+  },
+  "6": {
+   "prediction": "three judgments identical less often on human-rated families",
+   "held": true
+  },
+  "7": {
+   "prediction": "assurance raises the pass rate of wrong candidates by >= 2 points",
+   "held": false
+  },
+  "8": {
+   "prediction": "rewording flips more verdicts than repeating",
+   "held": false
+  },
+  "9": {
+   "prediction": "pairs: same pick in both orders >= 90%",
+   "held": true
+  },
+  "10": {
+   "prediction": "B misses fewer errors than A with a queue <= 20%",
+   "held": true
+  },
+  "11": {
+   "prediction": "script then agent catches >= 90% and flags <= 10% of correct records",
+   "held": true
+  },
+  "12": {
+   "prediction": "acceptance standard meets both targets",
+   "held": false
+  }
+ },
+ "details": {
+  "constructed_disagreements": 12,
+  "argued_wrong_decision_passed": 4,
+  "argued_wrong_decision_passed_first_unsure": 3,
+  "swapped_clause_passed": 1,
+  "right_review_of_trap_ad_failed": 2,
+  "disagreements_material_gap": 3,
+  "disagreements_answer_key": 2,
+  "disagreements_left_to_judge": 7,
+  "regulator_misses": 7,
+  "regulator_misses_evidence_dependent": 5,
+  "jv_median_half_items": 22,
+  "jv_median_half_judge_half": 9,
+  "terse_rubric_good_suggestions_failed": 6,
+  "terse_rubric_good_failed_empty_rewrite": 6,
+  "terse_rubric_bad_suggestions_passed": 1,
+  "qc_false_flags_by_problem": {
+   "format": 3,
+   "category_or_clause": 3
+  },
+  "qc_records_settled_by_script": 18,
+  "second_judge_items_haiku_usd_per_1000": 0.113785,
+  "second_judge_usd_per_1000": 1.483075,
+  "second_judge_price_ratio": 13.034012,
+  "second_judge_mqm_clean_items": 9,
+  "second_judge_mqm_clean_called_flawed": 8,
+  "spend_before_second_judge_usd": 2.2095,
+  "correction_c1_calls": 1284,
+  "correction_c1_usd": 0.2106,
+  "suggest_perturb_flips_by_item": {
+   "sug-v1-P02-c1-good": [
+    "r2"
+   ],
+   "sug-zh-Z05-c1-good": [
+    "r2"
+   ],
+   "sug-v1-P05-c1-good": [
+    "low"
+   ],
+   "sug-voice-V03-c5-good": [
+    "r2"
+   ],
+   "sug-v1-P11-c1-good": [
+    "r2"
+   ],
+   "sug-voice-V03-c5-bad": [
+    "r2"
+   ],
+   "sug-mixed2-N08-c2-good": [
+    "low"
+   ],
+   "sug-voice2-W07-c3-good": [
+    "r2"
+   ],
+   "sug-mixed2-N10-c2-good": [
+    "r2"
+   ]
+  },
+  "total_calls": 11317,
+  "second_judge_calls_with_estimate": 125,
+  "second_judge_usd_with_estimate": 0.1931,
+  "judge_usd_per_1000": {
+   "review": 0.400062,
+   "claim": 0.120617,
+   "suggest": 0.109132
+  },
+  "combination_extra_queue_C_over_B": 18,
+  "combination_queue_B_review": 46,
+  "source_stats": {
+   "review": {
+    "stored_right_reviews": 376,
+    "flagged_by_rules": 1,
+    "reasons": {
+     "policy_quote_not_found": 1
+    }
+   },
+   "claim": {
+    "right_verdicts": 103,
+    "flagged_by_rules": 3,
+    "reasons": {
+     "numbers_not_in_quote": 3
+    }
+   }
+  }
+ }
+}

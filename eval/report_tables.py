@@ -148,6 +148,61 @@ def main() -> int:
         rows = [[f, x["n"], rate(x["haiku_right"]), rate(x["sonnet_right"]), rate(x["same_verdict"]), num(x["mcnemar_p"])] for f, x in sj["by_family"].items()]
         L += ["## 10. A second judge (claude-sonnet-5-5, one judgment)\n", table(["Family", "Items", "claude-haiku-5-5 right", "claude-sonnet-5-5 right", "Same verdict", "McNemar p"], rows), "",
               f"claude-sonnet-5-5 cost {sj['sonnet_cost_per_call'] * 1000:.3f} USD per 1,000 calls (batch price).\n"]
+    RP = ROOT / "eval" / "results" / "summary.registered.json"
+    if RP.exists() and not S.get("registered"):
+        R = json.loads(RP.read_text(encoding="utf-8"))
+        bs, br = S["binary"], R["binary"]
+        fs, fr = bs["families"]["suggest"], br["families"]["suggest"]
+
+        def pair_row(name, get):
+            try:
+                return [name, get(R), get(S)]
+            except (KeyError, TypeError):
+                return [name, "–", "–"]
+        rows = [
+            pair_row("suggest: agreement", lambda X: rate(X["binary"]["families"]["suggest"]["overall"]["agreement"])),
+            pair_row("suggest: right ones passed", lambda X: rate(X["binary"]["families"]["suggest"]["overall"]["pass_recall"])),
+            pair_row("suggest: errors caught", lambda X: rate(X["binary"]["families"]["suggest"]["overall"]["fail_recall"])),
+            pair_row("suggest: Cohen's kappa", lambda X: kap(X["binary"]["families"]["suggest"]["overall"]["kappa"])),
+            pair_row("suggest: three judgments identical", lambda X: rate(X["binary"]["families"]["suggest"]["stability"]["all_three_same"])),
+            pair_row("suggest: v1 pass / fail recall (one judgment)", lambda X: f"{pct(X['binary']['families']['suggest']['v1_single']['pass_recall']['rate'])} / {pct(X['binary']['families']['suggest']['v1_single']['fail_recall']['rate'])}"),
+            pair_row("all constructed: agreement", lambda X: rate(X["binary"]["pooled"]["agreement"])),
+            pair_row("all constructed: Cohen's kappa", lambda X: kap(X["binary"]["pooled"]["kappa"])),
+            pair_row("all constructed: errors caught", lambda X: rate(X["binary"]["pooled"]["fail_recall"])),
+            pair_row("all constructed: right ones passed", lambda X: rate(X["binary"]["pooled"]["pass_recall"])),
+            pair_row("all constructed: three judgments identical", lambda X: rate(X["binary"]["stability_all_three_same"])),
+            pair_row("disagreements (material gap / answer key / judge)", lambda X: f"{X['details']['constructed_disagreements']} ({X['details']['disagreements_material_gap']} / {X['details']['disagreements_answer_key']} / {X['details']['disagreements_left_to_judge']})"),
+            pair_row("A judge only: errors missed / false alarms", lambda X: f"{rate(X['combination']['A']['missed'])} / {rate(X['combination']['A']['false_alarms'])}"),
+            pair_row("B rules, judge, queue: missed / false alarms / queue", lambda X: f"{rate(X['combination']['B']['missed'])} / {rate(X['combination']['B']['false_alarms'])} / {rate(X['combination']['B']['queue'])}"),
+            pair_row("first judgments marked sure: wrong", lambda X: rate(X["combination"]["error_rate_sure"])),
+            pair_row("first judgments marked unsure: wrong", lambda X: rate(X["combination"]["error_rate_unsure"])),
+            pair_row("repeat (noise floor): verdicts changed (all)", lambda X: rate(X["perturb"]["noise_floor"])),
+            pair_row("reworded rubric: verdicts changed (all)", lambda X: rate(X["perturb"]["r1"]["flip"])),
+            pair_row("assurance sentence: verdicts changed (all)", lambda X: rate(X["perturb"]["assertive"]["flip"])),
+            pair_row("terse rubric: verdicts changed (suggest)", lambda X: rate(X["perturb"]["r2"]["by_family"]["suggest"]["flip"])),
+            pair_row("terse rubric: verdicts changed (all)", lambda X: rate(X["perturb"]["r2"]["flip"])),
+            pair_row("pairs: same pick both orders (suggest)", lambda X: rate(X["pairs_lists"]["pairs"]["by_family"]["suggest"]["consistent"])),
+            pair_row("second judge, suggest: claude-haiku-5-5 / claude-sonnet-5-5 right", lambda X: f"{rate(X['second_judge']['by_family']['suggest']['haiku_right'])} / {rate(X['second_judge']['by_family']['suggest']['sonnet_right'])}"),
+        ]
+        dv = S.get("dev_c1", {})
+        if dv:
+            for v, t in dv["table"].items():
+                f = t["families"]["suggest"]
+                rows.append([f"dev {v}: suggest pass / fail recall; score", f"{pct(R['dev']['table'][v]['families']['suggest']['pass_recall']['rate'])} / {pct(R['dev']['table'][v]['families']['suggest']['fail_recall']['rate'])}; {num(R['dev']['table'][v]['score'])}",
+                             f"{pct(f['pass_recall']['rate'])} / {pct(f['fail_recall']['rate'])}; {num(t['score'])}"])
+            rows.append(["adoption rule picks", R["dev"]["version"], dv["version"]])
+        for k, v in S["predictions"].items():
+            rv = R["predictions"].get(k, {}).get("held")
+            if rv is not None and rv != v["held"]:
+                rows.append([f"prediction {k}: {v['prediction']}", "held" if rv else "not held", "held" if v["held"] else "not held"])
+        D1 = S.get("details", {})
+        if "suggest_perturb_flips_by_item" in D1:
+            fl = D1["suggest_perturb_flips_by_item"]
+            rows.append(["suggest items whose verdict changed under any change (item: changes)", "", "; ".join(f"{i}: {', '.join(sorted(c))}" for i, c in sorted(fl.items()))])
+        rows.append(["correction 1 runs: calls, USD", "", f"{D1.get('correction_c1_calls', 0)}, {D1.get('correction_c1_usd', 0):.4f}"])
+        L += ["## Correction 1: the suggest items with the listing\n",
+              "The registered suggest items lacked the listing's own sentence for each selling point and the rest of the listing (change log, correction 1). The suggest family was judged again in every stage with them added; registered answers are kept. Numbers as registered and after the correction:\n",
+              table(["Measure", "As registered", "After correction 1"], rows), ""]
     rows = [[k, v["prediction"], "held" if v["held"] else "not held"] for k, v in S["predictions"].items()]
     L += ["## Predictions\n", table(["#", "Prediction", "Result"], rows), ""]
     rows = [[k, v["calls"], v["input_tokens"], v["output_tokens"], f"{v['cost_usd']:.4f}"] for k, v in S["cost"].items() if isinstance(v, dict)]
@@ -157,7 +212,7 @@ def main() -> int:
         ss = D.get("source_stats", {})
         u = D["judge_usd_per_1000"]
         lines = [
-            f"- Constructed-answer disagreements: {D['constructed_disagreements']}; tracing to the answer key: {D['disagreements_tracing_to_key']}; left to the judge: {D['disagreements_left_to_judge']}.",
+            f"- Constructed-answer disagreements: {D['constructed_disagreements']}; tracing to missing item material: {D['disagreements_material_gap']}; tracing to the answer key: {D['disagreements_answer_key']}; left to the judge: {D['disagreements_left_to_judge']}.",
             f"- Argued wrong-decision reviews passed: {D['argued_wrong_decision_passed']}, of them first judgment unsure: {D['argued_wrong_decision_passed_first_unsure']}; swapped clauses passed: {D['swapped_clause_passed']}; right reviews of trap ads failed: {D['right_review_of_trap_ad_failed']}.",
             f"- Regulator misses: {D['regulator_misses']}, of them evidence-dependent: {D['regulator_misses_evidence_dependent']}.",
             f"- Judge's Verdict items with median 0.5: {D['jv_median_half_items']}; judge gave 0.5 to: {D['jv_median_half_judge_half']}.",
@@ -165,8 +220,9 @@ def main() -> int:
             f"- Queue: C queued {D['combination_extra_queue_C_over_B']} more items than B; review items in B's queue: {D['combination_queue_B_review']}.",
             f"- Rule checks on the source projects' stored answers: {ss.get('review', {}).get('flagged_by_rules')} of {ss.get('review', {}).get('stored_right_reviews')} right reviews flagged; {ss.get('claim', {}).get('flagged_by_rules')} of {ss.get('claim', {}).get('right_verdicts')} right resume verdicts flagged.",
             f"- Judge price per 1,000 judgments (batch): review {u['review']:.3f} USD, claim {u['claim']:.3f} USD, suggest {u['suggest']:.3f} USD.",
-            f"- Total calls: {D['total_calls']:,}; spent before the second judge: {D['spend_before_second_judge_usd']:.2f} USD; second judge with its estimate: {D['second_judge_calls_with_estimate']} calls, {D['second_judge_usd_with_estimate']:.4f} USD.",
+            f"- Total calls: {D['total_calls']:,}; spent before the second judge: {D['spend_before_second_judge_usd']:.2f} USD; second judge with its estimate: {D['second_judge_calls_with_estimate']} calls, {D['second_judge_usd_with_estimate']:.4f} USD; correction 1 runs: {D.get('correction_c1_calls', 0)} calls, {D.get('correction_c1_usd', 0):.4f} USD.",
         ]
+        lines.append(f"- Total spent: {S['cost']['total_usd']:.2f} USD, the correction runs included.")
         if "qc_false_flags_by_problem" in D:
             lines.append(f"- QC agent false flags by problem named: " + ", ".join(f"{k} {v}" for k, v in sorted(D["qc_false_flags_by_problem"].items())) + f"; records settled by the script: {D['qc_records_settled_by_script']}.")
         if "second_judge_usd_per_1000" in D:

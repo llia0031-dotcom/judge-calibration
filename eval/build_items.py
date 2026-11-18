@@ -329,7 +329,9 @@ def build_suggest() -> list[dict]:
             text = lambda ids: [f"{rev[i]['title']}. {rev[i]['text']}" if rev[i].get("title") else rev[i]["text"] for i in ids]  # noqa: E731
             lang = "zh" if re.search(r"[一-鿿]", claim["text"]) else "en"
             material = {"product": p["title"], "claim": claim["text"], "label": gold["label"],
-                        "support": text(gold["support"]), "refute": text(gold["refute"])}
+                        "support": text(gold["support"]), "refute": text(gold["refute"]),
+                        # correction 1 (see the change log): the listing as the source project's grader saw it
+                        "listing_wording": claim.get("source_quote", ""), "listing": list(p.get("features", []))}
             cluster = f"{name}-{c['key']}"
             for which in ("good", "bad"):
                 out.append({"id": f"sug-{name}-{c['key']}-{c['claim_id']}-{which}", "family": "suggest", "reference": "constructed",

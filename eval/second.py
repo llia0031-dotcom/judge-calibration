@@ -47,6 +47,9 @@ def main() -> int:
         print(f"{len(res)} live calls, {per:.5f} USD per call at the standard price; 120 calls at the batch price: about {per / 2 * len(reqs):.3f} USD")
         return 0
     store = ROOT / "eval" / "results" / "raw" / "second.jsonl"
+    if cmd == "run-c1":   # correction 1: the 40 suggest items again, with the listing in the material
+        reqs = {k: v for k, v in reqs.items() if k.split("|")[1].startswith("sug-")}
+        store = ROOT / "eval" / "results" / "raw" / "second-c1.jsonl"
     llm.run(reqs, store)
     print(llm.total_cost(store))
     return 0

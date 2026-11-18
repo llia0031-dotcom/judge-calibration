@@ -38,12 +38,16 @@ def main() -> int:
             print("source projects not found: using the item files as they are")
         step("eval/gen_flips.py")
         step("eval/run.py", "dev")
-        step("eval/score.py", "adopt")
+        step("eval/score.py", "adopt", "--as-registered")
         for s in ("main", "perturb", "pair", "list"):
             step("eval/run.py", s)
         step("eval/qc.py", "run")
+        # correction 1 (change log): the suggest family again with the listing in the material
+        for s in ("dev", "main", "perturb", "pair"):
+            step("eval/run.py", s, "--families", "suggest", "--suffix", "c1")
     step("eval/freeze.py", "--check")
     step("eval/key_issues.py")
+    step("eval/score.py", "--as-registered")
     step("eval/score.py")
     step("eval/report_tables.py")
     step("tools/check_numbers.py")

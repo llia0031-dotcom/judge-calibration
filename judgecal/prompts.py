@@ -253,7 +253,10 @@ def context_blocks(item: dict) -> list[dict]:
         return [{"type": "text", "text": f"Job posting:\n\n{m['job']}\n\nResume:\n\n{m['resume']}\n\nRequirement: {m['requirement']}"}]
     if fam == "suggest":
         ev = lambda xs: "\n".join(f"- {x}" for x in xs) or "(none)"  # noqa: E731
-        return [{"type": "text", "text": f"Product: {m['product']}\nSelling point: {m['claim']}\nLabel: {m['label']}\n"
+        listing = ""
+        if "listing_wording" in m:   # correction 1: items built before it have no listing and render as before
+            listing = f"Listing wording of this selling point: {m['listing_wording']}\nThe whole listing:\n{ev(m['listing'])}\n"
+        return [{"type": "text", "text": f"Product: {m['product']}\nSelling point: {m['claim']}\n{listing}Label: {m['label']}\n"
                                          f"Supporting reviews:\n{ev(m['support'])}\nRefuting reviews:\n{ev(m['refute'])}"}]
     raise KeyError(fam)
 
